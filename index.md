@@ -1,0 +1,434 @@
+# suppr
+
+Supplementary utilities and extensions to `R` that are idiomatic in
+style.
+
+## Installation
+
+You can install the development version of suppr like so:
+
+``` r
+
+# install.packages("pak")
+pak::pak("LJ-Jenkins/suppr")
+```
+
+## Reference
+
+suppr provides a range of miscellaneous supplementary functions, some of
+which are very simple wrappers to save some keystrokes, others address
+common tasks, and others provide new functionality to a suppr version of
+an existing `R` functions. All are intended to be idiomatic to `R`, as
+if they were part of the base `R` packages.
+
+Much of suppr is directly amended from the `R` source code - all credit
+to the authors for their great work!
+
+#### Infix Operators
+
+- `%''%` or `%""%` - if the lhs is ““, return the rhs, else return the
+  lhs.
+- `%!||%` - if the lhs is `NULL`, return the lhs, else return the rhs.
+- `%0%` - if the lhs is of length `0`, return the rhs, else return the
+  lhs.
+- `%allin%`, `%anyin%`, `%nonein%`, `%onein%` and `%notin%` -
+  `base::%in%` variants.
+
+``` r
+
+"" %''% "a"
+#> [1] "a"
+NULL %!||% "a"
+#> NULL
+c() %0% "a"
+#> [1] "a"
+c("a", "b") %allin% c("a", "b", "c")
+#> [1] TRUE
+c("a", "d") %anyin% c("a", "b", "c")
+#> [1] TRUE
+c("a", "d") %nonein% c("a", "b", "c")
+#> [1] FALSE
+c("a", "d") %onein% c("a", "b", "c")
+#> [1] TRUE
+c("a", "d") %notin% c("a", "b", "c")
+#> [1] FALSE  TRUE
+```
+
+#### Character Operators
+
+- [`bckQuote()`](https://lj-jenkins.github.io/suppr/reference/bckQuote.md) -
+  backquotes a string.
+- [`collapse()`](https://lj-jenkins.github.io/suppr/reference/collapse.md)
+  and
+  [`collapse0()`](https://lj-jenkins.github.io/suppr/reference/collapse.md) -
+  collapse a vector (or vectors) into a single string, optionally
+  ‘recursively’ (in the sense of collapse each argument individually and
+  then collapse the results).
+- [`listing()`](https://lj-jenkins.github.io/suppr/reference/collapse.md) -
+  turns a character vector into a human-readable list (in the
+  grammatical sense), optionally with quoting and/or a conjunction like
+  “and” or “or”.
+- [`cat0()`](https://lj-jenkins.github.io/suppr/reference/cat0.md) -
+  [`base::cat()`](https://rdrr.io/r/base/cat.html) with `sep = ""`.
+
+``` r
+
+bckQuote(c("a", "b"))
+#> [1] "`a`" "`b`"
+collapse(c("a", "b", "c"))
+#> [1] "abc"
+listing(c("a", "b", "c"))
+#> [1] "a, b and c."
+cat0("a", "b", "c")
+#> abc
+```
+
+#### Dots (`...`) Operators
+
+- [`checkDots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
+  version of [`base::chkDots()`](https://rdrr.io/r/base/chkDots.html)
+  that can error, not just warn.
+- [`dotsNames()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
+  returns the names of `...` arguments, returning all `""` if unnamed
+  (like
+  [`methods::allNames()`](https://rdrr.io/r/methods/methodUtilities.html)).
+- [`subDots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
+  substitutes `...` arguments, returning a list of the substituted
+  expressions.
+- [`dp1Dots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
+  substitutes `...` arguments, before applying
+  [`base::deparse1()`](https://rdrr.io/r/base/deparse.html) to each,
+  returning a character vector of the dot arguments.
+
+``` r
+
+f <- function(fn, ...) fn(...)
+f(checkDots, a = 1, b = 2)
+#> Error:
+#> ! In f(checkDots, a = 1, b = 2) :
+#>  extra named arguments 'a', 'b' are not allowed.
+f(dotsNames, 1, 2)
+#> [1] "" ""
+f(subDots, x = a + b, y = a * b)
+#> $x
+#> a + b
+#> 
+#> $y
+#> a * b
+f(dp1Dots, x = a + b, y = a * b)
+#>       x       y 
+#> "a + b" "a * b"
+```
+
+#### Messages, Warnings and Errors
+
+- [`match.argv()`](https://lj-jenkins.github.io/suppr/reference/match.argv.md) -
+  matches function argument input to a list of valid values, not just
+  strings like
+  [`base::match.arg()`](https://rdrr.io/r/base/match.arg.html).
+- [`message2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md),
+  [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md),
+  [`warning2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
+  and
+  [`stopifnot2()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md) -
+  wrappers for [`base::message()`](https://rdrr.io/r/base/message.html),
+  [`base::stop()`](https://rdrr.io/r/base/stop.html),
+  [`base::warning()`](https://rdrr.io/r/base/warning.html) and
+  [`base::stopifnot()`](https://rdrr.io/r/base/stopifnot.html) that
+  enable the inclusion of any call on the stack in the error message via
+  a more flexible `call.` argument.
+- [`warningifnot()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md) -
+  a wrapper for
+  [`stopifnot2()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md)
+  that produces a warning instead of an error.
+- [`stopifnot.with()`](https://lj-jenkins.github.io/suppr/reference/stopifnot.with.md) -
+  a wrapper for
+  [`stopifnot2()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md)
+  that evaluates expressions in a specified environment/data object
+  (like [`base::with()`](https://rdrr.io/r/base/with.html)).
+
+``` r
+
+match.argv(1:3, list(c("a", "b"), list(1:3), 1:3))
+#> [1] 1 2 3
+f1 <- function(call.) stop2("error", call. = call.)
+f2 <- function(call.) f1(call. = call.)
+f2(call. = 2)
+#> Error in `f2()`:
+#> ! error
+f1 <- function(call.) stopifnot2(all.equal(1, 2), call. = call.)
+f2(call. = 1)
+#> Error in `f1()`:
+#> ! 1 and 2 are not equal:
+#>   Mean relative difference: 1
+warningifnot(1 == 2, 3 > 4, warn.all = TRUE)
+#> Warning in (function (...) : 1 == 2 is not TRUE
+#> Warning in (function (...) : 3 > 4 is not TRUE
+stopifnot.with(data.frame(x = 1, y = 2), x == y)
+#> Error:
+#> ! with data.frame(x = 1, y = 2) : x == y is not TRUE
+```
+
+#### Classes
+
+- [`addClass()`](https://lj-jenkins.github.io/suppr/reference/addClass.md) -
+  adds a class/classes to an object, either preserving existing classes
+  (by prepending given classes), or overwriting existing classes, and
+  returning the object.
+- [`isVector()`](https://lj-jenkins.github.io/suppr/reference/isVector.md) -
+  wrapper for [`base::is.vector()`](https://rdrr.io/r/base/vector.html)
+  that allows multiple classes to be specified.
+- [`is.Date()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md),
+  [`is.datetype()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md),
+  [`is.POSIXt()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md),
+  [`is.POSIXct()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md)
+  and
+  [`is.POSIXlt()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md) -
+  date type predicates.
+- [`is.boolean()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md),
+  [`is.string()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md)
+  and
+  [`nzstring()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md) -
+  predicates for common scalar values.
+
+``` r
+
+x <- structure(1:3, class = c("a", "b"))
+class(addClass(x, "my_new_class"))
+#> [1] "my_new_class" "a"            "b"
+isVector(1:3, c("character", "list", "numeric"))
+#> [1] TRUE
+is.Date(Sys.Date())
+#> [1] TRUE
+is.datetype(Sys.Date())
+#> [1] TRUE
+is.POSIXt(Sys.time())
+#> [1] TRUE
+is.POSIXct(Sys.time())
+#> [1] TRUE
+is.POSIXlt(Sys.time())
+#> [1] FALSE
+is.boolean(TRUE)
+#> [1] TRUE
+is.string("")
+#> [1] TRUE
+nzstring("")
+#> [1] FALSE
+```
+
+#### Data Wrangling
+
+##### Even/odd
+
+- [`is.even()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
+  and
+  [`is.odd()`](https://lj-jenkins.github.io/suppr/reference/is.even.md) -
+  returns logical vector indicating if elements are even or odd,
+  respectively.
+
+``` r
+
+is.even(c(-2:2, NA))
+#> [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE
+is.odd(c(1, 2, NA, Inf), noparity.na = TRUE)
+#> [1]  TRUE FALSE    NA    NA
+```
+
+##### Which min/max
+
+- [`whichMin()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
+  and
+  [`whichMax()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md) -
+  wrappers for
+  [`base::which.min()`](https://rdrr.io/r/base/which.min.html) and
+  [`base::which.max()`](https://rdrr.io/r/base/which.min.html) that
+  offer a new `loc` argument to alternatively return the first, last, or
+  all, minima/maxima.
+
+``` r
+
+x <- c(1, 2, 3, 1, 2, 3)
+whichMin(x, loc = "first")
+#> [1] 1
+whichMin(x, loc = "last")
+#> [1] 4
+whichMin(x, loc = "all")
+#> [1] 1 4
+```
+
+##### NA’s
+
+- [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/anyNF.md) -
+  returns `TRUE` if all elements are finite (i.e., not `NA`, `NaN`,
+  `Inf` or `-Inf`) or `FALSE` if any are not.
+- [`whichNA()`](https://lj-jenkins.github.io/suppr/reference/whichNA.md) -
+  returns the indices of `NA` values.
+- [`setNA()`](https://lj-jenkins.github.io/suppr/reference/setNA.md) -
+  sets given indices to `NA`.
+- [`na.vector()`](https://lj-jenkins.github.io/suppr/reference/na.vector.md) -
+  returns a vector of `NA` values of a given length and type.
+- [`na.refill()`](https://lj-jenkins.github.io/suppr/reference/na.refill.md) -
+  for an object that has had `NA` values removed by
+  [`stats::na.omit()`](https://rdrr.io/r/stats/na.fail.html), refill the
+  `NA` values at the original indices, returning an object of the same
+  size as the original.
+
+``` r
+
+anyNF(c(1, 2, 3, Inf))
+#> [1] TRUE
+whichNA(c(1, 2, NA, Inf))
+#> [1] 3
+x <- c(1, 2, 3, 4)
+setNA(x, c(1, 3))
+#> [1] NA  2 NA  4
+na.vector(5, type = "character")
+#> [1] NA NA NA NA NA
+x <- stats::na.omit(c(1, 2, NA, 4))
+x
+#> [1] 1 2 4
+#> attr(,"na.action")
+#> [1] 3
+#> attr(,"class")
+#> [1] "omit"
+na.refill(x)
+#> [1]  1  2 NA  4
+#> attr(,"na.action")
+#> [1] 3
+#> attr(,"class")
+#> [1] "refilled"
+```
+
+##### Wholeness
+
+- [`is.integerish()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md) -
+  returns `TRUE` if elements are all ‘integerish’ or `FALSE` if not.
+- [`is.whole()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
+  and
+  [`is.wholenumber()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md) -
+  returns a single `TRUE`/`FALSE`, or a logical vector, if elements are
+  all whole numbers or not, respectively.
+
+``` r
+
+is.integerish(c(1, 1.000000001))
+#> [1] FALSE
+is.whole(c(1, 1.000000001))
+#> [1] TRUE
+is.wholenumber(c(1, 2, 3.5, 4))
+#> [1]  TRUE  TRUE FALSE  TRUE
+```
+
+##### Duplicates
+
+- [`repeated()`](https://lj-jenkins.github.io/suppr/reference/repeated.md) -
+  returns a logical vector indicating which elements are repeated
+  (analogous to
+  `duplicated(x, fromLast = FALSE) | duplicated(x, fromLast = TRUE)`).
+- [`whichRepeated()`](https://lj-jenkins.github.io/suppr/reference/repeated.md) -
+  returns the indices of repeated elements.
+- [`repeats()`](https://lj-jenkins.github.io/suppr/reference/repeated.md) -
+  returns repeated elements.
+
+``` r
+
+x <- c(1, 2, 3, 1, 2, 3, 4, 5)
+repeated(x)
+#> [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+whichRepeated(x)
+#> [1] 1 2 3 4 5 6
+repeats(x)
+#> [1] 1 2 3 1 2 3
+```
+
+##### Remove elements
+
+- [`rm.first()`](https://lj-jenkins.github.io/suppr/reference/rm.first.md)
+  and
+  [`rm.last()`](https://lj-jenkins.github.io/suppr/reference/rm.first.md) -
+  removes the first or last ‘n’ elements of a vector, respectively.
+
+``` r
+
+x <- 1:10
+rm.first(x, 3)
+#> [1]  4  5  6  7  8  9 10
+rm.last(x, 3)
+#> [1] 1 2 3 4 5 6 7
+```
+
+#### Utilities
+
+- [`predapply()`](https://lj-jenkins.github.io/suppr/reference/predapply.md) -
+  applies a predicate function to each element of a vector, returning a
+  logical vector. Option to reduce the output to a single `TRUE` or
+  `FALSE` value.
+- [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md) -
+  wrapper for `vector("list", length)` that returns an empty list of a
+  given length.
+- [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md) -
+  returns a list of lists - one for each element of a vector, with the
+  corresponding positional list containing the vector element, index and
+  name.
+- [`libraries()`](https://lj-jenkins.github.io/suppr/reference/libraries.md)
+  and
+  [`requires()`](https://lj-jenkins.github.io/suppr/reference/libraries.md) -
+  wrappers for [`base::library()`](https://rdrr.io/r/base/library.html)
+  and [`base::require()`](https://rdrr.io/r/base/library.html) that can
+  load multiple packages at once, either from names, strings, or
+  character vectors.
+
+``` r
+
+predapply(1:10, is.even, reduce = "any")
+#> [1] TRUE
+empty.list(2)
+#> [[1]]
+#> NULL
+#> 
+#> [[2]]
+#> NULL
+enumerate(c("a", el = "b"))
+#> [[1]]
+#> [[1]]$idx
+#> [1] 1
+#> 
+#> [[1]]$val
+#> [1] "a"
+#> 
+#> [[1]]$name
+#> [1] ""
+#> 
+#> 
+#> [[2]]
+#> [[2]]$idx
+#> [1] 2
+#> 
+#> [[2]]$val
+#> [1] "b"
+#> 
+#> [[2]]$name
+#> [1] "el"
+libraries(stats, "utils")
+x <- c("stats", "utils")
+requires(x, "methods", character.only = TRUE)
+```
+
+## Performance
+
+Functions should have similar overhead to their nearest `R` equivalents.
+Most of the ‘data wrangling’ functions have been implemented in `C` and
+typically perform equivalently to their `R` counterparts.
+
+## Getting help
+
+If you encounter a clear bug, please file an issue with a minimal
+reproducible example on
+[GitHub](https://github.com/LJ-Jenkins/suppr/issues).
+
+## Code of Conduct
+
+Please note that the suppr project is released with a [Contributor Code
+of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
