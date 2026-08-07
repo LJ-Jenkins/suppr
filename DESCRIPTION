@@ -1,0 +1,19 @@
+Package: suppr
+Title: Supplementary Idiomatic 'R' Utilities and Extensions
+Version: 0.0.0.9000
+Authors@R: 
+   person("Luke", "Jenkins", , "luke-jenkins-dev@outlook.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-7206-7242"))
+Description: Supplementary utilities and extensions to 'R' that are idiomatic in style and function.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 8.0.0
+Suggests: 
+    rlang,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    methods,
+    stats
+Depends: 
+    R (>= 4.0.0)
