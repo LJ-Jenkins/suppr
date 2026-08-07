@@ -31,6 +31,10 @@ listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
   each argument separately first, before collapsing the results into a
   single string.
 
+- x:
+
+  a character vector from which to create the human readable list.
+
 - conjunction:
 
   character string to use as a conjunction for the last two terms.
@@ -88,10 +92,10 @@ listing(c("a", "b", "c"), sep = ", ", conjunction = "and")
 listing(c("a", "b"), conjunction = "or", period = FALSE)
 #> [1] "a or b"
 
-listing(c("a", "b", "c"), quote = "s")
+listing(c("a", "b", "c"), quote = "single")
 #> [1] "‘a’, ‘b’ and ‘c’."
-listing(c("a", "b", "c"), quote = "d")
+listing(c("a", "b", "c"), quote = "double")
 #> [1] "“a”, “b” and “c”."
-listing(c("a", "b", "c"), quote = "b")
+listing(c("a", "b", "c"), quote = "back")
 #> [1] "`a`, `b` and `c`."
 ```

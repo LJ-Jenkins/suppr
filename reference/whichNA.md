@@ -20,7 +20,8 @@ whichNA(x) <- value
 
 - value:
 
-  value to replace `NA` values with when using the assignment function.
+  value/s to replace `NA` values with when using the assignment
+  function.
 
 ## Value
 

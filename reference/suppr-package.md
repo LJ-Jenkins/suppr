@@ -3,6 +3,16 @@
 Supplementary utilities and extensions to 'R' that are idiomatic in
 style and function.
 
+## See also
+
+Useful links:
+
+- <https://lj-jenkins.github.io/suppr/>
+
+- <https://github.com/LJ-Jenkins/suppr>
+
+- Report bugs at <https://github.com/LJ-Jenkins/suppr/issues>
+
 ## Author
 
 **Maintainer**: Luke Jenkins <luke-jenkins-dev@outlook.com>

@@ -61,7 +61,7 @@ connection, the console unless redirected by sink.</p></dd>
 <dt id="arg-fill">fill<a class="anchor" aria-label="anchor" href="#arg-fill"></a></dt>
 <dd><p>a logical or (positive) numeric controlling how the
 output is broken into successive lines. If FALSE (default), only
-newlines created explicitly by "" are printed. Otherwise, the
+newlines created explicitly by <code>"\n"</code> are printed. Otherwise, the
 output is broken into lines with print width equal to the option
 width if fill is TRUE, or the value of fill if this is numeric.
 Linefeeds are only inserted between elements, strings wider than
@@ -78,10 +78,6 @@ Ignored if fill is FALSE.</p></dd>
 <dd><p>logical. Only used if the argument file is the name
 of file (and not a connection or "|cmd"). If TRUE output will be
 appended to file; otherwise, it will overwrite the contents of file.</p></dd>
-
-
-<dt id="arg-sep">sep<a class="anchor" aria-label="anchor" href="#arg-sep"></a></dt>
-<dd><p>a character vector of strings to append after each element.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -139,8 +139,8 @@
   : Miscellaneous Helper Functions
 
 - [`whichMin()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
-  [`` `whichMin<-`() ``](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
   [`whichMax()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
+  [`` `whichMin<-`() ``](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
   [`` `whichMax<-`() ``](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
   : Where is the min or max?
 

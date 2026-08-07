@@ -8,9 +8,9 @@ minima or maxima of a numeric (or logical) vector.
 ``` r
 whichMin(x, loc = c("first", "last", "all"))
 
-whichMin(x, loc = c("first", "last", "all")) <- value
-
 whichMax(x, loc = c("first", "last", "all"))
+
+whichMin(x, loc = c("first", "last", "all")) <- value
 
 whichMax(x, loc = c("first", "last", "all")) <- value
 ```
@@ -28,6 +28,11 @@ whichMax(x, loc = c("first", "last", "all")) <- value
 - loc:
 
   'first', 'last' or 'all' to specify which index/indices to return.
+
+- value:
+
+  value/s to replace the min or max values with when using the
+  assignment functions.
 
 ## Value
 

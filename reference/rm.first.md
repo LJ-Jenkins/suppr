@@ -36,6 +36,10 @@ rm.last(x, ...) <- value
 
   integer, number of elements to remove from the beginning or end.
 
+- ...:
+
+  additional arguments passed to methods.
+
 - value:
 
   integer, same as `n`.

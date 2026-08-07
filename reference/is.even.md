@@ -14,9 +14,7 @@ is.odd(x, noparity.na = FALSE)
 
 - x:
 
-  numeric (logical, integer or double) vector or an **R** object for
-  which the internal coercion to
-  [double](https://rdrr.io/r/base/double.html) works.
+  numeric (logical, integer or double) vector.
 
 - noparity.na:
 
@@ -57,10 +55,4 @@ is.even(x, noparity.na = TRUE)
 #> [1]  TRUE FALSE    NA    NA    NA    NA    NA    NA
 is.odd(x, noparity.na = TRUE)
 #> [1] FALSE  TRUE    NA    NA    NA    NA    NA    NA
-
-# objects are coerced to numeric vectors if possible:
-is.even(list(2, 4, 6))
-#> Error in is.even(list(2, 4, 6)): Input must be a logical or numeric vector.
-is.odd(data.frame(a = 1, b = 4))
-#> Error in is.odd(data.frame(a = 1, b = 4)): Input must be a logical or numeric vector.
 ```

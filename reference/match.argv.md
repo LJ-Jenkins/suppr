@@ -11,6 +11,10 @@ match.argv(arg, choices, match.fn = NULL)
 
 ## Arguments
 
+- arg:
+
+  an **R** object.
+
 - choices:
 
   a list of candidate values to match against that will be extracted
@@ -28,10 +32,6 @@ match.argv(arg, choices, match.fn = NULL)
   exact equality using
   [`identical()`](https://rdrr.io/r/base/identical.html) with
   `ignore.environment = TRUE`.
-
-- x:
-
-  an **R** object.
 
 ## Value
 

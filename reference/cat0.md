@@ -26,7 +26,7 @@ cat0(..., file = "", fill = FALSE, labels = NULL, append = FALSE)
 
   a logical or (positive) numeric controlling how the output is broken
   into successive lines. If FALSE (default), only newlines created
-  explicitly by "" are printed. Otherwise, the output is broken into
+  explicitly by `"\n"` are printed. Otherwise, the output is broken into
   lines with print width equal to the option width if fill is TRUE, or
   the value of fill if this is numeric. Linefeeds are only inserted
   between elements, strings wider than fill are not wrapped.
@@ -42,10 +42,6 @@ cat0(..., file = "", fill = FALSE, labels = NULL, append = FALSE)
   logical. Only used if the argument file is the name of file (and not a
   connection or "\|cmd"). If TRUE output will be appended to file;
   otherwise, it will overwrite the contents of file.
-
-- sep:
-
-  a character vector of strings to append after each element.
 
 ## Value
 

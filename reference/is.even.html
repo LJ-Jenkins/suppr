@@ -48,8 +48,7 @@
 
 
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>numeric (logical, integer or double) vector or an <strong>R</strong> object
-for which the internal coercion to <a href="https://rdrr.io/r/base/double.html" class="external-link">double</a> works.</p></dd>
+<dd><p>numeric (logical, integer or double) vector.</p></dd>
 
 
 <dt id="arg-noparity-na">noparity.na<a class="anchor" aria-label="anchor" href="#arg-noparity-na"></a></dt>
@@ -91,12 +90,6 @@ should return <code>NA</code> (<code>TRUE</code>) or <code>FALSE</code> (<code>F
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1]  TRUE FALSE    NA    NA    NA    NA    NA    NA</span>
 <span class="r-in"><span><span class="fu">is.odd</span><span class="op">(</span><span class="va">x</span>, noparity.na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE  TRUE    NA    NA    NA    NA    NA    NA</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># objects are coerced to numeric vectors if possible:</span></span></span>
-<span class="r-in"><span><span class="fu">is.even</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.even(list(2, 4, 6)):</span> Input must be a logical or numeric vector.</span>
-<span class="r-in"><span><span class="fu">is.odd</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in is.odd(data.frame(a = 1, b = 4)):</span> Input must be a logical or numeric vector.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
