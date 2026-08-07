@@ -1,5 +1,5 @@
 test_that("stop2() creates simpleError conditions", {
-  err <- catch_cnd(
+  err <- rlang::catch_cnd(
     stop2("hello"),
     "error"
   )
@@ -10,7 +10,7 @@ test_that("stop2() creates simpleError conditions", {
 
 
 test_that("warning2() creates simpleWarning conditions", {
-  warn <- catch_cnd(
+  warn <- rlang::catch_cnd(
     warning2("hello"),
     "warning"
   )
@@ -21,7 +21,7 @@ test_that("warning2() creates simpleWarning conditions", {
 
 
 test_that("message2() creates simpleMessage conditions", {
-  msg <- catch_cnd(
+  msg <- rlang::catch_cnd(
     message2("hello"),
     "message"
   )
@@ -29,7 +29,7 @@ test_that("message2() creates simpleMessage conditions", {
   expect_true(inherits(msg, "simpleMessage"))
   expect_identical(conditionMessage(msg), "hello\n")
 
-  msg <- catch_cnd(
+  msg <- rlang::catch_cnd(
     message2("hello", appendLF = FALSE),
     "message"
   )
@@ -39,7 +39,7 @@ test_that("message2() creates simpleMessage conditions", {
 
 
 test_that("multiple arguments are pasted together", {
-  err <- catch_cnd(
+  err <- rlang::catch_cnd(
     stop2("hello", " ", "world"),
     "error"
   )
@@ -49,7 +49,7 @@ test_that("multiple arguments are pasted together", {
     "hello world"
   )
 
-  warn <- catch_cnd(
+  warn <- rlang::catch_cnd(
     warning2("hello", " ", "world"),
     "warning"
   )
@@ -62,17 +62,17 @@ test_that("multiple arguments are pasted together", {
 
 
 test_that("call. = FALSE removes calls", {
-  err <- catch_cnd(
+  err <- rlang::catch_cnd(
     stop2("failure", call. = FALSE),
     "error"
   )
 
-  warn <- catch_cnd(
+  warn <- rlang::catch_cnd(
     warning2("failure", call. = FALSE),
     "warning"
   )
 
-  msg <- catch_cnd(
+  msg <- rlang::catch_cnd(
     message2("failure", call. = FALSE),
     "message"
   )
@@ -85,21 +85,21 @@ test_that("call. = FALSE removes calls", {
 
 test_that("call. = TRUE captures the caller", {
   helper_error <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       stop2("failure", call. = TRUE),
       "error"
     )
   }
 
   helper_warning <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warning2("failure", call. = TRUE),
       "warning"
     )
   }
 
   helper_message <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       message2("failure", call. = TRUE),
       "message"
     )
@@ -116,17 +116,17 @@ test_that("call. = TRUE captures the caller", {
 
 
 test_that("numeric call. = 0 identifies the wrapper", {
-  err <- catch_cnd(
+  err <- rlang::catch_cnd(
     stop2("failure", call. = 0),
     "error"
   )
 
-  warn <- catch_cnd(
+  warn <- rlang::catch_cnd(
     warning2("failure", call. = 0),
     "warning"
   )
 
-  msg <- catch_cnd(
+  msg <- rlang::catch_cnd(
     message2("failure", call. = 0),
     "message"
   )
@@ -172,7 +172,7 @@ test_that("fractional numeric call values are coerced", {
 
 
 test_that("large numeric call values are clamped", {
-  err <- catch_cnd(
+  err <- rlang::catch_cnd(
     stop2("failure", call. = 100000),
     "error"
   )
@@ -183,17 +183,17 @@ test_that("large numeric call values are clamped", {
 
 
 test_that("explicit calls are accepted", {
-  err <- catch_cnd(
+  err <- rlang::catch_cnd(
     stop2("failure", call. = quote(foo())),
     "error"
   )
 
-  warn <- catch_cnd(
+  warn <- rlang::catch_cnd(
     warning2("failure", call. = quote(bar())),
     "warning"
   )
 
-  msg <- catch_cnd(
+  msg <- rlang::catch_cnd(
     message2("failure", call. = quote(baz())),
     "message"
   )
@@ -208,7 +208,7 @@ test_that("call. accepts environments", {
   helper <- function() {
     env <- environment()
 
-    catch_cnd(
+    rlang::catch_cnd(
       stop2("failure", call. = env),
       "error"
     )

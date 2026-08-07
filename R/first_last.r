@@ -3,6 +3,7 @@
 #' Remove the first or last `n` elements of an **R** object.
 #' @param x an **R** object with a `[` method, e.g., a vector, matrix, list.
 #' @param n integer, number of elements to remove from the beginning or end.
+#' @param ... additional arguments passed to methods.
 #' @param value integer, same as `n`.
 #' @details
 #' The default methods operate on atomic

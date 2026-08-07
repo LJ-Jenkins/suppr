@@ -7,6 +7,8 @@
 #' or [max] is searched for.
 #' @param loc 'first', 'last' or 'all' to specify which index/indices
 #' to return.
+#' @param value value/s to replace the min or max values with when
+#' using the assignment functions.
 #' @return integer of indices.
 #' @note
 #' For `logical` vectors, `which(x)` is faster than
@@ -53,13 +55,6 @@ whichMin <- function(x, loc = c("first", "last", "all")) {
 
 #' @rdname whichMin
 #' @export
-`whichMin<-` <- function(x, value, loc = c("first", "last", "all")) {
-  x[whichMin(x, loc = loc)] <- value
-  x
-}
-
-#' @rdname whichMin
-#' @export
 whichMax <- function(x, loc = c("first", "last", "all")) {
   loc <- match.arg(loc, c("first", "last", "all"))
   switch(loc,
@@ -71,7 +66,14 @@ whichMax <- function(x, loc = c("first", "last", "all")) {
 
 #' @rdname whichMin
 #' @export
-`whichMax<-` <- function(x, value, loc = c("first", "last", "all")) {
+`whichMin<-` <- function(x, loc = c("first", "last", "all"), value) {
+  x[whichMin(x, loc = loc)] <- value
+  x
+}
+
+#' @rdname whichMin
+#' @export
+`whichMax<-` <- function(x, loc = c("first", "last", "all"), value) {
   x[whichMax(x, loc = loc)] <- value
   x
 }
@@ -82,8 +84,8 @@ whichMax <- function(x, loc = c("first", "last", "all")) {
 #' Use the assignment function `whichNA<-` to replace `NA` values
 #' with a given value/s.
 #' @param x numeric **R** object. Does not accept `complex` or `raw.`
-#' @param value value to replace `NA` values with when using the assignment
-#' function.
+#' @param value value/s to replace `NA` values with when using the
+#' assignment function.
 #' @return If using `whichNA`, integer vector of indices of `NA` values
 #' in `x`, or matrix of array indices if `arr.ind` is `TRUE`.
 #' If using `whichNA<-`, the modified object with `NA` values replaced by

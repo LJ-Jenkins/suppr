@@ -20,6 +20,8 @@ listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 \item{recurse}{\code{\link{logical}}. If TRUE, collapse each argument separately
 first, before collapsing the results into a single string.}
 
+\item{x}{a character vector from which to create the human readable list.}
+
 \item{conjunction}{character string to use as a conjunction for the
 last two terms.}
 
@@ -57,9 +59,9 @@ collapse(c("a", "b"), c("c", "d"), sep = ", ", recurse = TRUE)
 listing(c("a", "b", "c"), sep = ", ", conjunction = "and")
 listing(c("a", "b"), conjunction = "or", period = FALSE)
 
-listing(c("a", "b", "c"), quote = "s")
-listing(c("a", "b", "c"), quote = "d")
-listing(c("a", "b", "c"), quote = "b")
+listing(c("a", "b", "c"), quote = "single")
+listing(c("a", "b", "c"), quote = "double")
+listing(c("a", "b", "c"), quote = "back")
 }
 \seealso{
 \link{paste0}, \link{sQuote}, \link{dQuote}, \link{bckQuote}.

@@ -26,10 +26,9 @@ bckQuote <- function(x) {
 #' @param file a connection, or a character string naming the file to
 #' print to. If "" (the default), cat0 prints to the standard output
 #' connection, the console unless redirected by sink.
-#' @param sep a character vector of strings to append after each element.
 #' @param fill a logical or (positive) numeric controlling how the
 #' output is broken into successive lines. If FALSE (default), only
-#' newlines created explicitly by "\n" are printed. Otherwise, the
+#' newlines created explicitly by `"\n"` are printed. Otherwise, the
 #' output is broken into lines with print width equal to the option
 #' width if fill is TRUE, or the value of fill if this is numeric.
 #' Linefeeds are only inserted between elements, strings wider than
@@ -75,6 +74,7 @@ cat0 <- function(
 #' separator, and for `listing()` an optional conjunction and period,
 #' with options to quote the terms.
 #' @param ... one or more R objects, to be converted to character vectors.
+#' @param x a character vector from which to create the human readable list.
 #' @param sep character string to collapse the terms, not [`NA_character_`].
 #' @param recurse [`logical`]. If TRUE, collapse each argument separately
 #' first, before collapsing the results into a single string.
@@ -105,9 +105,9 @@ cat0 <- function(
 #' listing(c("a", "b", "c"), sep = ", ", conjunction = "and")
 #' listing(c("a", "b"), conjunction = "or", period = FALSE)
 #'
-#' listing(c("a", "b", "c"), quote = "s")
-#' listing(c("a", "b", "c"), quote = "d")
-#' listing(c("a", "b", "c"), quote = "b")
+#' listing(c("a", "b", "c"), quote = "single")
+#' listing(c("a", "b", "c"), quote = "double")
+#' listing(c("a", "b", "c"), quote = "back")
 #' @export
 collapse <- function(..., sep = "", recurse = FALSE) {
   if (...length() == 0L) {

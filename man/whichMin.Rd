@@ -2,16 +2,16 @@
 % Please edit documentation in R/which.r
 \name{whichMin}
 \alias{whichMin}
-\alias{whichMin<-}
 \alias{whichMax}
+\alias{whichMin<-}
 \alias{whichMax<-}
 \title{Where is the min or max?}
 \usage{
 whichMin(x, loc = c("first", "last", "all"))
 
-whichMin(x, loc = c("first", "last", "all")) <- value
-
 whichMax(x, loc = c("first", "last", "all"))
+
+whichMin(x, loc = c("first", "last", "all")) <- value
 
 whichMax(x, loc = c("first", "last", "all")) <- value
 }
@@ -22,6 +22,9 @@ or \link{max} is searched for.}
 
 \item{loc}{'first', 'last' or 'all' to specify which index/indices
 to return.}
+
+\item{value}{value/s to replace the min or max values with when
+using the assignment functions.}
 }
 \value{
 integer of indices.

@@ -10,8 +10,7 @@ is.even(x, noparity.na = FALSE)
 is.odd(x, noparity.na = FALSE)
 }
 \arguments{
-\item{x}{numeric (logical, integer or double) vector or an \strong{R} object
-for which the internal coercion to \link{double} works.}
+\item{x}{numeric (logical, integer or double) vector.}
 
 \item{noparity.na}{logical, whether values without parity
 (e.g., \code{NA}, \code{NaN}, \code{Inf}, \code{-Inf}, and decimal numbers)
@@ -40,8 +39,4 @@ is.even(x)
 is.odd(x)
 is.even(x, noparity.na = TRUE)
 is.odd(x, noparity.na = TRUE)
-
-# objects are coerced to numeric vectors if possible:
-is.even(list(2, 4, 6))
-is.odd(data.frame(a = 1, b = 4))
 }

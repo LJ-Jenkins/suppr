@@ -32,6 +32,8 @@ rm.last(x, ...) <- value
 
 \item{n}{integer, number of elements to remove from the beginning or end.}
 
+\item{...}{additional arguments passed to methods.}
+
 \item{value}{integer, same as \code{n}.}
 }
 \value{

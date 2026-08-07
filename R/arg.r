@@ -2,7 +2,7 @@
 #' @description
 #' `match.argv()` matches a given argument against a
 #' list of candidate values as specified by `choices`.
-#' @param x an **R** object.
+#' @param arg an **R** object.
 #' @param choices a list of candidate values to match
 #' against that will be extracted with `[[`.
 #' @param match.fn a function to use for matching the

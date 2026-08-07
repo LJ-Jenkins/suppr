@@ -1,7 +1,6 @@
 #' @title Is Number Even/Odd?
 #' @description Show where a numeric input is even or odd.
-#' @param x numeric (logical, integer or double) vector or an **R** object
-#' for which the internal coercion to [double] works.
+#' @param x numeric (logical, integer or double) vector.
 #' @param noparity.na logical, whether values without parity
 #'   (e.g., `NA`, `NaN`, `Inf`, `-Inf`, and decimal numbers)
 #' should return `NA` (`TRUE`) or `FALSE` (`FALSE`).
@@ -23,10 +22,6 @@
 #' is.odd(x)
 #' is.even(x, noparity.na = TRUE)
 #' is.odd(x, noparity.na = TRUE)
-#'
-#' # objects are coerced to numeric vectors if possible:
-#' is.even(list(2, 4, 6))
-#' is.odd(data.frame(a = 1, b = 4))
 #' @export
 is.even <- function(x, noparity.na = FALSE) {
   if (isTRUE(noparity.na)) {

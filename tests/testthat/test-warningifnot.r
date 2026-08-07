@@ -81,7 +81,7 @@ test_that("all.equal() failures receive special formatting", {
 })
 
 test_that("call. = FALSE removes the call", {
-  warning <- catch_cnd(
+  warning <- rlang::catch_cnd(
     warningifnot(FALSE, call. = FALSE),
     "warning"
   )
@@ -92,7 +92,7 @@ test_that("call. = FALSE removes the call", {
 
 test_that("call. = TRUE records the caller", {
   helper <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = TRUE),
       "warning"
     )
@@ -134,7 +134,7 @@ test_that("negative numeric call. values use absolute value", {
 })
 
 test_that("numeric call. = 0 identifies warningifnot()", {
-  warning <- catch_cnd(
+  warning <- rlang::catch_cnd(
     warningifnot(FALSE, call. = 0),
     "warning"
   )
@@ -151,7 +151,7 @@ test_that("numeric call. = 2 walks further up the stack", {
   }
 
   inner <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = 2),
       "warning"
     )
@@ -165,7 +165,7 @@ test_that("numeric call. = 2 walks further up the stack", {
 
 test_that("fractional numeric call. values are coerced to integer", {
   helper <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = 1.9),
       "warning"
     )
@@ -178,7 +178,7 @@ test_that("fractional numeric call. values are coerced to integer", {
 
 test_that("large numeric call. values are clamped to available stack", {
   helper <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = 100000),
       "warning"
     )
@@ -247,7 +247,7 @@ test_that("call. accepts an environment", {
   helper <- function() {
     env <- environment()
 
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = env),
       "warning"
     )
@@ -265,7 +265,7 @@ test_that("call. can identify a parent environment", {
   }
 
   inner <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = parent.frame()),
       "warning"
     )
@@ -281,7 +281,7 @@ test_that("call stack can be traversed through three functions", {
   level2 <- function() level3()
 
   level3 <- function() {
-    catch_cnd(
+    rlang::catch_cnd(
       warningifnot(FALSE, call. = 3),
       "warning"
     )
@@ -298,7 +298,7 @@ test_that("different call depths return different calls", {
 
   level3 <- function() {
     get_warning <- function(call.) {
-      catch_cnd(
+      rlang::catch_cnd(
         warningifnot(FALSE, call. = call.),
         "warning"
       )

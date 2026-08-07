@@ -7,6 +7,8 @@
 match.argv(arg, choices, match.fn = NULL)
 }
 \arguments{
+\item{arg}{an \strong{R} object.}
+
 \item{choices}{a list of candidate values to match
 against that will be extracted with \code{[[}.}
 
@@ -21,8 +23,6 @@ candidate value.
 If \code{NULL}, the default matching function is used,
 which checks for exact equality using
 \code{identical()} with \code{ignore.environment = TRUE}.}
-
-\item{x}{an \strong{R} object.}
 }
 \value{
 If a match is found then the input object is

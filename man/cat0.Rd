@@ -15,7 +15,7 @@ connection, the console unless redirected by sink.}
 
 \item{fill}{a logical or (positive) numeric controlling how the
 output is broken into successive lines. If FALSE (default), only
-newlines created explicitly by "\n" are printed. Otherwise, the
+newlines created explicitly by \code{"\\n"} are printed. Otherwise, the
 output is broken into lines with print width equal to the option
 width if fill is TRUE, or the value of fill if this is numeric.
 Linefeeds are only inserted between elements, strings wider than
@@ -28,8 +28,6 @@ Ignored if fill is FALSE.}
 \item{append}{logical. Only used if the argument file is the name
 of file (and not a connection or "|cmd"). If TRUE output will be
 appended to file; otherwise, it will overwrite the contents of file.}
-
-\item{sep}{a character vector of strings to append after each element.}
 }
 \value{
 None (invisible NULL).

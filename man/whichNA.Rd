@@ -12,8 +12,8 @@ whichNA(x) <- value
 \arguments{
 \item{x}{numeric \strong{R} object. Does not accept \code{complex} or \code{raw.}}
 
-\item{value}{value to replace \code{NA} values with when using the assignment
-function.}
+\item{value}{value/s to replace \code{NA} values with when using the
+assignment function.}
 }
 \value{
 If using \code{whichNA}, integer vector of indices of \code{NA} values

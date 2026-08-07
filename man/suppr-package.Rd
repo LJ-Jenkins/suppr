@@ -10,6 +10,15 @@
 
 Supplementary utilities and extensions to 'R' that are idiomatic in style and function.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://lj-jenkins.github.io/suppr/}
+  \item \url{https://github.com/LJ-Jenkins/suppr}
+  \item Report bugs at \url{https://github.com/LJ-Jenkins/suppr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Luke Jenkins \email{luke-jenkins-dev@outlook.com} (\href{https://orcid.org/0000-0002-7206-7242}{ORCID}) [copyright holder]
 
