@@ -17,4 +17,5 @@ Imports:
     stats
 Depends: 
     R (>= 4.0.0)
-URL: https://lj-jenkins.github.io/suppr/
+URL: https://lj-jenkins.github.io/suppr/, https://github.com/LJ-Jenkins/suppr
+BugReports: https://github.com/LJ-Jenkins/suppr/issues
