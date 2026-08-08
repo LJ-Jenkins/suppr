@@ -3,10 +3,8 @@
 #' Tests if a vector contains any non-finite values
 #' (`Inf`, `-Inf`, `NaN`, or `NA`).
 #' @details
-#' `anyNF()` only does one pass of the input and
-#' returns `FALSE` immediately when encountering
-#' a non-finite value, and thus can be much faster
-#' than `!all(is.finite(x))`.
+#' `anyNF()` returns `TRUE` immediately when encountering
+#' a non-finite value.
 #' @param x a logical, numeric, or complex vector.
 #' @return
 #' a single `TRUE` or `FALSE`.

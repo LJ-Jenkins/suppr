@@ -26,6 +26,10 @@
 #' and will be replaced by the base version in the R versions that have it.
 #' @param lhs left-hand side object.
 #' @param rhs right-hand side object.
+#' @param x vector or `NULL`: the values to be matched.
+#' [Long vectors] are supported.
+#' @param table vector or `NULL`: the values to be matched against.
+#' [Long vectors] are not supported.
 #' @return either the left-hand side or right-hand side, depending on
 #' the result of the operator.
 #' @details
@@ -86,52 +90,52 @@ NULL
 
 #' @rdname suppr-infix
 #' @export
-`%allin%` <- function(lhs, rhs) {
-  x <- match(lhs, rhs)
-  if (!length(x)) {
+`%allin%` <- function(x, table) {
+  y <- match(x, table)
+  if (!length(y)) {
     logical(0)
   } else {
-    !anyNA(x)
+    !anyNA(y)
   }
 }
 
 #' @rdname suppr-infix
 #' @export
-`%anyin%` <- function(lhs, rhs) {
-  x <- match(lhs, rhs, nomatch = 0L) > 0L
-  if (!length(x)) {
+`%anyin%` <- function(x, table) {
+  y <- match(x, table, nomatch = 0L) > 0L
+  if (!length(y)) {
     logical(0)
   } else {
-    sum(x) >= 1L
+    sum(y) >= 1L
   }
 }
 
 #' @rdname suppr-infix
 #' @export
-`%nonein%` <- function(lhs, rhs) {
-  x <- match(lhs, rhs, nomatch = 0L)
-  if (!length(x)) {
+`%nonein%` <- function(x, table) {
+  y <- match(x, table, nomatch = 0L)
+  if (!length(y)) {
     logical(0)
   } else {
-    sum(x) == 0L
+    sum(y) == 0L
   }
 }
 
 #' @rdname suppr-infix
 #' @export
-`%onein%` <- function(lhs, rhs) {
-  x <- match(lhs, rhs, nomatch = 0L) > 0L
-  if (!length(x)) {
+`%onein%` <- function(x, table) {
+  y <- match(x, table, nomatch = 0L) > 0L
+  if (!length(y)) {
     logical(0)
   } else {
-    sum(x) == 1L
+    sum(y) == 1L
   }
 }
 
 # to match upcoming base R version
 #' @rdname suppr-infix
 #' @export
-`%notin%` <- function(lhs, rhs) match(lhs, rhs, nomatch = 0L) == 0L
+`%notin%` <- function(x, table) match(x, table, nomatch = 0L) == 0L
 
 if (exists("%notin%", envir = baseenv())) {
   `%notin%` <- get("%notin%", envir = baseenv())

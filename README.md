@@ -215,8 +215,9 @@ whichMin(x, loc = "all")
 
 ##### NA’s
 
-- `anyNF()` - returns `TRUE` if all elements are finite (i.e., not `NA`,
-  `NaN`, `Inf` or `-Inf`) or `FALSE` if any are not.
+- `anyNF()` - returns `TRUE` immediately on encountering a non-finite
+  value (i.e., not `NA`, `NaN`, `Inf` or `-Inf`) or `FALSE` if all are
+  finite.
 - `whichNA()` - returns the indices of `NA` values.
 - `setNA()` - sets given indices to `NA`.
 - `na.vector()` - returns a vector of `NA` values of a given length and

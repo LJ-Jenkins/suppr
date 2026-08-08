@@ -21,20 +21,26 @@ lhs \%!||\% rhs
 
 lhs \%0\% rhs
 
-lhs \%allin\% rhs
+x \%allin\% table
 
-lhs \%anyin\% rhs
+x \%anyin\% table
 
-lhs \%nonein\% rhs
+x \%nonein\% table
 
-lhs \%onein\% rhs
+x \%onein\% table
 
-lhs \%notin\% rhs
+x \%notin\% table
 }
 \arguments{
 \item{lhs}{left-hand side object.}
 
 \item{rhs}{right-hand side object.}
+
+\item{x}{vector or \code{NULL}: the values to be matched.
+\link{Long vectors} are supported.}
+
+\item{table}{vector or \code{NULL}: the values to be matched against.
+\link{Long vectors} are not supported.}
 }
 \value{
 either the left-hand side or right-hand side, depending on
