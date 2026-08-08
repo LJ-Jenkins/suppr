@@ -259,8 +259,8 @@ whichMin(x, loc = "all")
 ##### NA’s
 
 - [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/anyNF.md) -
-  returns `TRUE` if all elements are finite (i.e., not `NA`, `NaN`,
-  `Inf` or `-Inf`) or `FALSE` if any are not.
+  returns `TRUE` immediately on encountering a non-finite value (i.e.,
+  not `NA`, `NaN`, `Inf` or `-Inf`) or `FALSE` if all are finite.
 - [`whichNA()`](https://lj-jenkins.github.io/suppr/reference/whichNA.md) -
   returns the indices of `NA` values.
 - [`setNA()`](https://lj-jenkins.github.io/suppr/reference/setNA.md) -

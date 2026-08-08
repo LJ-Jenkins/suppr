@@ -94,15 +94,15 @@ and will be replaced by the base version in the R versions that have it.</p>
 <span></span>
 <span><span class="va">lhs</span> <span class="op">%0%</span> <span class="va">rhs</span></span>
 <span></span>
-<span><span class="va">lhs</span> <span class="op">%allin%</span> <span class="va">rhs</span></span>
+<span><span class="va">x</span> <span class="op">%allin%</span> <span class="va">table</span></span>
 <span></span>
-<span><span class="va">lhs</span> <span class="op">%anyin%</span> <span class="va">rhs</span></span>
+<span><span class="va">x</span> <span class="op">%anyin%</span> <span class="va">table</span></span>
 <span></span>
-<span><span class="va">lhs</span> <span class="op">%nonein%</span> <span class="va">rhs</span></span>
+<span><span class="va">x</span> <span class="op">%nonein%</span> <span class="va">table</span></span>
 <span></span>
-<span><span class="va">lhs</span> <span class="op">%onein%</span> <span class="va">rhs</span></span>
+<span><span class="va">x</span> <span class="op">%onein%</span> <span class="va">table</span></span>
 <span></span>
-<span><span class="va">lhs</span> <span class="op">%notin%</span> <span class="va">rhs</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">%notin%</span> <span class="va">table</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -115,6 +115,16 @@ and will be replaced by the base version in the R versions that have it.</p>
 
 <dt id="arg-rhs">rhs<a class="anchor" aria-label="anchor" href="#arg-rhs"></a></dt>
 <dd><p>right-hand side object.</p></dd>
+
+
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
+<dd><p>vector or <code>NULL</code>: the values to be matched.
+<a href="https://rdrr.io/r/base/LongVectors.html" class="external-link">Long vectors</a> are supported.</p></dd>
+
+
+<dt id="arg-table">table<a class="anchor" aria-label="anchor" href="#arg-table"></a></dt>
+<dd><p>vector or <code>NULL</code>: the values to be matched against.
+<a href="https://rdrr.io/r/base/LongVectors.html" class="external-link">Long vectors</a> are not supported.</p></dd>
 
 </dl></div>
     <div class="section level2">

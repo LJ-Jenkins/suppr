@@ -37,15 +37,15 @@ lhs %!||% rhs
 
 lhs %0% rhs
 
-lhs %allin% rhs
+x %allin% table
 
-lhs %anyin% rhs
+x %anyin% table
 
-lhs %nonein% rhs
+x %nonein% table
 
-lhs %onein% rhs
+x %onein% table
 
-lhs %notin% rhs
+x %notin% table
 ```
 
 ## Arguments
@@ -57,6 +57,16 @@ lhs %notin% rhs
 - rhs:
 
   right-hand side object.
+
+- x:
+
+  vector or `NULL`: the values to be matched. [Long
+  vectors](https://rdrr.io/r/base/LongVectors.html) are supported.
+
+- table:
+
+  vector or `NULL`: the values to be matched against. [Long
+  vectors](https://rdrr.io/r/base/LongVectors.html) are not supported.
 
 ## Value
 
