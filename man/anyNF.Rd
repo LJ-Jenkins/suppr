@@ -17,10 +17,8 @@ Tests if a vector contains any non-finite values
 (\code{Inf}, \code{-Inf}, \code{NaN}, or \code{NA}).
 }
 \details{
-\code{anyNF()} only does one pass of the input and
-returns \code{FALSE} immediately when encountering
-a non-finite value, and thus can be much faster
-than \code{!all(is.finite(x))}.
+\code{anyNF()} returns \code{TRUE} immediately when encountering
+a non-finite value.
 }
 \note{
 \code{anyNF()} will throw an error if the input is not a numeric vector.

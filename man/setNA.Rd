@@ -34,6 +34,12 @@ implemented verbatim (for \link{factor} and \link{numeric_version} objects),
 whereas the default method differs by using \code{arrayInd} (see above),
 whereas \verb{is.na<-} is implemented just as \code{x[value] <- NA}.
 }
+\note{
+Complex inputs will have indices set to \code{NA_complex_}, meaning that
+both the real and imaginary parts will be set to \code{NA}, not just the
+real part which can happen (depending on \strong{R} version) with
+\code{x_complex[indices] <- NA}.
+}
 \examples{
 setNA(1:5, c(1, 4))
 setNA(c("hi", "hello", "bye", "goodbye"), c(1, 4))

@@ -43,6 +43,11 @@ anyNF <- function(x) {
 #' implemented verbatim (for [factor] and [numeric_version] objects),
 #' whereas the default method differs by using `arrayInd` (see above),
 #' whereas `is.na<-` is implemented just as `x[value] <- NA`.
+#' @note
+#' Complex inputs will have indices set to `NA_complex_`, meaning that
+#' both the real and imaginary parts will be set to `NA`, not just the
+#' real part which can happen (depending on **R** version) with
+#' `x_complex[indices] <- NA`.
 #' @seealso [`is.na<-`], [whichNA]
 #' @examples
 #' setNA(1:5, c(1, 4))
@@ -69,6 +74,22 @@ setNA.default <- function(x, indices) {
   x
 }
 
+#' @export
+setNA.complex <- function(x, indices) {
+  # need explicit complex path with due to incosistencies
+  # between versions and changes in R behaviour, for example:
+  # https://bugs.r-project.org/show_bug.cgi?id=18918&_ts=1786270162
+  # https://stat.ethz.ch/pipermail/r-devel/2023-November/083011.html
+  # other types auto convert consistently
+  if (!is.null(dm <- dim(x))) {
+    x[arrayInd(indices, dm)] <- NA_complex_
+  } else {
+    x[indices] <- NA_complex_
+  }
+
+  x
+}
+
 #' @rdname setNA
 #' @export
 `setNA<-` <- function(x, value) {
@@ -81,6 +102,17 @@ setNA.default <- function(x, indices) {
     x[arrayInd(value, dm)] <- NA
   } else {
     x[value] <- NA
+  }
+
+  x
+}
+
+#' @export
+`setNA<-.complex` <- function(x, value) {
+  if (!is.null(dm <- dim(x))) {
+    x[arrayInd(value, dm)] <- NA_complex_
+  } else {
+    x[value] <- NA_complex_
   }
 
   x
