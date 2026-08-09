@@ -76,6 +76,13 @@ whereas the default method differs by using <code>arrayInd</code> (see above),
 whereas <code>is.na&lt;-</code> is implemented just as <code>x[value] &lt;- NA</code>.</p>
     </div>
     <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>Complex inputs will have indices set to <code>NA_complex_</code>, meaning that
+both the real and imaginary parts will be set to <code>NA</code>, not just the
+real part which can happen (depending on <strong>R</strong> version) with
+<code>x_complex[indices] &lt;- NA</code>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p><code>is.na&lt;-</code>, <a href="whichNA.html">whichNA</a></p></div>
     </div>

@@ -42,6 +42,13 @@ and [numeric_version](https://rdrr.io/r/base/numeric_version.html)
 objects), whereas the default method differs by using `arrayInd` (see
 above), whereas `is.na<-` is implemented just as `x[value] <- NA`.
 
+## Note
+
+Complex inputs will have indices set to `NA_complex_`, meaning that both
+the real and imaginary parts will be set to `NA`, not just the real part
+which can happen (depending on **R** version) with
+`x_complex[indices] <- NA`.
+
 ## See also
 
 `is.na<-`,

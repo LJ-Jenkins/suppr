@@ -21,9 +21,8 @@ a single `TRUE` or `FALSE`.
 
 ## Details
 
-`anyNF()` only does one pass of the input and returns `FALSE`
-immediately when encountering a non-finite value, and thus can be much
-faster than `!all(is.finite(x))`.
+`anyNF()` returns `TRUE` immediately when encountering a non-finite
+value.
 
 ## Note
 
