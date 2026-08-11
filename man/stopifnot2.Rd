@@ -7,7 +7,7 @@
 \usage{
 stopifnot2(..., call. = TRUE)
 
-warningifnot(..., call. = TRUE, warn.all = FALSE)
+warningifnot(..., warn.all = FALSE, call. = TRUE)
 }
 \arguments{
 \item{...}{any number of R expressions, which should each evaluate

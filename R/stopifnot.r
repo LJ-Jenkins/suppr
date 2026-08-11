@@ -95,7 +95,7 @@ stopifnot2 <- function(..., call. = TRUE) {
 
 #' @rdname stopifnot2
 #' @export
-warningifnot <- function(..., call. = TRUE, warn.all = FALSE) {
+warningifnot <- function(..., warn.all = FALSE, call. = TRUE) {
   n <- ...length()
   # anything other than exactly TRUE breaks at first fail
   warn.first.only <- !isTRUE(warn.all)
