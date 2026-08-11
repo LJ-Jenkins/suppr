@@ -116,6 +116,10 @@
 <code><a href="reference/collapse.html">listing()</a></code> - turns a character vector into a human-readable list (in the grammatical sense), optionally with quoting and/or a conjunction like “and” or “or”.</li>
 <li>
 <code><a href="reference/cat0.html">cat0()</a></code> - <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">base::cat()</a></code> with <code>sep = ""</code>.</li>
+<li>
+<code><a href="reference/anyZchar.html">anyZchar()</a></code> - returns the <code>1</code>-based index of the first zero character element if any, otherwise <code>0</code>.</li>
+<li>
+<code><a href="reference/anyZchar.html">anyWS()</a></code> - returns the <code>1</code>-based index of the first all whitespace element if any, otherwise <code>0</code>. Optionally, zero character elements can be treated as all whitespace.</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/bckQuote.html">bckQuote</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
@@ -125,7 +129,11 @@
 <span><span class="fu"><a href="reference/collapse.html">listing</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "a, b and c."</span></span>
 <span><span class="fu"><a href="reference/cat0.html">cat0</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; abc</span></span></code></pre></div>
+<span><span class="co">#&gt; abc</span></span>
+<span><span class="fu"><a href="reference/anyZchar.html">anyZchar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hi"</span>, <span class="st">"bye"</span>, <span class="st">" "</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 4</span></span>
+<span><span class="fu"><a href="reference/anyZchar.html">anyWS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hi"</span>, <span class="st">"bye"</span>, <span class="st">" "</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="dots--operators">Dots (<code>...</code>) Operators<a class="anchor" aria-label="anchor" href="#dots--operators"></a>
@@ -401,7 +409,7 @@
 <div class="section level2">
 <h2 id="performance">Performance<a class="anchor" aria-label="anchor" href="#performance"></a>
 </h2>
-<p>Functions should have similar overhead to their nearest <code>R</code> equivalents. Most of the ‘data wrangling’ functions have been implemented in <code>C</code> and typically perform equivalently to their <code>R</code> counterparts.</p>
+<p>Functions should have similar overhead to their nearest <code>R</code> equivalents. Most of the ‘data wrangling’ functions (and some others) have been implemented in <code>C</code> and typically perform equivalently to their <code>R</code> counterparts.</p>
 </div>
 <div class="section level2">
 <h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>

@@ -8,6 +8,10 @@
 - [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/anyNF.md) :
   Are any non-finite values present?
 
+- [`anyZchar()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
+  [`anyWS()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
+  : Are any zero char or all whitespace elements present?
+
 - [`bckQuote()`](https://lj-jenkins.github.io/suppr/reference/bckQuote.md)
   : Backquote Text
 
