@@ -19,13 +19,6 @@ test_that("is.wholenumber() works element-wise", {
   expect_identical(is.wholenumber(NA_real_), NA)
 })
 
-test_that("anyNF() detects non-finite values", {
-  expect_false(anyNF(1:5))
-  expect_true(anyNF(c(1, 2, NA_real_, Inf, NaN)))
-  expect_true(anyNF(c(1, 2, -Inf)))
-  expect_false(anyNF(c(1, 2, 3)))
-})
-
 test_that("is.integerish() and is.whole() treat non-finite values as TRUE", {
   expect_true(is.integerish(c(Inf, -Inf, NaN, NA)))
   expect_true(is.whole(c(Inf, -Inf, NaN, NA)))
@@ -38,11 +31,10 @@ test_that("is.wholenumber() returns NA for non-finite values", {
 })
 
 test_that(
-  "is.integerish(), is.whole() and anyNF() return bool for empty inputs",
+  "is.integerish(), is.whole() return bool for empty inputs",
   {
     expect_true(is.integerish(numeric(0)))
     expect_true(is.whole(numeric(0)))
-    expect_false(anyNF(numeric(0)))
   }
 )
 
@@ -57,7 +49,6 @@ test_that("whole functions work on logical, numeric and complex types", {
     expect_no_error(is.integerish(tst))
     expect_no_error(is.whole(tst))
     expect_no_error(is.wholenumber(tst))
-    expect_no_error(anyNF(tst))
   }
 })
 
@@ -69,7 +60,6 @@ test_that("whole functions error on incorrect types", {
     expect_error(is.integerish(tst))
     expect_error(is.whole(tst))
     expect_error(is.wholenumber(tst))
-    expect_error(anyNF(tst))
   }
 })
 

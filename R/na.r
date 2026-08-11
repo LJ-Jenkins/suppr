@@ -3,13 +3,14 @@
 #' Tests if a vector contains any non-finite values
 #' (`Inf`, `-Inf`, `NaN`, or `NA`).
 #' @details
-#' `anyNF()` returns `TRUE` immediately when encountering
+#' `anyNF()` returns an index immediately when encountering
 #' a non-finite value.
 #' @param x a logical, numeric, or complex vector.
 #' @return
-#' a single `TRUE` or `FALSE`.
+#' an integer or real vector of length one with value
+#' the `1`-based index of the first non-finite value if any,
+#' otherwise `0`.
 #' @note
-#' `anyNF()` will throw an error if the input is not a numeric vector.
 #' For character vectors use [anyNA].
 #' @seealso [is.finite], [is.whole]
 #' @export

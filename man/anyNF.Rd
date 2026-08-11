@@ -10,18 +10,19 @@ anyNF(x)
 \item{x}{a logical, numeric, or complex vector.}
 }
 \value{
-a single \code{TRUE} or \code{FALSE}.
+an integer or real vector of length one with value
+the \code{1}-based index of the first non-finite value if any,
+otherwise \code{0}.
 }
 \description{
 Tests if a vector contains any non-finite values
 (\code{Inf}, \code{-Inf}, \code{NaN}, or \code{NA}).
 }
 \details{
-\code{anyNF()} returns \code{TRUE} immediately when encountering
+\code{anyNF()} returns an index immediately when encountering
 a non-finite value.
 }
 \note{
-\code{anyNF()} will throw an error if the input is not a numeric vector.
 For character vectors use \link{anyNA}.
 }
 \examples{

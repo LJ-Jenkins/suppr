@@ -1,7 +1,16 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <R.h>
 #include <Rinternals.h>
+
+static inline SEXP to_r_scalar_index(R_xlen_t ind)
+{
+    if (ind > INT_MAX)
+        return Rf_ScalarReal((double)ind);
+    else
+        return Rf_ScalarInteger((int)ind);
+}
 
 static inline void preserve_names(SEXP src, SEXP dest)
 {

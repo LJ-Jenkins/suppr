@@ -23,7 +23,7 @@ pak::pak("LJ-Jenkins/suppr")
 
 suppr provides a range of miscellaneous supplementary functions, some of
 which are very simple wrappers to save some keystrokes, others address
-common tasks, and others provide new functionality to a suppr version of
+common tasks, and others provide new functionality to suppr versions of
 an existing `R` functions. All are intended to be idiomatic to `R`, as
 if they were part of the base `R` packages.
 
@@ -215,9 +215,8 @@ whichMin(x, loc = "all")
 
 ##### NA’s
 
-- `anyNF()` - returns `TRUE` immediately on encountering a non-finite
-  value (i.e., not `NA`, `NaN`, `Inf` or `-Inf`) or `FALSE` if all are
-  finite.
+- `anyNF()` - returns the `1`-based index of the first non-finite value
+  if any, otherwise `0`.
 - `whichNA()` - returns the indices of `NA` values.
 - `setNA()` - sets given indices to `NA`.
 - `na.vector()` - returns a vector of `NA` values of a given length and
@@ -228,7 +227,7 @@ whichMin(x, loc = "all")
 
 ``` r
 anyNF(c(1, 2, 3, Inf))
-#> [1] TRUE
+#> [1] 4
 whichNA(c(1, 2, NA, Inf))
 #> [1] 3
 x <- c(1, 2, 3, 4)
