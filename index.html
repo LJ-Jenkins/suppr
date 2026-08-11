@@ -192,9 +192,9 @@
 <span><span class="co">#&gt; Error in `f1()`:</span></span>
 <span><span class="co">#&gt; ! 1 and 2 are not equal:</span></span>
 <span><span class="co">#&gt;   Mean relative difference: 1</span></span>
-<span><span class="fu"><a href="reference/stopifnot2.html">warningifnot</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">==</span> <span class="fl">2</span>, <span class="fl">3</span> <span class="op">&gt;</span> <span class="fl">4</span>, warn.all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning in (function (...) : 1 == 2 is not TRUE</span></span>
-<span><span class="co">#&gt; Warning in (function (...) : 3 &gt; 4 is not TRUE</span></span>
+<span><span class="fu"><a href="reference/stopifnot2.html">warningifnot</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">==</span> <span class="fl">2</span>, <span class="fl">3</span> <span class="op">&gt;</span> <span class="fl">4</span>, warn.all <span class="op">=</span> <span class="cn">TRUE</span>, call. <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: 1 == 2 is not TRUE</span></span>
+<span><span class="co">#&gt; Warning: 3 &gt; 4 is not TRUE</span></span>
 <span><span class="fu"><a href="reference/stopifnot.with.html">stopifnot.with</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>, <span class="va">x</span> <span class="op">==</span> <span class="va">y</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error:</span></span>
 <span><span class="co">#&gt; ! with data.frame(x = 1, y = 2) : x == y is not TRUE</span></span></code></pre></div>

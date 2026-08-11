@@ -172,9 +172,9 @@ f2(call. = 1)
 #> Error in `f1()`:
 #> ! 1 and 2 are not equal:
 #>   Mean relative difference: 1
-warningifnot(1 == 2, 3 > 4, warn.all = TRUE)
-#> Warning in (function (...) : 1 == 2 is not TRUE
-#> Warning in (function (...) : 3 > 4 is not TRUE
+warningifnot(1 == 2, 3 > 4, warn.all = TRUE, call. = FALSE)
+#> Warning: 1 == 2 is not TRUE
+#> Warning: 3 > 4 is not TRUE
 stopifnot.with(data.frame(x = 1, y = 2), x == y)
 #> Error:
 #> ! with data.frame(x = 1, y = 2) : x == y is not TRUE
