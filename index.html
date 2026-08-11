@@ -71,7 +71,7 @@
 <div class="section level2">
 <h2 id="reference">Reference<a class="anchor" aria-label="anchor" href="#reference"></a>
 </h2>
-<p>suppr provides a range of miscellaneous supplementary functions, some of which are very simple wrappers to save some keystrokes, others address common tasks, and others provide new functionality to a suppr version of an existing <code>R</code> functions. All are intended to be idiomatic to <code>R</code>, as if they were part of the base <code>R</code> packages.</p>
+<p>suppr provides a range of miscellaneous supplementary functions, some of which are very simple wrappers to save some keystrokes, others address common tasks, and others provide new functionality to suppr versions of an existing <code>R</code> functions. All are intended to be idiomatic to <code>R</code>, as if they were part of the base <code>R</code> packages.</p>
 <p>Much of suppr is directly amended from the <code>R</code> source code - all credit to the authors for their great work!</p>
 <div class="section level4">
 <h4 id="infix-operators">Infix Operators<a class="anchor" aria-label="anchor" href="#infix-operators"></a>
@@ -264,7 +264,7 @@
 </h5>
 <ul>
 <li>
-<code><a href="reference/anyNF.html">anyNF()</a></code> - returns <code>TRUE</code> immediately on encountering a non-finite value (i.e., not <code>NA</code>, <code>NaN</code>, <code>Inf</code> or <code>-Inf</code>) or <code>FALSE</code> if all are finite.</li>
+<code><a href="reference/anyNF.html">anyNF()</a></code> - returns the <code>1</code>-based index of the first non-finite value if any, otherwise <code>0</code>.</li>
 <li>
 <code><a href="reference/whichNA.html">whichNA()</a></code> - returns the indices of <code>NA</code> values.</li>
 <li>
@@ -276,7 +276,7 @@
 </ul>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/anyNF.html">anyNF</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="co">#&gt; [1] 4</span></span>
 <span><span class="fu"><a href="reference/whichNA.html">whichNA</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 3</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>

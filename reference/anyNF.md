@@ -17,17 +17,17 @@ anyNF(x)
 
 ## Value
 
-a single `TRUE` or `FALSE`.
+an integer or real vector of length one with value the `1`-based index
+of the first non-finite value if any, otherwise `0`.
 
 ## Details
 
-`anyNF()` returns `TRUE` immediately when encountering a non-finite
+`anyNF()` returns an index immediately when encountering a non-finite
 value.
 
 ## Note
 
-`anyNF()` will throw an error if the input is not a numeric vector. For
-character vectors use [anyNA](https://rdrr.io/r/base/NA.html).
+For character vectors use [anyNA](https://rdrr.io/r/base/NA.html).
 
 ## See also
 
@@ -38,15 +38,15 @@ character vectors use [anyNA](https://rdrr.io/r/base/NA.html).
 
 ``` r
 anyNF(1:10)
-#> [1] FALSE
+#> [1] 0
 anyNF(c(1, 2, NA, 4))
-#> [1] TRUE
+#> [1] 3
 anyNF(c(1, 2, NaN, 4))
-#> [1] TRUE
+#> [1] 3
 anyNF(c(1, 2, Inf, 4))
-#> [1] TRUE
+#> [1] 3
 anyNF(c(1, 2, -Inf, 4))
-#> [1] TRUE
+#> [1] 3
 
 try(anyNF("1"))
 #> Error in anyNF("1") : Input must be a logical, numeric or complex vector.
