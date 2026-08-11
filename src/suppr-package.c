@@ -10,6 +10,8 @@ extern SEXP C_which_na(SEXP x);
 extern SEXP C_which_all_min_max(SEXP x, SEXP y);
 extern SEXP C_which_last_min_max(SEXP x, SEXP y);
 extern SEXP C_anyNF(SEXP x);
+extern SEXP C_anyZchar(SEXP s);
+extern SEXP C_anyWS(SEXP x, SEXP empty);
 extern SEXP C_repeated(SEXP x);
 extern SEXP C_repeated_indices(SEXP x);
 extern SEXP C_repeats(SEXP x);
@@ -23,6 +25,8 @@ static const R_CallMethodDef callMethods[] = {
     {"C_which_all_min_max", (DL_FUNC)&C_which_all_min_max, 2},
     {"C_which_last_min_max", (DL_FUNC)&C_which_last_min_max, 2},
     {"C_anyNF", (DL_FUNC)&C_anyNF, 1},
+    {"C_anyZchar", (DL_FUNC)&C_anyZchar, 1},
+    {"C_anyWS", (DL_FUNC)&C_anyWS, 2},
     {"C_repeated", (DL_FUNC)&C_repeated, 1},
     {"C_repeated_indices", (DL_FUNC)&C_repeated_indices, 1},
     {"C_repeats", (DL_FUNC)&C_repeats, 1},

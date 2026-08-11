@@ -64,12 +64,16 @@ c("a", "d") %notin% c("a", "b", "c")
 * `collapse()` and `collapse0()` - collapse a vector (or vectors) into a single string, optionally 'recursively' (in the sense of collapse each argument individually and then collapse the results).
 * `listing()` - turns a character vector into a human-readable list (in the grammatical sense), optionally with quoting and/or a conjunction like "and" or "or".
 * `cat0()` - `base::cat()` with `sep = ""`.
+* `anyZchar()` - returns the `1`-based index of the first zero character element if any, otherwise `0`.
+* `anyWS()` - returns the `1`-based index of the first all whitespace element if any, otherwise `0`. Optionally, zero character elements can be treated as all whitespace.
 
 ```{r}
 bckQuote(c("a", "b"))
 collapse(c("a", "b", "c"))
 listing(c("a", "b", "c"))
 cat0("a", "b", "c")
+anyZchar(c("hi", "bye", " ", ""))
+anyWS(c("hi", "bye", " ", ""))
 ```
 
 #### Dots (`...`) Operators
@@ -219,7 +223,7 @@ requires(x, "methods", character.only = TRUE)
 
 ## Performance
 
-Functions should have similar overhead to their nearest `R` equivalents. Most of the 'data wrangling' functions have been implemented in `C` and typically perform equivalently to their `R` counterparts.
+Functions should have similar overhead to their nearest `R` equivalents. Most of the 'data wrangling' functions (and some others) have been implemented in `C` and typically perform equivalently to their `R` counterparts.
 
 ## Getting help
 

@@ -69,6 +69,11 @@ c("a", "d") %notin% c("a", "b", "c")
   the grammatical sense), optionally with quoting and/or a conjunction
   like “and” or “or”.
 - `cat0()` - `base::cat()` with `sep = ""`.
+- `anyZchar()` - returns the `1`-based index of the first zero character
+  element if any, otherwise `0`.
+- `anyWS()` - returns the `1`-based index of the first all whitespace
+  element if any, otherwise `0`. Optionally, zero character elements can
+  be treated as all whitespace.
 
 ``` r
 bckQuote(c("a", "b"))
@@ -79,6 +84,10 @@ listing(c("a", "b", "c"))
 #> [1] "a, b and c."
 cat0("a", "b", "c")
 #> abc
+anyZchar(c("hi", "bye", " ", ""))
+#> [1] 4
+anyWS(c("hi", "bye", " ", ""))
+#> [1] 3
 ```
 
 #### Dots (`...`) Operators
@@ -350,8 +359,9 @@ requires(x, "methods", character.only = TRUE)
 ## Performance
 
 Functions should have similar overhead to their nearest `R` equivalents.
-Most of the ‘data wrangling’ functions have been implemented in `C` and
-typically perform equivalently to their `R` counterparts.
+Most of the ‘data wrangling’ functions (and some others) have been
+implemented in `C` and typically perform equivalently to their `R`
+counterparts.
 
 ## Getting help
 
