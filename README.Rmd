@@ -105,7 +105,7 @@ f2 <- function(call.) f1(call. = call.)
 f2(call. = 2)
 f1 <- function(call.) stopifnot2(all.equal(1, 2), call. = call.)
 f2(call. = 1)
-warningifnot(1 == 2, 3 > 4, warn.all = TRUE)
+warningifnot(1 == 2, 3 > 4, warn.all = TRUE, call. = FALSE)
 stopifnot.with(data.frame(x = 1, y = 2), x == y)
 ```
 
