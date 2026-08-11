@@ -11,7 +11,7 @@ warning instead of an error.
 ``` r
 stopifnot2(..., call. = TRUE)
 
-warningifnot(..., call. = TRUE, warn.all = FALSE)
+warningifnot(..., warn.all = FALSE, call. = TRUE)
 ```
 
 ## Arguments
