@@ -1,5 +1,4 @@
-#' @title Get `...` Arguments as Expressions/Character and Check for
-#' Extraneous Arguments
+#' @title Process the `...` arguments of a function.
 #' @description
 #' `dotsNames` returns the names of the `...` arguments, or a character
 #' vector of empty strings if they are unnamed (without evaluating
@@ -13,12 +12,12 @@
 #' `checkDots` errors or warns about extraneous arguments in the `...`
 #' of its caller.
 #' @param ... "the dots", as passed from the caller.
-#' @param collapse a string, passed to [paste]`()`.
+#' @param collapse a string, passed to [paste].
 #' @param width.cutoff integer in `[20, 500]` determining the cutoff
 #' (in bytes) at which line-breaking is tried.
 #' @param error a logical value indicating whether to throw an error (`TRUE`)
 #' or a warning (`FALSE`) for extraneous arguments.
-#' @param which.call passed to [sys.call]`()`. A caller may use -2 if the
+#' @param which.call passed to [sys.call]. A caller may use `-2` if the
 #' message should mention its caller.
 #' @param allowed character vector of named elements in `...` which are
 #' "allowed" and hence do not cause an error or warning.
