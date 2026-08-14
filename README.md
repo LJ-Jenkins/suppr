@@ -234,6 +234,9 @@ whichMin(x, loc = "all")
 
 ##### NA’s
 
+- `is.nonfinite()` (and alias `is.nf()`) - returns a logical vector
+  indicating which elements are non-finite (i.e., `NA`, `NaN`, `Inf` or
+  `-Inf`).
 - `anyNF()` - returns the `1`-based index of the first non-finite value
   if any, otherwise `0`.
 - `whichNA()` - returns the indices of `NA` values.
@@ -245,8 +248,10 @@ whichMin(x, loc = "all")
   returning an object of the same size as the original.
 
 ``` r
-anyNF(c(1, 2, 3, Inf))
-#> [1] 4
+is.nonfinite(c(1, 2, NA, Inf))
+#> [1] FALSE FALSE  TRUE  TRUE
+anyNF(c(1, 2, NA, Inf))
+#> [1] 3
 whichNA(c(1, 2, NA, Inf))
 #> [1] 3
 x <- c(1, 2, 3, 4)

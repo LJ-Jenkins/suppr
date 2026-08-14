@@ -2,7 +2,7 @@
 #' @description Show where a numeric input is even or odd.
 #' @param x numeric (logical, integer or double) vector.
 #' @param noparity.na logical, whether values without parity
-#'   (e.g., `NA`, `NaN`, `Inf`, `-Inf`, and decimal numbers)
+#' (e.g., `NA`, `NaN`, `Inf`, `-Inf`, and decimal numbers)
 #' should return `NA` (when `noparity.na = TRUE`) or `FALSE`
 #' (when `noparity.na = FALSE`).
 #' @return logical vector the length of `x`.

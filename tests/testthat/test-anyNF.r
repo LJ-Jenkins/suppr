@@ -14,17 +14,28 @@ test_that("anyNF() returns 0 for empty inputs", {
 
 test_that("anyNF() works on logical, numeric and complex types", {
   for (tst in list(
-    1:10, 1L:10, c(1 + 0i, 2 + 0i, NA_complex_), c(TRUE, FALSE, NA)
+    1:10, 1L:10, c(1 + 0i, 2 + 0i, NA_complex_), c(TRUE, FALSE, NA),
+    factor(c("a", "b", "c"))
   )) {
     expect_no_error(anyNF(tst))
   }
 })
 
+test_that("anyNF() returns all 1L for chr, raw", {
+  for (tst in list(letters, raw(26))) {
+    expect_identical(anyNF(tst), 1L)
+  }
+})
+
 test_that("anyNF() errors on incorrect types", {
   for (tst in list(
-    list(1:10), environment(), mean, data.frame(x = 1), call("mean"),
-    c("1", "2", "3"), factor(c("a", "b", "c"))
+    list(1:10), environment(), mean, data.frame(x = 1), call("mean")
   )) {
     expect_error(anyNF(tst))
   }
+})
+
+test_that("anyNF() works on POSIXlt objects", {
+  x <- as.POSIXlt(c("2020-01-01", "2020-01-02", NA))
+  expect_identical(anyNF(x), 3L)
 })

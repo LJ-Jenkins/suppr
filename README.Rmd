@@ -157,6 +157,7 @@ whichMin(x, loc = "all")
 
 ##### NA's
 
+* `is.nonfinite()` (and alias `is.nf()`) - returns a logical vector indicating which elements are non-finite (i.e., `NA`, `NaN`, `Inf` or `-Inf`).
 * `anyNF()` - returns the `1`-based index of the first non-finite value if any, otherwise `0`.
 * `whichNA()` - returns the indices of `NA` values.
 * `setNA()` - sets given indices to `NA`.
@@ -164,7 +165,8 @@ whichMin(x, loc = "all")
 * `na.refill()` - for an object that has had `NA` values removed by `stats::na.omit()`, refill the `NA` values at the original indices, returning an object of the same size as the original.
 
 ```{r}
-anyNF(c(1, 2, 3, Inf))
+is.nonfinite(c(1, 2, NA, Inf))
+anyNF(c(1, 2, NA, Inf))
 whichNA(c(1, 2, NA, Inf))
 x <- c(1, 2, 3, 4)
 setNA(x, c(1, 3))

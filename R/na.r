@@ -1,29 +1,78 @@
-#' @title Are any non-finite values present?
+#' @title Are non-finite values present?
 #' @description
 #' Tests if a vector contains any non-finite values
 #' (`Inf`, `-Inf`, `NaN`, or `NA`).
 #' @details
-#' `anyNF()` returns an index immediately when encountering
+#' `is.nonfinite()` (and alias `is.nf()`) check for non-finite
+#' values, returning a logical vector of the same length as `x`,
+#' whereas `anyNF()` returns an index immediately when encountering
 #' a non-finite value.
-#' @param x a logical, numeric, or complex vector.
+#'
+#' `is.nonfinite()` and `anyNF()` are S3 generics, so custom
+#' methods can be defined for different object types.
+#'
+#' Similar to `is.finite()`, `is.nonfinite()` returns all
+#' `TRUE` for character and raw vectors, and `anyNF()` returns `1L`.
+#' @param x
+#' **R** object to be tested: the default methods handle atomic vectors.
 #' @return
-#' an integer or real vector of length one with value
+#' For `is.nonfinite()` and `is.nf()`, a logical vector of the same
+#' length as `x`.
+#'
+#' For `anyNF()`, an integer or real vector of length one with value
 #' the `1`-based index of the first non-finite value if any,
 #' otherwise `0`.
 #' @note
-#' For character vectors use [anyNA].
+#' For character vectors use [is.na] and [anyNA].
 #' @seealso [is.finite], [is.whole], [anyZchar], [anyWS]
 #' @examples
+#' is.nonfinite(1:10)
 #' anyNF(1:10)
-#' anyNF(c(1, 2, NA, 4))
-#' anyNF(c(1, 2, NaN, 4))
-#' anyNF(c(1, 2, Inf, 4))
-#' anyNF(c(1, 2, -Inf, 4))
 #'
-#' try(anyNF("1"))
+#' is.nonfinite(c(1, 2, NA, 4))
+#' anyNF(c(1, 2, NA, 4))
+#'
+#' is.nonfinite(c(1, 2, NaN, 4))
+#' anyNF(c(1, 2, NaN, 4))
+#'
+#' is.nonfinite(c(1, 2, Inf, 4))
+#' anyNF(c(1, 2, Inf, 4))
+#'
+#' is.nf(c(1, 2, -Inf, 4))
+#' anyNF(c(1, 2, -Inf, 4))
+#' @export
+is.nonfinite <- function(x) {
+  UseMethod("is.nonfinite")
+}
+
+#' @export
+is.nonfinite.default <- function(x) {
+  .Call(C_is_nonfinite, x)
+}
+
+#' @export
+is.nonfinite.POSIXlt <- function(x) {
+  is.nonfinite(as.POSIXct(x))
+}
+
+#' @rdname is.nonfinite
+#' @export
+is.nf <- is.nonfinite
+
+#' @rdname is.nonfinite
 #' @export
 anyNF <- function(x) {
+  UseMethod("anyNF")
+}
+
+#' @export
+anyNF.default <- function(x) {
   .Call(C_anyNF, x)
+}
+
+#' @export
+anyNF.POSIXlt <- function(x) {
+  anyNF(as.POSIXct(x))
 }
 
 #' @title Set given indices as NA

@@ -15,6 +15,7 @@ extern SEXP C_anyWS(SEXP x, SEXP empty);
 extern SEXP C_repeated(SEXP x);
 extern SEXP C_repeated_indices(SEXP x);
 extern SEXP C_repeats(SEXP x);
+extern SEXP C_is_nonfinite(SEXP x);
 
 static const R_CallMethodDef callMethods[] = {
     {"C_is_wholenumber", (DL_FUNC)&C_is_wholenumber, 2},
@@ -30,6 +31,7 @@ static const R_CallMethodDef callMethods[] = {
     {"C_repeated", (DL_FUNC)&C_repeated, 1},
     {"C_repeated_indices", (DL_FUNC)&C_repeated_indices, 1},
     {"C_repeats", (DL_FUNC)&C_repeats, 1},
+    {"C_is_nonfinite", (DL_FUNC)&C_is_nonfinite, 1},
     {NULL, NULL, 0}};
 
 void R_init_suppr(DllInfo *dll)

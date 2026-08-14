@@ -4,15 +4,18 @@
 
 SEXP C_anyNF(SEXP x)
 {
-    if (!Rf_isNumber(x))
-    {
-        Rf_error("Input must be a logical, numeric or complex vector.");
-    }
-
     R_xlen_t n = Rf_xlength(x);
 
     switch (TYPEOF(x))
     {
+    case STRSXP:
+    case RAWSXP:
+    {
+        if (n > 0)
+            return Rf_ScalarInteger(1);
+        else
+            return Rf_ScalarInteger(0);
+    }
     case LGLSXP:
     {
         int *r = LOGICAL(x);
@@ -56,6 +59,9 @@ SEXP C_anyNF(SEXP x)
         }
         break;
     }
+    default:
+        Rf_error("default method not implemented for type '%s'",
+                 R_typeToChar(x));
     }
 
     return Rf_ScalarInteger(0);
