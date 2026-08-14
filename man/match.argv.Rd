@@ -15,22 +15,34 @@ against that will be extracted with \code{[[}.}
 \item{match.fn}{a function to use for matching the
 argument against the choices. This function must
 take two arguments: the first is the argument to be
-matched, and the second is a candidate value from
-\code{choices}. It must return a single \code{TRUE} or \code{FALSE}
-value indicating whether the argument matches the
-candidate value.
+matched, and the second is a candidate value
+extracted from \code{choices} with \code{[[}. It must return
+a single \code{TRUE} or \code{FALSE} value indicating whether
+the argument matches the candidate value.
 
 If \code{NULL}, the default matching function is used,
-which checks for exact equality using
-\code{identical()} with \code{ignore.environment = TRUE}.}
+which checks for equality using\code{identical()} with
+\code{ignore.environment = TRUE}.}
 }
 \value{
-If a match is found then the input object is
-returned, otherwise an error is thrown.
+If \code{arg} is identical to \code{choices}, then the first
+element of \code{arg} is returned. If \code{arg} is matched
+against a candidate value in \code{choices}, then \code{arg}
+is returned. If no match is found, an error is thrown.
 }
 \description{
 \code{match.argv()} matches a given argument against a
 list of candidate values as specified by \code{choices}.
+}
+\details{
+If \code{arg} is the same as \code{choices}, then the first element
+of \code{arg} is returned. This check is done using
+\code{identical()} with \code{ignore.environment = TRUE}, regardless
+of the \code{match.fn} argument.
+
+In the one-argument form \code{match.argv(arg)}, the \code{choices}
+are obtained from a default setting for the formal argument
+\code{arg} of the function from which \code{match.argv} was called.
 }
 \examples{
 # default matching function is strict.

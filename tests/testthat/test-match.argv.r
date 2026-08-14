@@ -147,3 +147,36 @@ test_that("match.argv() returns the choice object", {
     x
   )
 })
+
+test_that(
+  "match.argv() returns arg[[1]] when arg and choices are identical",
+  {
+    x <- list(1L, "a", TRUE)
+
+    expect_identical(
+      match.argv(x, x),
+      x[[1]]
+    )
+
+    f <- function(x = list(1L, "a", TRUE)) {
+      match.argv(x)
+    }
+
+    expect_identical(
+      f(list(1L, "a", TRUE)),
+      1L
+    )
+
+    expect_identical(
+      f(),
+      1L
+    )
+
+    x <- list(structure(1:3, class = "myclass"), 1L)
+
+    expect_identical(
+      match.argv(x, x),
+      x[[1]]
+    )
+  }
+)
