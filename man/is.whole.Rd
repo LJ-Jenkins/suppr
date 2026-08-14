@@ -23,8 +23,8 @@ For \code{is.whole()} and \code{is.integerish()} a single \code{TRUE} or \code{F
 For \code{is.wholenumber()}, a logical vector of the same length as \code{x}.
 }
 \description{
-Tests if numeric vectors are whole or integerish  according to a
-tolerance.
+Tests if numeric vectors are integerish, or whole according to a
+given tolerance.
 
 \code{is.whole()} and \code{is.integerish()} check if the entire vector
 is whole or integerish, whilst \code{is.wholenumber()} checks element-wise
@@ -32,7 +32,7 @@ for wholeness.
 }
 \details{
 \code{is.integerish()} tests if a vector is integerish by evaluating if the
-remainder of the  \link[=abs]{absolute} value of \code{x} divided by \code{1} is equal
+remainder of the \link[=abs]{absolute} value of \code{x} divided by \code{1} is 'equal'
 to \code{0.0} in the \code{C} code.
 
 \code{is.whole()} and \code{is.wholenumber()} test for wholeness by evaluating
@@ -71,5 +71,5 @@ try(is.whole("1"))
 try(is.wholenumber("1"))
 }
 \seealso{
-\link{is.integerish}
+\link{is.integerish}, \link{anyNF}
 }

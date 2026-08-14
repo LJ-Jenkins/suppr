@@ -10,20 +10,20 @@ stopifnot2(..., call. = TRUE)
 warningifnot(..., warn.all = FALSE, call. = TRUE)
 }
 \arguments{
-\item{...}{any number of R expressions, which should each evaluate
-to (a logical vector of all) \link{TRUE}. If named, the names will be used
+\item{...}{any number of \strong{R} expressions, which should each evaluate
+to (a logical vector of \link{all}) \link{TRUE}. If named, the names will be used
 in lieu of the default error message.}
 
 \item{call.}{call, logical, integer, or environment. logical, indicating
 if the calling call should become part of the error message with same
 semantics as \link{stop}. integer, specifying how many calls to go 'up'
 the call stack to extract a call for the error message. A value of
-\code{0} will give the call to \code{stopifnot2()} itself, \code{1} will give the
+\code{0} will give the call to \code{stop2()} itself, \code{1} will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
-call stack will be clamped to the boundary. environment, which will
-be matched against the calling stack and the corresponding call
-will be shown.}
+call stack will be clamped to the nearest boundary. environment,
+which will be matched against the calling stack and the corresponding
+call will be shown.}
 
 \item{warn.all}{logical, indicating if all failed expressions should produce
 warnings, or only the first failed expression. Default is \code{FALSE},
@@ -41,8 +41,8 @@ functionality but produces a warning instead of an error.
 \details{
 If any of the expressions are not \link{all} \code{TRUE}, \link{stop} or \link{warning}
 is called, producing an error/warning message indicating the first
-(or all, if \code{warn.all = TRUE} for \code{warningifnot()}) expression which
-was not (\link{all}) true. See \link{stopifnot} for full details.
+(or all, if \code{warn.all = TRUE} for \code{warningifnot()}) expression
+which was not (\link{all}) true. See \link{stopifnot} for full details.
 
 Special care must be taken for handlers on the call stack, as they
 may affect the call displayed in the error or warning message. In

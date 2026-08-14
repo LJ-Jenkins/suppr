@@ -26,7 +26,8 @@ or all whitespace elements.
 }
 \details{
 \code{anyZchar()} and \code{anyWS()} return an index immediately when
-encountering a zero character or a whitespace element.
+encountering a zero character or a whitespace element,
+respectively.
 
 Whitespace elements are defined as any character that is a
 space, horizontal tab, carriage return or newline:

@@ -12,8 +12,7 @@
 #' otherwise `0`.
 #' @note
 #' For character vectors use [anyNA].
-#' @seealso [is.finite], [is.whole]
-#' @export
+#' @seealso [is.finite], [is.whole], [anyZchar], [anyWS]
 #' @examples
 #' anyNF(1:10)
 #' anyNF(c(1, 2, NA, 4))
@@ -135,14 +134,14 @@ setNA.complex <- function(x, indices) {
 }
 
 #' @title Create a vector of NA's
-#' @description For a given atomic mode and length, create a vector of NA's.
+#' @description For a given type and length, create a vector of `NA`'s.
 #' @param length integer, length of the output vector.
 #' @param type character string naming an atomic type that has an
-#' equivalent NA value (i.e., not [raw]).
+#' equivalent `NA` value (i.e., not [raw]), or `"list"`.
 #' @details This function also offers a `"list"` type, which gives a list
 #' of single (logical) `NA` values. To initialize an empty list of a given
 #' length, use [empty.list] instead.
-#' @return vector of given mode and length filled with NA values.
+#' @return vector of given mode and length filled with `NA` values.
 #' @seealso [vector], [whichNA], [setNA]
 #' @examples
 #' na.vector(5L)
@@ -150,9 +149,11 @@ setNA.complex <- function(x, indices) {
 #' class(x)
 #'
 #' x <- complex(1:5, 6:10)
-#' y <- na.vector(type = typeof(x), length = length(x))
+#' y <- na.vector(length(x), typeof(x))
 #' class(y)
 #' length(y)
+#'
+#' na.vector(2L, "list")
 #' @export
 na.vector <- function(
   length = 1L,

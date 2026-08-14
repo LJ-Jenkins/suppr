@@ -13,13 +13,13 @@ na.vector(
 \item{length}{integer, length of the output vector.}
 
 \item{type}{character string naming an atomic type that has an
-equivalent NA value (i.e., not \link{raw}).}
+equivalent \code{NA} value (i.e., not \link{raw}), or \code{"list"}.}
 }
 \value{
-vector of given mode and length filled with NA values.
+vector of given mode and length filled with \code{NA} values.
 }
 \description{
-For a given atomic mode and length, create a vector of NA's.
+For a given type and length, create a vector of \code{NA}'s.
 }
 \details{
 This function also offers a \code{"list"} type, which gives a list
@@ -32,9 +32,11 @@ x <- na.vector(3L, "character")
 class(x)
 
 x <- complex(1:5, 6:10)
-y <- na.vector(type = typeof(x), length = length(x))
+y <- na.vector(length(x), typeof(x))
 class(y)
 length(y)
+
+na.vector(2L, "list")
 }
 \seealso{
 \link{vector}, \link{whichNA}, \link{setNA}

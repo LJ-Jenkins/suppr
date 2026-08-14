@@ -35,5 +35,5 @@ anyNF(c(1, 2, -Inf, 4))
 try(anyNF("1"))
 }
 \seealso{
-\link{is.finite}, \link{is.whole}
+\link{is.finite}, \link{is.whole}, \link{anyZchar}, \link{anyWS}
 }

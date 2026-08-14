@@ -83,7 +83,6 @@ rm.first.array <- function(x, n = 1L, ...) {
   )
 }
 
-
 #' @rdname rm.first
 #' @export
 `rm.first<-` <- function(x, ..., value) {

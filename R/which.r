@@ -5,11 +5,12 @@
 #' @param x numeric (logical, integer or double) vector or an **R**
 #' object for which the internal coercion to [double] works whose [min]
 #' or [max] is searched for.
-#' @param loc 'first', 'last' or 'all' to specify which index/indices
-#' to return.
+#' @param loc `'first'`, `'last'` or `'all'` to specify which
+#' index/indices to return.
 #' @param value value/s to replace the min or max values with when
 #' using the assignment functions.
-#' @return integer of indices.
+#' @return integer of indices. For the assignment functions, the
+#' modified object with min or max values replaced by `value`.
 #' @note
 #' For `logical` vectors, `which(x)` is faster than
 #' `whichMax(x, loc = "all")`, but `whichMin(x, loc = "all")` can

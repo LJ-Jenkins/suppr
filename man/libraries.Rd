@@ -41,7 +41,7 @@ below).}
 namespace. Can also be the name of a position on the current
 search list as given by \code{\link[=search]{search()}}.}
 
-\item{lib.loc}{a character vector describing the location of R library trees to
+\item{lib.loc}{a character vector describing the location of \strong{R} library trees to
 search through, or \code{NULL}. The default value of \code{NULL} corresponds
 to all libraries currently known to \code{\link[=.libPaths]{.libPaths()}}. Non-existent
 library trees are silently ignored.}
@@ -86,7 +86,8 @@ When called as \code{library()} it returns an object of class
 \code{"libraryIQR"}, and for \code{library(help=)}, one of class
 \code{"packageInfo"}.
 
-\code{require} returns (invisibly) a logical indicating whether the required package is available.
+\code{require} returns (invisibly) a logical indicating whether the
+required package is available.
 }
 \description{
 Wraps \code{\link[=library]{library()}} and \code{\link[=require]{require()}} to

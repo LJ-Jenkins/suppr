@@ -1,6 +1,6 @@
 #' @title Determine Repeated Elements
 #' @description
-#' Return a mask, indices, or values of repeated elements
+#' Return a logical vector, indices, or the values of repeated elements
 #' in a vector.
 #' @details
 #' The `repeated` functions determine which elements of a vector
@@ -107,7 +107,6 @@ repeated.array <- function(x, MARGIN = 1L, ...) {
   .repeated_array_matrix(x, MARGIN, ...)
 }
 
-#' @rdname repeated
 #' @export
 repeated.matrix <- function(x, MARGIN = 1L, ...) {
   .repeated_array_matrix(x, MARGIN, ...)
@@ -159,7 +158,6 @@ whichRepeated.array <- function(x, MARGIN = 1L, ...) {
   .whichRepeated_array_matrix(x, MARGIN, ...)
 }
 
-#' @rdname repeated
 #' @export
 whichRepeated.matrix <- function(x, MARGIN = 1L, ...) {
   .whichRepeated_array_matrix(x, MARGIN, ...)
@@ -221,7 +219,6 @@ repeats.array <- function(x, MARGIN = 1L, ...) {
   .repeats_array_matrix(x, MARGIN, ...)
 }
 
-#' @rdname repeated
 #' @export
 repeats.matrix <- function(x, MARGIN = 1L, ...) {
   .repeats_array_matrix(x, MARGIN, ...)

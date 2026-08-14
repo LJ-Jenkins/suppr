@@ -1,8 +1,8 @@
 #' @title Miscellaneous Helper Functions
 #' @description
 #' `dims()` returns the dimensions of an object (from [dim]), but for
-#' objects without dimensions (aka [dim] returns `NULL`) the length
-#' of the object is returned along with `0L`.
+#' objects without dimensions the length of the object is returned
+#' along with `0L` (e.g., `c(length(x), 0L)`).
 #'
 #' `enumerate` maps a list to each element of a vector, containing the
 #' index, value, and name of each element.
@@ -20,7 +20,7 @@
 #' @details
 #' Unnamed elements given to `enumerate()` will have an empty string
 #' (`""`) as their name.
-#' @name supprHelpers
+#' @name suppr-helpers
 #' @examples
 #' # objects with dimensions give same output as dim():
 #' dims(matrix(1:6, nrow = 2))
@@ -32,7 +32,7 @@
 #' for (x in enumerate(c(a = 1, b = 2, 3))) print(x)
 NULL
 
-#' @rdname supprHelpers
+#' @rdname suppr-helpers
 #' @export
 dims <- function(x) {
   if (is.null(dm <- dim(x))) {
@@ -42,7 +42,7 @@ dims <- function(x) {
   }
 }
 
-#' @rdname supprHelpers
+#' @rdname suppr-helpers
 #' @export
 enumerate <- function(x) {
   Map(list, idx = seq_along(x), val = x, name = methods::allNames(x))

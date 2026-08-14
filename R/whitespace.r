@@ -4,7 +4,8 @@
 #' or all whitespace elements.
 #' @details
 #' `anyZchar()` and `anyWS()` return an index immediately when
-#' encountering a zero character or a whitespace element.
+#' encountering a zero character or a whitespace element,
+#' respectively.
 #'
 #' Whitespace elements are defined as any character that is a
 #' space, horizontal tab, carriage return or newline:
@@ -26,7 +27,6 @@
 #' Unlike the similar base functions, these do not coerce
 #' the input to character.
 #' @seealso [nzchar], [trimws], [anyNF]
-#' @export
 #' @examples
 #' anyZchar(c("hi", "bye", " ", ""))
 #' anyWS(c("hi", "bye", " ", ""))

@@ -4,8 +4,8 @@
 #' adds a `call.` argument that shows a call in the error message that
 #' is derived from the call stack. `warningifnot()` implements the same
 #' functionality but produces a warning instead of an error.
-#' @param ... any number of R expressions, which should each evaluate
-#' to (a logical vector of all) [TRUE]. If named, the names will be used
+#' @param ... any number of **R** expressions, which should each evaluate
+#' to (a logical vector of [all]) [TRUE]. If named, the names will be used
 #' in lieu of the default error message.
 #' @inheritParams stop2 call.
 #' @param warn.all logical, indicating if all failed expressions should produce
@@ -15,8 +15,8 @@
 #' @details
 #' If any of the expressions are not [all] `TRUE`, [stop] or [warning]
 #' is called, producing an error/warning message indicating the first
-#' (or all, if `warn.all = TRUE` for `warningifnot()`) expression which
-#' was not ([all]) true. See [stopifnot] for full details.
+#' (or all, if `warn.all = TRUE` for `warningifnot()`) expression
+#' which was not ([all]) true. See [stopifnot] for full details.
 #'
 #' Special care must be taken for handlers on the call stack, as they
 #' may affect the call displayed in the error or warning message. In
@@ -154,12 +154,12 @@ warningifnot <- function(..., warn.all = FALSE, call. = TRUE) {
 
 #' @title Ensure the Truth of R Expressions in a Data Environment
 #' @description
-#' Wrapper around [stopifnot2] that evaluates R expressions
+#' Wrapper around [stopifnot2] that evaluates **R** expressions
 #' in an environment constructed from `data`.
 #' @param data data to use for constructing an environment. This may be an
 #' `environment`, a `list`, a `data.frame`, or an `integer` as in
 #' `sys.call`.
-#' @param ... any number of R expressions, which should each evaluate
+#' @param ... any number of **R** expressions, which should each evaluate
 #' to (a logical vector of all) [TRUE]. If named, the names will be used
 #' in lieu of the default error message.
 #' @inheritParams stop2 call.

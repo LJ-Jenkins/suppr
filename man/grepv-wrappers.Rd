@@ -66,7 +66,7 @@ Strongly typed wrappers around \code{\link{grep}} that have the
 \code{value} (see note), \code{ignore.case} and \code{fixed} arguments
 set internally (as well as the conflicting arguments).
 
-If \code{grepv} is found in the current \code{R} version, it is
+If \code{grepv} is found in the current \strong{R} version, it is
 reexported from base.
 }
 \details{

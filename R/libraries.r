@@ -10,7 +10,7 @@
 #' namespace. Can also be the name of a position on the current
 #' search list as given by [`search()`].
 #' @param lib.loc
-#' a character vector describing the location of R library trees to
+#' a character vector describing the location of **R** library trees to
 #' search through, or `NULL`. The default value of `NULL` corresponds
 #' to all libraries currently known to [`.libPaths()`]. Non-existent
 #' library trees are silently ignored.
@@ -62,7 +62,8 @@
 #' `"libraryIQR"`, and for `library(help=)`, one of class
 #' `"packageInfo"`.
 #'
-#' `require` returns (invisibly) a logical indicating whether the required package is available.
+#' `require` returns (invisibly) a logical indicating whether the
+#' required package is available.
 #' @seealso [attach], [detach], [install.packages]
 #' @examples
 #' libraries("stats", "graphics", methods)

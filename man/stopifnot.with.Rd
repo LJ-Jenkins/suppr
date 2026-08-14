@@ -11,7 +11,7 @@ stopifnot.with(data, ..., call. = TRUE)
 \code{environment}, a \code{list}, a \code{data.frame}, or an \code{integer} as in
 \code{sys.call}.}
 
-\item{...}{any number of R expressions, which should each evaluate
+\item{...}{any number of \strong{R} expressions, which should each evaluate
 to (a logical vector of all) \link{TRUE}. If named, the names will be used
 in lieu of the default error message.}
 
@@ -19,15 +19,15 @@ in lieu of the default error message.}
 if the calling call should become part of the error message with same
 semantics as \link{stop}. integer, specifying how many calls to go 'up'
 the call stack to extract a call for the error message. A value of
-\code{0} will give the call to \code{stopifnot2()} itself, \code{1} will give the
+\code{0} will give the call to \code{stop2()} itself, \code{1} will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
-call stack will be clamped to the boundary. environment, which will
-be matched against the calling stack and the corresponding call
-will be shown.}
+call stack will be clamped to the nearest boundary. environment,
+which will be matched against the calling stack and the corresponding
+call will be shown.}
 }
 \description{
-Wrapper around \link{stopifnot2} that evaluates R expressions
+Wrapper around \link{stopifnot2} that evaluates \strong{R} expressions
 in an environment constructed from \code{data}.
 }
 \details{

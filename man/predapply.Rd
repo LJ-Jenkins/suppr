@@ -18,7 +18,7 @@ Other objects (including classed objects) will be coerced by
 
 \item{reduce}{\code{NULL} or one of \code{"all"}, \code{"any"}, or \code{"none"}. When
 non-\code{NULL}, the output logical vector is reduced to a single boolean
-value using \link{all}, \link{any} or \code{"none"} (\code{all(!logi)}).}
+value using \link{all}, \link{any} or \code{"none"} (implemented as \code{all(!logi)}).}
 
 \item{na.as}{logical value to return for \code{NA} values in the output logical
 vector (\code{NA}, \code{TRUE} or \code{FALSE}).}

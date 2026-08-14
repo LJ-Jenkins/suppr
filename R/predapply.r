@@ -11,7 +11,7 @@
 #' @param ... optional arguments to `FUN`.
 #' @param reduce `NULL` or one of `"all"`, `"any"`, or `"none"`. When
 #' non-`NULL`, the output logical vector is reduced to a single boolean
-#' value using [all], [any] or `"none"` (`all(!logi)`).
+#' value using [all], [any] or `"none"` (implemented as `all(!logi)`).
 #' @param na.as logical value to return for `NA` values in the output logical
 #' vector (`NA`, `TRUE` or `FALSE`).
 #' @details
@@ -46,7 +46,7 @@ predapply <- function(X, FUN, ..., reduce = NULL, na.as = NA) {
   )
 
   if (!is.na(na.as)) {
-    stopifnot(is.logical(na.as), length(na.as) == 1L)
+    stopifnot(is.logical(na.as) && length(na.as) == 1L)
     logi[is.na(logi)] <- na.as
   }
 

@@ -7,10 +7,10 @@
 cat0(..., file = "", fill = FALSE, labels = NULL, append = FALSE)
 }
 \arguments{
-\item{...}{\code{R} objects (see \link{cat} for the types of objects allowed).}
+\item{...}{\strong{R} objects (see \link{cat} for the types of objects allowed).}
 
 \item{file}{a connection, or a character string naming the file to
-print to. If "" (the default), cat0 prints to the standard output
+print to. If "" (the default), \code{cat0} prints to the standard output
 connection, the console unless redirected by sink.}
 
 \item{fill}{a logical or (positive) numeric controlling how the

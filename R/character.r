@@ -1,7 +1,7 @@
 #' @title Backquote Text
 #' @description
 #' Backquote text by combining with backticks (``).
-#' @param x an `R` object, to be coerced to a character vector.
+#' @param x an **R** object, to be coerced to a character vector.
 #' @return
 #' A character vector of the same length as x (after any coercion).
 #' @seealso [Quotes], [dQuote] and [sQuote].
@@ -22,9 +22,9 @@ bckQuote <- function(x) {
 #' @description
 #' Outputs the objects, concatenating the representations
 #' with no separator.
-#' @param ... `R` objects (see [cat] for the types of objects allowed).
+#' @param ... **R** objects (see [cat] for the types of objects allowed).
 #' @param file a connection, or a character string naming the file to
-#' print to. If "" (the default), cat0 prints to the standard output
+#' print to. If "" (the default), `cat0` prints to the standard output
 #' connection, the console unless redirected by sink.
 #' @param fill a logical or (positive) numeric controlling how the
 #' output is broken into successive lines. If `FALSE` (default), only
@@ -301,7 +301,7 @@ grepli <- function(pattern, x, perl = FALSE, useBytes = FALSE) {
 #' `value` (see note), `ignore.case` and `fixed` arguments
 #' set internally (as well as the conflicting arguments).
 #'
-#' If `grepv` is found in the current `R` version, it is
+#' If `grepv` is found in the current **R** version, it is
 #' reexported from base.
 #' @inheritParams grep-wrappers pattern x perl useBytes invert value
 #' @param ignore.case

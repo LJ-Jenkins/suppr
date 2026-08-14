@@ -7,7 +7,7 @@
 bckQuote(x)
 }
 \arguments{
-\item{x}{an \code{R} object, to be coerced to a character vector.}
+\item{x}{an \strong{R} object, to be coerced to a character vector.}
 }
 \value{
 A character vector of the same length as x (after any coercion).

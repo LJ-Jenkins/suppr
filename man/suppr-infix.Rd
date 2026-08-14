@@ -43,8 +43,13 @@ x \%notin\% table
 \link{Long vectors} are not supported.}
 }
 \value{
-either the left-hand side or right-hand side, depending on
-the result of the operator.
+For the non-\verb{\%*in\%} operators, either the left-hand side or
+right-hand side, depending on the result of the operator.
+
+For \verb{\%allin\%}, \verb{\%anyin\%}, \verb{\%nonein\%}, and \verb{\%onein\%}
+a single logical value (or empty logical if \code{x} has length \code{0}) is
+returned. For \verb{\%notin\%}, a logical vector of the same length as
+\code{x} is returned.
 }
 \description{
 Infix operators for common tasks.
@@ -69,15 +74,16 @@ are in the right-hand side.
 \verb{\%onein\%} returns \code{TRUE} if exactly one element of the left-hand side is
 in the right-hand side.
 
-\verb{\%notin\%} returns \code{TRUE} if none of the elements of the left-hand side
-are in the right-hand side. This is implemented in the same way as base R
-and will be replaced by the base version in the R versions that have it.
+\verb{\%notin\%} returns \code{TRUE} for elements of the left-hand side
+that are not in the right-hand side. This is implemented in the same
+way as base \strong{R} and will be replaced by the base version in the \strong{R}
+versions that have it.
 }
 \details{
 The \verb{\%*in\%} operators follow the semantics of \code{\%in\%} for \code{NULL}
 values:
 \itemize{
-\item Singular \code{NULL}'s on the lhs always returns a length 0 logical vector.
+\item Singular \code{NULL}'s on the lhs always returns a length \code{0} logical vector.
 \item \code{NULL} elements are not considered equal to singular \code{NULL}'s so will
 give a \code{TRUE} for \verb{\%nonein\%} and \verb{\%notin\%} and \code{FALSE} for \verb{\%allin\%},
 \verb{\%anyin\%} and \verb{\%onein\%}.

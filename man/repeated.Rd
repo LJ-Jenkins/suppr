@@ -3,13 +3,10 @@
 \name{repeated}
 \alias{repeated}
 \alias{repeated.array}
-\alias{repeated.matrix}
 \alias{whichRepeated}
 \alias{whichRepeated.array}
-\alias{whichRepeated.matrix}
 \alias{repeats}
 \alias{repeats.array}
-\alias{repeats.matrix}
 \alias{non.unique}
 \title{Determine Repeated Elements}
 \usage{
@@ -17,19 +14,13 @@ repeated(x, ...)
 
 \method{repeated}{array}(x, MARGIN = 1L, ...)
 
-\method{repeated}{matrix}(x, MARGIN = 1L, ...)
-
 whichRepeated(x, ...)
 
 \method{whichRepeated}{array}(x, MARGIN = 1L, ...)
 
-\method{whichRepeated}{matrix}(x, MARGIN = 1L, ...)
-
 repeats(x, ...)
 
 \method{repeats}{array}(x, MARGIN = 1L, ...)
-
-\method{repeats}{matrix}(x, MARGIN = 1L, ...)
 
 non.unique(x, ...)
 }
@@ -60,7 +51,7 @@ the same type as \code{x}, containing the repeated values
 the margin (matrix/array input).
 }
 \description{
-Return a mask, indices, or values of repeated elements
+Return a logical vector, indices, or the values of repeated elements
 in a vector.
 }
 \details{

@@ -21,22 +21,28 @@
 #' `%onein%` returns `TRUE` if exactly one element of the left-hand side is
 #' in the right-hand side.
 #'
-#' `%notin%` returns `TRUE` if none of the elements of the left-hand side
-#' are in the right-hand side. This is implemented in the same way as base R
-#' and will be replaced by the base version in the R versions that have it.
+#' `%notin%` returns `TRUE` for elements of the left-hand side
+#' that are not in the right-hand side. This is implemented in the same
+#' way as base **R** and will be replaced by the base version in the **R**
+#' versions that have it.
 #' @param lhs left-hand side object.
 #' @param rhs right-hand side object.
 #' @param x vector or `NULL`: the values to be matched.
 #' [Long vectors] are supported.
 #' @param table vector or `NULL`: the values to be matched against.
 #' [Long vectors] are not supported.
-#' @return either the left-hand side or right-hand side, depending on
-#' the result of the operator.
+#' @return For the non-`%*in%` operators, either the left-hand side or
+#' right-hand side, depending on the result of the operator.
+#'
+#' For `%allin%`, `%anyin%`, `%nonein%`, and `%onein%`
+#' a single logical value (or empty logical if `x` has length `0`) is
+#' returned. For `%notin%`, a logical vector of the same length as
+#' `x` is returned.
 #' @details
 #' The `%*in%` operators follow the semantics of `%in%` for `NULL`
 #' values:
 #'
-#' * Singular `NULL`'s on the lhs always returns a length 0 logical vector.
+#' * Singular `NULL`'s on the lhs always returns a length `0` logical vector.
 #' * `NULL` elements are not considered equal to singular `NULL`'s so will
 #' give a `TRUE` for `%nonein%` and `%notin%` and `FALSE` for `%allin%`,
 #' `%anyin%` and `%onein%`.

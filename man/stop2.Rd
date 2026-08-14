@@ -20,12 +20,12 @@ character (and which are pasted together with no separator).}
 if the calling call should become part of the error message with same
 semantics as \link{stop}. integer, specifying how many calls to go 'up'
 the call stack to extract a call for the error message. A value of
-\code{0} will give the call to \code{stopifnot2()} itself, \code{1} will give the
+\code{0} will give the call to \code{stop2()} itself, \code{1} will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
-call stack will be clamped to the boundary. environment, which will
-be matched against the calling stack and the corresponding call
-will be shown.}
+call stack will be clamped to the nearest boundary. environment,
+which will be matched against the calling stack and the corresponding
+call will be shown.}
 
 \item{domain}{see \link{gettext}. If \code{NA}, messages will not be translated.}
 

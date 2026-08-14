@@ -9,12 +9,12 @@
 #' if the calling call should become part of the error message with same
 #' semantics as [stop]. integer, specifying how many calls to go 'up'
 #' the call stack to extract a call for the error message. A value of
-#' `0` will give the call to `stopifnot2()` itself, `1` will give the
+#' `0` will give the call to `stop2()` itself, `1` will give the
 #' call of the caller, and so on. Numeric values are coerced to integer
 #' and absolute values are taken. Values outside either boundary of the
-#' call stack will be clamped to the boundary. environment, which will
-#' be matched against the calling stack and the corresponding call
-#' will be shown.
+#' call stack will be clamped to the nearest boundary. environment,
+#' which will be matched against the calling stack and the corresponding
+#' call will be shown.
 #' @param domain see [gettext]. If `NA`, messages will not be translated.
 #' @param appendLF logical: should messages given as a character
 #' string have a newline appended?

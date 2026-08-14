@@ -20,14 +20,15 @@ whichMax(x, loc = c("first", "last", "all")) <- value
 object for which the internal coercion to \link{double} works whose \link{min}
 or \link{max} is searched for.}
 
-\item{loc}{'first', 'last' or 'all' to specify which index/indices
-to return.}
+\item{loc}{\code{'first'}, \code{'last'} or \code{'all'} to specify which
+index/indices to return.}
 
 \item{value}{value/s to replace the min or max values with when
 using the assignment functions.}
 }
 \value{
-integer of indices.
+integer of indices. For the assignment functions, the
+modified object with min or max values replaced by \code{value}.
 }
 \description{
 Determines the location (i.e., index) of the (first, last, or all)
