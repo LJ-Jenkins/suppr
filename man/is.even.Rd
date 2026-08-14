@@ -3,7 +3,7 @@
 \name{is.even}
 \alias{is.even}
 \alias{is.odd}
-\title{Is Number Even/Odd?}
+\title{Is a Number Even or Odd?}
 \usage{
 is.even(x, noparity.na = FALSE)
 
@@ -14,10 +14,11 @@ is.odd(x, noparity.na = FALSE)
 
 \item{noparity.na}{logical, whether values without parity
 (e.g., \code{NA}, \code{NaN}, \code{Inf}, \code{-Inf}, and decimal numbers)
-should return \code{NA} (\code{TRUE}) or \code{FALSE} (\code{FALSE}).}
+should return \code{NA} (when \code{noparity.na = TRUE}) or \code{FALSE}
+(when \code{noparity.na = FALSE}).}
 }
 \value{
-logical vector.
+logical vector the length of \code{x}.
 }
 \description{
 Show where a numeric input is even or odd.

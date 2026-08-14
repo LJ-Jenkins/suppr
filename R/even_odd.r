@@ -1,10 +1,11 @@
-#' @title Is Number Even/Odd?
+#' @title Is a Number Even or Odd?
 #' @description Show where a numeric input is even or odd.
 #' @param x numeric (logical, integer or double) vector.
 #' @param noparity.na logical, whether values without parity
 #'   (e.g., `NA`, `NaN`, `Inf`, `-Inf`, and decimal numbers)
-#' should return `NA` (`TRUE`) or `FALSE` (`FALSE`).
-#' @return logical vector.
+#' should return `NA` (when `noparity.na = TRUE`) or `FALSE`
+#' (when `noparity.na = FALSE`).
+#' @return logical vector the length of `x`.
 #' @examples
 #' is.even(2)
 #' is.odd(1)
