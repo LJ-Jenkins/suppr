@@ -6,8 +6,7 @@
 \alias{subDots}
 \alias{dp1Dots}
 \alias{checkDots}
-\title{Get \code{...} Arguments as Expressions/Character and Check for
-Extraneous Arguments}
+\title{Process the \code{...} arguments of a function.}
 \usage{
 dotsNames(...)
 
@@ -20,7 +19,7 @@ checkDots(..., error = TRUE, which.call = -1, allowed = character(0))
 \arguments{
 \item{...}{"the dots", as passed from the caller.}
 
-\item{collapse}{a string, passed to \link{paste}\verb{()}.}
+\item{collapse}{a string, passed to \link{paste}.}
 
 \item{width.cutoff}{integer in \verb{[20, 500]} determining the cutoff
 (in bytes) at which line-breaking is tried.}
@@ -28,7 +27,7 @@ checkDots(..., error = TRUE, which.call = -1, allowed = character(0))
 \item{error}{a logical value indicating whether to throw an error (\code{TRUE})
 or a warning (\code{FALSE}) for extraneous arguments.}
 
-\item{which.call}{passed to \link{sys.call}\verb{()}. A caller may use -2 if the
+\item{which.call}{passed to \link{sys.call}. A caller may use \code{-2} if the
 message should mention its caller.}
 
 \item{allowed}{character vector of named elements in \code{...} which are
