@@ -1,11 +1,24 @@
 #' @title Miscellaneous Helper Functions
 #' @description
+#' `path()` builds a file path using [file.path], before normalizing
+#' the path with [normalizePath].
+#'
 #' `dims()` returns the dimensions of an object (from [dim]), but for
 #' objects without dimensions the length of the object is returned
 #' along with `0L` (e.g., `c(length(x), 0L)`).
 #'
 #' `enumerate` maps a list to each element of a vector, containing the
 #' index, value, and name of each element.
+#' @param ...
+#' character vectors. [Long vectors] are not supported.
+#' @param sharedDrive logical, whether the path is on a shared drive.
+#' If `TRUE`, then `.Platform$file.sep` is given as the first element
+#' of the path, e.g., `"mysd`, `"mydir"` becomes `"\\\\mysd\\mydir"`
+#' (on windows).
+#' @param mustWork
+#' logical: if `TRUE` then an error is given if the result cannot be
+#' determined; if `NA` then a warning; if `FALSE` then no error or
+#' warning is given.
 #' @param x
 #' For `dims()`, an **R** object.
 #'
@@ -18,10 +31,15 @@
 #' three elements: `idx`, `val`, and `name`, which are the index,
 #' value, and name of the corresponding element.
 #' @details
+#' `path()` will expand paths, see example.
+#'
 #' Unnamed elements given to `enumerate()` will have an empty string
 #' (`""`) as their name.
 #' @name suppr-helpers
 #' @examples
+#' path("path", "expansion", "occurs", mustWork = FALSE)
+#' path("mysd", "mydir", sharedDrive = TRUE, mustWork = FALSE)
+#'
 #' # objects with dimensions give same output as dim():
 #' dims(matrix(1:6, nrow = 2))
 #'
@@ -31,6 +49,16 @@
 #'
 #' for (x in enumerate(c(a = 1, b = 2, 3))) print(x)
 NULL
+
+#' @rdname suppr-helpers
+#' @export
+path <- function(..., sharedDrive = FALSE, mustWork = NA) {
+  if (isTRUE(sharedDrive)) {
+    normalizePath(file.path(.Platform$file.sep, ...), mustWork = mustWork)
+  } else {
+    normalizePath(file.path(...), mustWork = mustWork)
+  }
+}
 
 #' @rdname suppr-helpers
 #' @export

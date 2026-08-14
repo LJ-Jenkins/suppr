@@ -329,6 +329,11 @@ rm.last(x, 3)
   single `TRUE` or `FALSE` value.
 - `empty.list()` - wrapper for `vector("list", length)` that returns an
   empty list of a given length.
+- `path()` - wrapper for `base::file.path()` and
+  `base::normalizePath()`. Option to specify if the path is on a shared
+  drive, prepending `.Platform$file.sep` if so.
+- `dims()` - returns the dimensions of an object, or `c(length(x), 0L)`
+  if it has no dim attribute.
 - `enumerate()` - returns a list of lists - one for each element of a
   vector, with the corresponding positional list containing the vector
   element, index and name.
@@ -345,6 +350,10 @@ empty.list(2)
 #> 
 #> [[2]]
 #> NULL
+path("mysd", "mydir", sharedDrive = TRUE, mustWork = FALSE)
+#> [1] "\\\\mysd\\mydir"
+dims(1:10)
+#> [1] 10  0
 enumerate(c("a", el = "b"))
 #> [[1]]
 #> [[1]]$idx

@@ -2,15 +2,29 @@
 % Please edit documentation in R/helpers.r
 \name{suppr-helpers}
 \alias{suppr-helpers}
+\alias{path}
 \alias{dims}
 \alias{enumerate}
 \title{Miscellaneous Helper Functions}
 \usage{
+path(..., sharedDrive = FALSE, mustWork = NA)
+
 dims(x)
 
 enumerate(x)
 }
 \arguments{
+\item{...}{character vectors. \link{Long vectors} are not supported.}
+
+\item{sharedDrive}{logical, whether the path is on a shared drive.
+If \code{TRUE}, then \code{.Platform$file.sep} is given as the first element
+of the path, e.g., \verb{"mysd}, \code{"mydir"} becomes \code{"\\\\\\\\mysd\\\\mydir"}
+(on windows).}
+
+\item{mustWork}{logical: if \code{TRUE} then an error is given if the result cannot be
+determined; if \code{NA} then a warning; if \code{FALSE} then no error or
+warning is given.}
+
 \item{x}{For \code{dims()}, an \strong{R} object.
 
 For \code{enumerate()}, a vector or list to be enumerated.}
@@ -24,6 +38,9 @@ three elements: \code{idx}, \code{val}, and \code{name}, which are the index,
 value, and name of the corresponding element.
 }
 \description{
+\code{path()} builds a file path using \link{file.path}, before normalizing
+the path with \link{normalizePath}.
+
 \code{dims()} returns the dimensions of an object (from \link{dim}), but for
 objects without dimensions the length of the object is returned
 along with \code{0L} (e.g., \code{c(length(x), 0L)}).
@@ -32,10 +49,15 @@ along with \code{0L} (e.g., \code{c(length(x), 0L)}).
 index, value, and name of each element.
 }
 \details{
+\code{path()} will expand paths, see example.
+
 Unnamed elements given to \code{enumerate()} will have an empty string
 (\code{""}) as their name.
 }
 \examples{
+path("path", "expansion", "occurs", mustWork = FALSE)
+path("mysd", "mydir", sharedDrive = TRUE, mustWork = FALSE)
+
 # objects with dimensions give same output as dim():
 dims(matrix(1:6, nrow = 2))
 

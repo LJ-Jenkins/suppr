@@ -18,3 +18,33 @@ test_that("dims() returns dimensions or length and 0", {
   expect_identical(dims(1:5), c(5L, 0L))
   expect_identical(dims(list(a = 1, b = 2, c = 3)), c(3L, 0L))
 })
+
+test_that("path() combines and normalizes path components", {
+  expect_identical(
+    path("foo", "bar", mustWork = FALSE),
+    normalizePath(file.path("foo", "bar"), mustWork = FALSE)
+  )
+
+  expect_identical(
+    path("foo", "bar", "baz.txt", mustWork = FALSE),
+    normalizePath(file.path("foo", "bar", "baz.txt"), mustWork = FALSE)
+  )
+
+  expect_identical(
+    path("foo", "bar", mustWork = FALSE),
+    normalizePath(file.path("foo", "bar"), mustWork = FALSE)
+  )
+
+  expect_identical(
+    path("foo", "bar", "baz.txt", mustWork = FALSE),
+    normalizePath(file.path("foo", "bar", "baz.txt"), mustWork = FALSE)
+  )
+
+  expect_identical(
+    path("foo", "bar", "baz.txt", sharedDrive = TRUE, mustWork = FALSE),
+    normalizePath(
+      file.path(.Platform$file.sep, "foo", "bar", "baz.txt"),
+      mustWork = FALSE
+    )
+  )
+})
