@@ -7,7 +7,7 @@
 addClass(x, class, prepend = TRUE)
 }
 \arguments{
-\item{x}{any \strong{R} object.}
+\item{x}{an \strong{R} object.}
 
 \item{class}{character vector, or object coercible to character,
 of one or more class names to add.}

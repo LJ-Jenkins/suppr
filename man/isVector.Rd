@@ -2,7 +2,7 @@
 % Please edit documentation in R/class.r
 \name{isVector}
 \alias{isVector}
-\title{Check if One of Given Vector Types}
+\title{Check if Any of Given Vector Types}
 \usage{
 isVector(x, mode = "any")
 }
@@ -10,16 +10,16 @@ isVector(x, mode = "any")
 \item{x}{an \strong{R} object.}
 
 \item{mode}{character string (or chr vector) naming an atomic mode
-or \code{"list"} or \code{"expression"} or \code{"any"}. When using \code{"any"}, it must be
-given on its own.}
+or \code{"list"} or \code{"expression"} or \code{"any"}. When using \code{"any"}, it
+must be given on its own.}
 }
 \value{
 \code{TRUE} or \code{FALSE}.
 }
 \description{
 Wrapper around \link{is.vector} that allows the \code{mode} argument to
-accept a character vector of multiple types. \code{TRUE} is returned if
-the given object is \strong{any} of the given types.
+accept a character vector of multiple specific types. \code{TRUE}
+is returned if the given object is \strong{any} of the given types.
 }
 \details{
 See \link{is.vector} for full details and for the types that can be

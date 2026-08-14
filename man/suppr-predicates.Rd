@@ -17,8 +17,7 @@ nzstring(x)
 \item{x}{an object to be tested.}
 }
 \value{
-a single logical value indicating whether the object meets the specified
-criteria.
+\code{TRUE} or \code{FALSE}.
 }
 \description{
 \code{is.boolean} checks if an object is a single logical value
@@ -30,8 +29,9 @@ criteria.
 string.
 }
 \details{
-The \code{string} helpers differ slightly from what you may expect from base \strong{R}
-as \code{NA_character_} is not considered a string. For example:
+The \code{string} helpers differ slightly from what you \emph{may} expect
+from base \strong{R} as \code{NA_character_} is not considered a string.
+For example:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{nzchar(NA_character_)
 #> [1] TRUE

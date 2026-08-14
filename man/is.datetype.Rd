@@ -25,8 +25,8 @@ is.POSIXlt(x)
 \code{TRUE} or \code{FALSE}.
 }
 \description{
-Tests if an object inherits from \strong{R}'s date types:
-\code{Date} and \code{POSIXt}.
+Tests if an object inherits from some/all of \strong{R}'s date types:
+\code{Date}, \code{POSIXt}, \code{POSIXct} and \code{POSIXlt}.
 }
 \details{
 \code{is.datetype} checks if the object inherits from either \code{Date} or \code{POSIXt}.

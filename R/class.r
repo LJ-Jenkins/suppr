@@ -2,7 +2,7 @@
 #' @description
 #' Add a class to an object, either appending to, or replacing, the
 #' existing class vector.
-#' @param x any **R** object.
+#' @param x an **R** object.
 #' @param class character vector, or object coercible to character,
 #' of one or more class names to add.
 #' @param prepend logical. If `TRUE` the new class(es) are
@@ -39,15 +39,15 @@ addClass <- function(x, class, prepend = TRUE) {
   x
 }
 
-#' @title Check if One of Given Vector Types
+#' @title Check if Any of Given Vector Types
 #' @description
 #' Wrapper around [is.vector] that allows the `mode` argument to
-#' accept a character vector of multiple types. `TRUE` is returned if
-#' the given object is **any** of the given types.
+#' accept a character vector of multiple specific types. `TRUE`
+#' is returned if the given object is **any** of the given types.
 #' @param x an **R** object.
 #' @param mode character string (or chr vector) naming an atomic mode
-#' or `"list"` or `"expression"` or `"any"`. When using `"any"`, it must be
-#' given on its own.
+#' or `"list"` or `"expression"` or `"any"`. When using `"any"`, it
+#' must be given on its own.
 #' @return `TRUE` or `FALSE`.
 #' @details
 #' See [is.vector] for full details and for the types that can be
@@ -66,7 +66,10 @@ addClass <- function(x, class, prepend = TRUE) {
 #' @export
 isVector <- function(x, mode = "any") {
   if (length(mode) > 1L && "any" %in% mode) {
-    stop("In argument ", sQuote("mode"), ": 'any' cannot be given with other types.")
+    stop(
+      "In argument ", sQuote("mode"),
+      ": 'any' cannot be given with other types."
+    )
   }
 
   for (i in seq_along(mode)) {
@@ -78,11 +81,10 @@ isVector <- function(x, mode = "any") {
   FALSE
 }
 
-
 #' @title Is object of a Date type?
 #' @description
-#' Tests if an object inherits from **R**'s date types:
-#' `Date` and `POSIXt`.
+#' Tests if an object inherits from some/all of **R**'s date types:
+#' `Date`, `POSIXt`, `POSIXct` and `POSIXlt`.
 #' @param x an **R** object.
 #' @return `TRUE` or `FALSE`.
 #' @details
@@ -150,11 +152,11 @@ is.POSIXlt <- function(x) {
 #' string.
 #' @param x an object to be tested.
 #' @return
-#' a single logical value indicating whether the object meets the specified
-#' criteria.
+#' `TRUE` or `FALSE`.
 #' @details
-#' The `string` helpers differ slightly from what you may expect from base **R**
-#' as `NA_character_` is not considered a string. For example:
+#' The `string` helpers differ slightly from what you *may* expect
+#' from base **R** as `NA_character_` is not considered a string.
+#' For example:
 #' ```{r, eval=TRUE}
 #' nzchar(NA_character_)
 #' is.string(NA_character_)
