@@ -1,5 +1,10 @@
 # Miscellaneous Helper Functions
 
+`path()` builds a file path using
+[file.path](https://rdrr.io/r/base/file.path.html), before normalizing
+the path with
+[normalizePath](https://rdrr.io/r/base/normalizePath.html).
+
 `dims()` returns the dimensions of an object (from
 [dim](https://rdrr.io/r/base/dim.html)), but for objects without
 dimensions the length of the object is returned along with `0L` (e.g.,
@@ -11,12 +16,31 @@ index, value, and name of each element.
 ## Usage
 
 ``` r
+path(..., sharedDrive = FALSE, mustWork = NA)
+
 dims(x)
 
 enumerate(x)
 ```
 
 ## Arguments
+
+- ...:
+
+  character vectors. [Long
+  vectors](https://rdrr.io/r/base/LongVectors.html) are not supported.
+
+- sharedDrive:
+
+  logical, whether the path is on a shared drive. If `TRUE`, then
+  `.Platform$file.sep` is given as the first element of the path, e.g.,
+  `"mysd`, `"mydir"` becomes `"\\\\mysd\\mydir"` (on windows).
+
+- mustWork:
+
+  logical: if `TRUE` then an error is given if the result cannot be
+  determined; if `NA` then a warning; if `FALSE` then no error or
+  warning is given.
 
 - x:
 
@@ -35,12 +59,19 @@ of the corresponding element.
 
 ## Details
 
+`path()` will expand paths, see example.
+
 Unnamed elements given to `enumerate()` will have an empty string (`""`)
 as their name.
 
 ## Examples
 
 ``` r
+path("path", "expansion", "occurs", mustWork = FALSE)
+#> [1] "path/expansion/occurs"
+path("mysd", "mydir", sharedDrive = TRUE, mustWork = FALSE)
+#> [1] "//mysd/mydir"
+
 # objects with dimensions give same output as dim():
 dims(matrix(1:6, nrow = 2))
 #> [1] 2 3

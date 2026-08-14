@@ -377,6 +377,10 @@
 <li>
 <code><a href="reference/empty.list.html">empty.list()</a></code> - wrapper for <code>vector("list", length)</code> that returns an empty list of a given length.</li>
 <li>
+<code><a href="reference/suppr-helpers.html">path()</a></code> - wrapper for <code><a href="https://rdrr.io/r/base/file.path.html" class="external-link">base::file.path()</a></code> and <code><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">base::normalizePath()</a></code>. Option to specify if the path is on a shared drive, prepending <code>.Platform$file.sep</code> if so.</li>
+<li>
+<code><a href="reference/suppr-helpers.html">dims()</a></code> - returns the dimensions of an object, or <code>c(length(x), 0L)</code> if it has no dim attribute.</li>
+<li>
 <code><a href="reference/suppr-helpers.html">enumerate()</a></code> - returns a list of lists - one for each element of a vector, with the corresponding positional list containing the vector element, index and name.</li>
 <li>
 <code><a href="reference/libraries.html">libraries()</a></code> and <code><a href="reference/libraries.html">requires()</a></code> - wrappers for <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::library()</a></code> and <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::require()</a></code> that can load multiple packages at once, either from names, strings, or character vectors.</li>
@@ -390,6 +394,10 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
 <span><span class="co">#&gt; NULL</span></span>
+<span><span class="fu"><a href="reference/suppr-helpers.html">path</a></span><span class="op">(</span><span class="st">"mysd"</span>, <span class="st">"mydir"</span>, sharedDrive <span class="op">=</span> <span class="cn">TRUE</span>, mustWork <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "\\\\mysd\\mydir"</span></span>
+<span><span class="fu"><a href="reference/suppr-helpers.html">dims</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 10  0</span></span>
 <span><span class="fu"><a href="reference/suppr-helpers.html">enumerate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, el <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt; [[1]]$idx</span></span>

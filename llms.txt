@@ -407,6 +407,15 @@ rm.last(x, 3)
 - [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md) -
   wrapper for `vector("list", length)` that returns an empty list of a
   given length.
+- [`path()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md) -
+  wrapper for
+  [`base::file.path()`](https://rdrr.io/r/base/file.path.html) and
+  [`base::normalizePath()`](https://rdrr.io/r/base/normalizePath.html).
+  Option to specify if the path is on a shared drive, prepending
+  `.Platform$file.sep` if so.
+- [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md) -
+  returns the dimensions of an object, or `c(length(x), 0L)` if it has
+  no dim attribute.
 - [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md) -
   returns a list of lists - one for each element of a vector, with the
   corresponding positional list containing the vector element, index and
@@ -429,6 +438,10 @@ empty.list(2)
 #> 
 #> [[2]]
 #> NULL
+path("mysd", "mydir", sharedDrive = TRUE, mustWork = FALSE)
+#> [1] "\\\\mysd\\mydir"
+dims(1:10)
+#> [1] 10  0
 enumerate(c("a", el = "b"))
 #> [[1]]
 #> [[1]]$idx
@@ -595,7 +608,8 @@ By contributing to this project, you agree to abide by its terms.
 
   Process the `...` arguments of a function.
 
-- [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+- [`path()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+  [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
   [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
   : Miscellaneous Helper Functions
 

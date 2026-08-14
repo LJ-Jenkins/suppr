@@ -118,7 +118,8 @@
 
   Process the `...` arguments of a function.
 
-- [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+- [`path()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+  [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
   [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
   : Miscellaneous Helper Functions
 
