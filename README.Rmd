@@ -64,6 +64,7 @@ c("a", "d") %notin% c("a", "b", "c")
 * `collapse()` and `collapse0()` - collapse a vector (or vectors) into a single string, optionally 'recursively' (in the sense of collapse each argument individually and then collapse the results).
 * `listing()` - turns a character vector into a human-readable list (in the grammatical sense), optionally with quoting and/or a conjunction like "and" or "or".
 * `cat0()` - `base::cat()` with `sep = ""`.
+* `grepf()`, `grepi()`, `greplf()`, `grepli()`, `grepvf()`, `grepvi()`, `subf()`, `subi()`, `gsubf()` and `gsubi()` - strongly typed variants of `base::grep()`, `base::grepl()`, `base::grepv()`, `base::sub()` and `base::gsub()` for the common `fixed = TRUE` and `ignore.case = TRUE` cases.
 * `anyZchar()` - returns the `1`-based index of the first zero character element if any, otherwise `0`.
 * `anyWS()` - returns the `1`-based index of the first all whitespace element if any, otherwise `0`. Optionally, zero character elements can be treated as all whitespace.
 
@@ -72,6 +73,8 @@ bckQuote(c("a", "b"))
 collapse(c("a", "b", "c"))
 listing(c("a", "b", "c"))
 cat0("a", "b", "c")
+greplf("foo", c("foo", "Foo", "bar"))
+grepli("foo", c("foo", "Foo", "bar"))
 anyZchar(c("hi", "bye", " ", ""))
 anyWS(c("hi", "bye", " ", ""))
 ```

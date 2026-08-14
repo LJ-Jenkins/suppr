@@ -3,9 +3,8 @@
 \name{grepv-wrappers}
 \alias{grepv-wrappers}
 \alias{grepv}
-\alias{grepvi}
 \alias{grepvf}
-\alias{grepvfi}
+\alias{grepvi}
 \title{Pattern Matching}
 \usage{
 grepv(
@@ -19,31 +18,15 @@ grepv(
   invert = FALSE
 )
 
-grepvi(
-  pattern,
-  x,
-  perl = FALSE,
-  fixed = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
+grepvf(pattern, x, useBytes = FALSE, invert = FALSE)
 
-grepvf(
-  pattern,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
-
-grepvfi(pattern, x, perl = FALSE, useBytes = FALSE, invert = FALSE)
+grepvi(pattern, x, perl = FALSE, useBytes = FALSE, invert = FALSE)
 }
 \arguments{
 \item{pattern}{character string containing a regular expression (or character string
 for \code{fixed = TRUE} to be matched in the given character vector.
 Coerced by \link{as.character} to a character string if possible.
-If a character vector of length 2 or more is supplied, the first
+If a character vector of length \code{2} or more is supplied, the first
 element is used with a warning. Missing values are allowed.}
 
 \item{x}{a character vector where matches are sought, or an object
@@ -81,18 +64,17 @@ when it will be a double vector.
 \description{
 Strongly typed wrappers around \code{\link{grep}} that have the
 \code{value} (see note), \code{ignore.case} and \code{fixed} arguments
-set internally.
+set internally (as well as the conflicting arguments).
 
 If \code{grepv} is found in the current \code{R} version, it is
 reexported from base.
 }
 \details{
-\verb{*i()} suffixed functions have \code{ignore.case = TRUE}.
+\verb{*f()} suffixed functions have \code{fixed = TRUE} and conflicting
+arguments (\code{perl} and \code{ignore.case}) set as \code{FALSE}.
 
-\verb{*f()} suffixed functions have \code{fixed = TRUE}.
-
-\verb{*fi()} suffixed functions have both \code{fixed = TRUE} and
-\code{ignore.case = TRUE}.
+\verb{*i()} suffixed functions have \code{ignore.case = TRUE} and the
+conflicting \code{fixed} argument set as \code{FALSE}.
 
 For full documentation of the wrapped functions, see the help
 pages for \code{\link{grep}}.
@@ -101,9 +83,14 @@ pages for \code{\link{grep}}.
 suppr wrappers of the base grep/sub functions remove the
 arguments that relate to the strong typing, just like
 \code{grepl} does by not having a \code{value} argument. However,
-the base \code{grepv} function implementation has kept the
-\code{value} argument, so the version here for older versions
-of \strong{R} also keeps the \code{value} argument for compatibility.
+the base \code{grepv} implementation has kept the \code{value}
+argument, so the version here keeps the \code{value} argument
+for compatibility.
+}
+\examples{
+grepv("foo", c("foo", "Foo", "bar"))
+grepvf("foo", c("foo", "Foo", "bar"))
+grepvi("foo", c("foo", "Foo", "bar"))
 }
 \seealso{
 Other pattern-match-replacement-wrappers:

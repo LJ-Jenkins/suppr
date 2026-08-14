@@ -69,6 +69,11 @@ c("a", "d") %notin% c("a", "b", "c")
   the grammatical sense), optionally with quoting and/or a conjunction
   like “and” or “or”.
 - `cat0()` - `base::cat()` with `sep = ""`.
+- `grepf()`, `grepi()`, `greplf()`, `grepli()`, `grepvf()`, `grepvi()`,
+  `subf()`, `subi()`, `gsubf()` and `gsubi()` - strongly typed variants
+  of `base::grep()`, `base::grepl()`, `base::grepv()`, `base::sub()` and
+  `base::gsub()` for the common `fixed = TRUE` and `ignore.case = TRUE`
+  cases.
 - `anyZchar()` - returns the `1`-based index of the first zero character
   element if any, otherwise `0`.
 - `anyWS()` - returns the `1`-based index of the first all whitespace
@@ -84,6 +89,10 @@ listing(c("a", "b", "c"))
 #> [1] "a, b and c."
 cat0("a", "b", "c")
 #> abc
+greplf("foo", c("foo", "Foo", "bar"))
+#> [1]  TRUE FALSE FALSE
+grepli("foo", c("foo", "Foo", "bar"))
+#> [1]  TRUE  TRUE FALSE
 anyZchar(c("hi", "bye", " ", ""))
 #> [1] 4
 anyWS(c("hi", "bye", " ", ""))

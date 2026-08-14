@@ -13,11 +13,11 @@ collapse0(..., sep = "", recurse = FALSE)
 listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 }
 \arguments{
-\item{...}{one or more R objects, to be converted to character vectors.}
+\item{...}{one or more \strong{R} objects, to be converted to character vectors.}
 
 \item{sep}{character string to collapse the terms, not \code{\link{NA_character_}}.}
 
-\item{recurse}{\code{\link{logical}}. If TRUE, collapse each argument separately
+\item{recurse}{\code{\link{logical}}. If \code{TRUE}, collapse each argument separately
 first, before collapsing the results into a single string.}
 
 \item{x}{a character vector from which to create the human readable list.}
@@ -25,7 +25,7 @@ first, before collapsing the results into a single string.}
 \item{conjunction}{character string to use as a conjunction for the
 last two terms.}
 
-\item{period}{\code{\link{logical}}. If TRUE, append a period to the end of the
+\item{period}{\code{\link{logical}}. If \code{TRUE}, append a period to the end of the
 string.}
 
 \item{quote}{\code{\link{NULL}} or a character string indicating the type of quotes
@@ -44,7 +44,8 @@ with options to quote the terms.
 \details{
 \code{collapse} and \code{collapse0} are simple wrappers for
 \code{paste0(..., collapse = sep)} and \code{paste(..., collapse = sep)}, with
-an option to collapse each argument separately first.
+an option to collapse each argument separately first, before collapsing
+the results.
 }
 \examples{
 collapse(c("a", "b", "c"), "d")

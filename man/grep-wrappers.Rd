@@ -2,32 +2,13 @@
 % Please edit documentation in R/character.r
 \name{grep-wrappers}
 \alias{grep-wrappers}
-\alias{grepi}
 \alias{grepf}
-\alias{grepfi}
+\alias{grepi}
 \title{Pattern Matching}
 \usage{
+grepf(pattern, x, value = FALSE, useBytes = FALSE, invert = FALSE)
+
 grepi(
-  pattern,
-  x,
-  perl = FALSE,
-  value = FALSE,
-  fixed = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
-
-grepf(
-  pattern,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  value = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
-
-grepfi(
   pattern,
   x,
   perl = FALSE,
@@ -40,21 +21,16 @@ grepfi(
 \item{pattern}{character string containing a regular expression (or character string
 for \code{fixed = TRUE} to be matched in the given character vector.
 Coerced by \link{as.character} to a character string if possible.
-If a character vector of length 2 or more is supplied, the first
+If a character vector of length \code{2} or more is supplied, the first
 element is used with a warning. Missing values are allowed.}
 
 \item{x}{a character vector where matches are sought, or an object
 which can be coerced by \link{as.character} to a character vector.
 Long vectors are supported.}
 
-\item{perl}{logical. Should Perl-compatible regexps be used?}
-
 \item{value}{logical. If \code{FALSE}, a vector containing the (integer) indices of
 the matches determined by grep is returned, and if \code{TRUE}, a vector
 containing the matching elements themselves is returned.}
-
-\item{fixed}{logical. If \code{TRUE}, pattern is a string to be matched as is.
-Overrides all conflicting arguments.}
 
 \item{useBytes}{logical. If \code{TRUE} the matching is done byte-by-byte rather
 than character-by-character.}
@@ -62,8 +38,7 @@ than character-by-character.}
 \item{invert}{logical. If \code{TRUE} return indices or values for elements that
 do not match.}
 
-\item{ignore.case}{logical. if \code{FALSE}, the pattern matching is case sensitive
-and if \code{TRUE}, case is ignored during matching.}
+\item{perl}{logical. Should Perl-compatible regexps be used?}
 }
 \value{
 with \code{value = FALSE}, return a vector of the
@@ -77,23 +52,23 @@ no other attributes).
 }
 \description{
 Strongly typed wrappers around \code{\link{grep}} that have the
-\code{ignore.case} and \code{fixed} arguments set internally.
+\code{fixed} and \code{ignore.case} arguments set internally.
 }
 \details{
-\verb{*i()} suffixed functions have \code{ignore.case = TRUE}.
+\verb{*f()} suffixed functions have \code{fixed = TRUE} and conflicting
+arguments (\code{perl} and \code{ignore.case}) set as \code{FALSE}.
 
-\verb{*f()} suffixed functions have \code{fixed = TRUE}.
-
-\verb{*fi()} suffixed functions have both \code{fixed = TRUE} and
-\code{ignore.case = TRUE}.
+\verb{*i()} suffixed functions have \code{ignore.case = TRUE} and the
+conflicting \code{fixed} argument set as \code{FALSE}.
 
 For full documentation of the wrapped functions, see the help
 pages for \code{\link{grep}}.
 }
 \examples{
-bckQuote("example")
-bckQuote(c("one", "two", "three"))
-bckQuote(123)
+grepf("foo", c("foo", "Foo", "bar"))
+grepf("foo", c("foo", "Foo", "bar"), value = TRUE)
+grepi("foo", c("foo", "Foo", "bar"))
+grepi("foo", c("foo", "Foo", "bar"), value = TRUE)
 }
 \seealso{
 Other pattern-match-replacement-wrappers:

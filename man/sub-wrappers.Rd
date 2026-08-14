@@ -2,45 +2,25 @@
 % Please edit documentation in R/character.r
 \name{sub-wrappers}
 \alias{sub-wrappers}
-\alias{subi}
 \alias{subf}
-\alias{subfi}
-\alias{gsubi}
+\alias{subi}
 \alias{gsubf}
-\alias{gsubfi}
+\alias{gsubi}
 \title{Pattern Replacement Wrappers}
 \usage{
-subi(pattern, replacement, x, perl = FALSE, fixed = FALSE, useBytes = FALSE)
+subf(pattern, replacement, x, useBytes = FALSE)
 
-subf(
-  pattern,
-  replacement,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  useBytes = FALSE
-)
+subi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
 
-subfi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
+gsubf(pattern, replacement, x, useBytes = FALSE)
 
-gsubi(pattern, replacement, x, perl = FALSE, fixed = FALSE, useBytes = FALSE)
-
-gsubf(
-  pattern,
-  replacement,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  useBytes = FALSE
-)
-
-gsubfi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
+gsubi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
 }
 \arguments{
 \item{pattern}{character string containing a regular expression (or character string
 for \code{fixed = TRUE} to be matched in the given character vector.
 Coerced by \link{as.character} to a character string if possible.
-If a character vector of length 2 or more is supplied, the first
+If a character vector of length \code{2} or more is supplied, the first
 element is used with a warning. Missing values are allowed.}
 
 \item{replacement}{a replacement for the matched pattern in sub and gsub. Coerced
@@ -57,16 +37,10 @@ corresponding to matches will be set to \code{NA}.}
 which can be coerced by \link{as.character} to a character vector.
 Long vectors are supported.}
 
-\item{perl}{logical. Should Perl-compatible regexps be used?}
-
-\item{fixed}{logical. If \code{TRUE}, pattern is a string to be matched as is.
-Overrides all conflicting arguments.}
-
 \item{useBytes}{logical. If \code{TRUE} the matching is done byte-by-byte rather
 than character-by-character.}
 
-\item{ignore.case}{logical. if \code{FALSE}, the pattern matching is case sensitive
-and if \code{TRUE}, case is ignored during matching.}
+\item{perl}{logical. Should Perl-compatible regexps be used?}
 }
 \value{
 a character vector of the same length and with the same attributes
@@ -90,7 +64,25 @@ with suitably substituted invalid bytes.
 }
 \description{
 Strongly typed wrappers around \code{\link{sub}} and \code{\link{gsub}} that have the
-\code{ignore.case} and \code{fixed} arguments set internally.
+\code{fixed} and \code{ignore.case} arguments set internally (as well as
+the conflicting arguments).
+}
+\details{
+\verb{*f()} suffixed functions have \code{fixed = TRUE} and conflicting
+arguments (\code{perl} and \code{ignore.case}) set as \code{FALSE}.
+
+\verb{*i()} suffixed functions have \code{ignore.case = TRUE} and the
+conflicting \code{fixed} argument set as \code{FALSE}.
+
+For full documentation of the wrapped functions, see the help
+pages for \code{\link{grep}}.
+}
+\examples{
+subf("foo", "X", c("foo", "Foo", "bar"))
+subi("foo", "X", c("foo", "Foo", "bar"))
+
+gsubf("foo", "X", c("foo foo", "Foo", "bar"))
+gsubi("foo", "X", c("foo foo", "Foo", "bar"))
 }
 \seealso{
 Other pattern-match-replacement-wrappers:

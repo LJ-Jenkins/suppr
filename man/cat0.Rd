@@ -14,23 +14,23 @@ print to. If "" (the default), cat0 prints to the standard output
 connection, the console unless redirected by sink.}
 
 \item{fill}{a logical or (positive) numeric controlling how the
-output is broken into successive lines. If FALSE (default), only
+output is broken into successive lines. If \code{FALSE} (default), only
 newlines created explicitly by \code{"\\n"} are printed. Otherwise, the
 output is broken into lines with print width equal to the option
-width if fill is TRUE, or the value of fill if this is numeric.
+width if fill is \code{TRUE}, or the value of fill if this is numeric.
 Linefeeds are only inserted between elements, strings wider than
 fill are not wrapped. Non-positive fill values are ignored, with a
 warning.}
 
 \item{labels}{character vector of labels for the lines printed.
-Ignored if fill is FALSE.}
+Ignored if fill is \code{FALSE}.}
 
 \item{append}{logical. Only used if the argument file is the name
-of file (and not a connection or "|cmd"). If TRUE output will be
+of file (and not a connection or \code{"|cmd"}). If \code{TRUE} output will be
 appended to file; otherwise, it will overwrite the contents of file.}
 }
 \value{
-None (invisible NULL).
+None (invisible \code{NULL}).
 }
 \description{
 Outputs the objects, concatenating the representations

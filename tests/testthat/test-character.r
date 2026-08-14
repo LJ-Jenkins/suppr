@@ -93,3 +93,85 @@ test_that("listing() tests", {
     "`a`, `b` and `c`."
   )
 })
+
+test_that("grep wrappers match their base equivalents", {
+  x <- c("Foo", "foo", "bar", "foo.bar", NA_character_)
+
+  expect_identical(
+    grepf("foo", x),
+    grep("foo", x, fixed = TRUE)
+  )
+  expect_identical(
+    grepf("foo", x, value = TRUE, invert = TRUE),
+    grep("foo", x, fixed = TRUE, value = TRUE, invert = TRUE)
+  )
+
+  expect_identical(
+    grepi("foo", x),
+    grep("foo", x, ignore.case = TRUE)
+  )
+  expect_identical(
+    grepi("f.o", x, perl = TRUE, value = TRUE),
+    grep("f.o", x, ignore.case = TRUE, perl = TRUE, value = TRUE)
+  )
+})
+
+test_that("grepl wrappers match their base equivalents", {
+  x <- c("Foo", "foo", "bar", "foo.bar", NA_character_)
+
+  expect_identical(
+    greplf("foo", x),
+    grepl("foo", x, fixed = TRUE)
+  )
+  expect_identical(
+    grepli("foo", x),
+    grepl("foo", x, ignore.case = TRUE)
+  )
+  expect_identical(
+    grepli("f.o", x, perl = TRUE),
+    grepl("f.o", x, ignore.case = TRUE, perl = TRUE)
+  )
+})
+
+test_that("grepv wrappers match their base equivalents", {
+  x <- c("Foo", "foo", "bar", "foo.bar", NA_character_)
+
+  expect_identical(
+    grepvf("foo", x),
+    grep("foo", x, fixed = TRUE, value = TRUE)
+  )
+  expect_identical(
+    grepvi("foo", x),
+    grep("foo", x, ignore.case = TRUE, value = TRUE)
+  )
+})
+
+test_that("sub/gsub wrappers match their base equivalents", {
+  x <- c("Foo foo", "bar", "FOO")
+
+  expect_identical(
+    subf("foo", "X", x),
+    sub("foo", "X", x, fixed = TRUE)
+  )
+  expect_identical(
+    subi("foo", "X", x),
+    sub("foo", "X", x, ignore.case = TRUE)
+  )
+  expect_identical(
+    subi("(foo)", "\\1!", x, perl = TRUE),
+    sub("(foo)", "\\1!", x, ignore.case = TRUE, perl = TRUE)
+  )
+
+  expect_identical(
+    gsubf("foo", "X", x),
+    gsub("foo", "X", x, fixed = TRUE)
+  )
+  expect_identical(
+    gsubi("foo", "X", x),
+    gsub("foo", "X", x, ignore.case = TRUE)
+  )
+  expect_identical(
+    gsubi("(foo)", "\\1!", x, perl = TRUE),
+    gsub("(foo)", "\\1!", x, ignore.case = TRUE, perl = TRUE)
+  )
+})

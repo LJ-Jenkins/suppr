@@ -27,20 +27,20 @@ bckQuote <- function(x) {
 #' print to. If "" (the default), cat0 prints to the standard output
 #' connection, the console unless redirected by sink.
 #' @param fill a logical or (positive) numeric controlling how the
-#' output is broken into successive lines. If FALSE (default), only
+#' output is broken into successive lines. If `FALSE` (default), only
 #' newlines created explicitly by `"\n"` are printed. Otherwise, the
 #' output is broken into lines with print width equal to the option
-#' width if fill is TRUE, or the value of fill if this is numeric.
+#' width if fill is `TRUE`, or the value of fill if this is numeric.
 #' Linefeeds are only inserted between elements, strings wider than
 #' fill are not wrapped. Non-positive fill values are ignored, with a
 #' warning.
 #' @param labels character vector of labels for the lines printed.
-#' Ignored if fill is FALSE.
+#' Ignored if fill is `FALSE`.
 #' @param append logical. Only used if the argument file is the name
-#' of file (and not a connection or "|cmd"). If TRUE output will be
+#' of file (and not a connection or `"|cmd"`). If `TRUE` output will be
 #' appended to file; otherwise, it will overwrite the contents of file.
 #' @return
-#' None (invisible NULL).
+#' None (invisible `NULL`).
 #' @details
 #' All arguments are passed to a call to [cat] with `sep` set to `""`.
 #' @seealso [cat], [print], [format] and [paste] which concatenates into
@@ -73,14 +73,14 @@ cat0 <- function(
 #' Collapse a character vector into a single string, with an optional
 #' separator, and for `listing()` an optional conjunction and period,
 #' with options to quote the terms.
-#' @param ... one or more R objects, to be converted to character vectors.
+#' @param ... one or more **R** objects, to be converted to character vectors.
 #' @param x a character vector from which to create the human readable list.
 #' @param sep character string to collapse the terms, not [`NA_character_`].
-#' @param recurse [`logical`]. If TRUE, collapse each argument separately
+#' @param recurse [`logical`]. If `TRUE`, collapse each argument separately
 #' first, before collapsing the results into a single string.
 #' @param conjunction character string to use as a conjunction for the
 #' last two terms.
-#' @param period [`logical`]. If TRUE, append a period to the end of the
+#' @param period [`logical`]. If `TRUE`, append a period to the end of the
 #' string.
 #' @param quote [`NULL`] or a character string indicating the type of quotes
 #' to use for quoting the terms. If `NULL`, no quoting is done. If `"single"`,
@@ -90,7 +90,8 @@ cat0 <- function(
 #' @details
 #' `collapse` and `collapse0` are simple wrappers for
 #' `paste0(..., collapse = sep)` and `paste(..., collapse = sep)`, with
-#' an option to collapse each argument separately first.
+#' an option to collapse each argument separately first, before collapsing
+#' the results.
 #' @seealso [paste0], [sQuote], [dQuote], [bckQuote].
 #' @examples
 #' collapse(c("a", "b", "c"), "d")
@@ -147,7 +148,6 @@ listing <- function(
     return(character(0))
   }
 
-
   if (!is.null(quote)) {
     quote <- match.arg(quote, c("single", "double", "back"))
     x <- switch(quote,
@@ -178,19 +178,18 @@ listing <- function(
   }
 }
 
-#-- grepi, grepf, grepfi
+#-- grepi, grepf
 
 #' @title Pattern Matching
 #' @description
 #' Strongly typed wrappers around [`grep`] that have the
-#' `ignore.case` and `fixed` arguments set internally.
+#' `fixed` and `ignore.case` arguments set internally.
 #' @details
-#' `*i()` suffixed functions have `ignore.case = TRUE`.
+#' `*f()` suffixed functions have `fixed = TRUE` and conflicting
+#' arguments (`perl` and `ignore.case`) set as `FALSE`.
 #'
-#' `*f()` suffixed functions have `fixed = TRUE`.
-#'
-#' `*fi()` suffixed functions have both `fixed = TRUE` and
-#' `ignore.case = TRUE`.
+#' `*i()` suffixed functions have `ignore.case = TRUE` and the
+#' conflicting `fixed` argument set as `FALSE`.
 #'
 #' For full documentation of the wrapped functions, see the help
 #' pages for [`grep`].
@@ -198,30 +197,24 @@ listing <- function(
 #' character string containing a regular expression (or character string
 #' for `fixed = TRUE` to be matched in the given character vector.
 #' Coerced by [as.character] to a character string if possible.
-#' If a character vector of length 2 or more is supplied, the first
+#' If a character vector of length `2` or more is supplied, the first
 #' element is used with a warning. Missing values are allowed.
 #' @param x
 #' a character vector where matches are sought, or an object
 #' which can be coerced by [as.character] to a character vector.
 #' Long vectors are supported.
-#' @param ignore.case
-#' logical. if `FALSE`, the pattern matching is case sensitive
-#' and if `TRUE`, case is ignored during matching.
-#' @param perl
-#' logical. Should Perl-compatible regexps be used?
 #' @param value
 #' logical. If `FALSE`, a vector containing the (integer) indices of
 #' the matches determined by grep is returned, and if `TRUE`, a vector
 #' containing the matching elements themselves is returned.
-#' @param fixed
-#' logical. If `TRUE`, pattern is a string to be matched as is.
-#' Overrides all conflicting arguments.
 #' @param useBytes
 #' logical. If `TRUE` the matching is done byte-by-byte rather
 #' than character-by-character.
 #' @param invert
 #' logical. If `TRUE` return indices or values for elements that
 #' do not match.
+#' @param perl
+#' logical. Should Perl-compatible regexps be used?
 #' @return
 #' with `value = FALSE`, return a vector of the
 #' indices of the elements of `x` that yielded a match (or not,
@@ -232,98 +225,91 @@ listing <- function(
 #' selected elements of `x` (after coercion, preserving names but
 #' no other attributes).
 #' @examples
-#' bckQuote("example")
-#' bckQuote(c("one", "two", "three"))
-#' bckQuote(123)
+#' grepf("foo", c("foo", "Foo", "bar"))
+#' grepf("foo", c("foo", "Foo", "bar"), value = TRUE)
+#' grepi("foo", c("foo", "Foo", "bar"))
+#' grepi("foo", c("foo", "Foo", "bar"), value = TRUE)
 #' @family pattern-match-replacement-wrappers
 #' @name grep-wrappers
 NULL
 
 #' @rdname grep-wrappers
 #' @export
-grepi <- function(
-  pattern, x, perl = FALSE, value = FALSE, fixed = FALSE,
-  useBytes = FALSE, invert = FALSE
-) {
-  grep(
-    pattern, x,
-    ignore.case = TRUE, perl, value, fixed,
-    useBytes, invert
-  )
-}
-
-#' @rdname grep-wrappers
-#' @export
 grepf <- function(
-  pattern, x, ignore.case = FALSE, perl = FALSE,
-  value = FALSE, useBytes = FALSE, invert = FALSE
+  pattern, x, value = FALSE, useBytes = FALSE, invert = FALSE
 ) {
   grep(
-    pattern, x, ignore.case, perl, value,
-    fixed = TRUE,
-    useBytes, invert
+    pattern = pattern, x = x, ignore.case = FALSE,
+    perl = FALSE, value = value, fixed = TRUE,
+    useBytes = useBytes, invert = invert
   )
 }
 
 #' @rdname grep-wrappers
 #' @export
-grepfi <- function(
+grepi <- function(
   pattern, x, perl = FALSE, value = FALSE,
   useBytes = FALSE, invert = FALSE
 ) {
   grep(
-    pattern, x,
-    ignore.case = TRUE, perl,
-    value, fixed = TRUE, useBytes, invert
+    pattern = pattern, x = x, ignore.case = TRUE,
+    perl = perl, value = value, fixed = FALSE,
+    useBytes = useBytes, invert = invert
   )
 }
 
-#-- grepli, greplf, greplfi
+#-- grepli, greplf
 
 #' @inherit grep-wrappers title details
 #' @description
 #' Strongly typed wrappers around [`grepl`] that have the
-#' `ignore.case` and `fixed` arguments set internally.
-#' @inheritParams grep-wrappers pattern x ignore.case perl fixed useBytes
+#' `fixed` and `ignore.case` arguments set internally (as
+#' well as the conflicting arguments).
+#' @inheritParams grep-wrappers pattern x perl useBytes
 #' @return
 #' logical vector (match or not for each element of `x`).
 #' @family pattern-match-replacement-wrappers
 #' @name grepl-wrappers
+#' @examples
+#' greplf("foo", c("foo", "Foo", "bar"))
+#' grepli("foo", c("foo", "Foo", "bar"))
 NULL
 
 #' @rdname grepl-wrappers
 #' @export
-grepli <- function(
-  pattern, x, perl = FALSE, fixed = FALSE, useBytes = FALSE
-) {
-  grepl(pattern, x, ignore.case = TRUE, perl, fixed, useBytes)
+greplf <- function(pattern, x, useBytes = FALSE) {
+  grepl(
+    pattern = pattern, x = x, ignore.case = FALSE,
+    perl = FALSE, fixed = TRUE, useBytes = useBytes
+  )
 }
 
 #' @rdname grepl-wrappers
 #' @export
-greplf <- function(
-  pattern, x, ignore.case = FALSE, perl = FALSE, useBytes = FALSE
-) {
-  grepl(pattern, x, ignore.case, perl, fixed = TRUE, useBytes)
+grepli <- function(pattern, x, perl = FALSE, useBytes = FALSE) {
+  grepl(
+    pattern = pattern, x = x, ignore.case = TRUE,
+    perl = perl, fixed = FALSE, useBytes = useBytes
+  )
 }
 
-#' @rdname grepl-wrappers
-#' @export
-greplfi <- function(pattern, x, perl = FALSE, useBytes = FALSE) {
-  grepl(pattern, x, ignore.case = TRUE, perl, fixed = TRUE, useBytes)
-}
-
-#-- grepv, grepvi, grepvf, grepvfi
+#-- grepv, grepvi, grepvf
 
 #' @inherit grep-wrappers title details
 #' @description
 #' Strongly typed wrappers around [`grep`] that have the
 #' `value` (see note), `ignore.case` and `fixed` arguments
-#' set internally.
+#' set internally (as well as the conflicting arguments).
 #'
 #' If `grepv` is found in the current `R` version, it is
 #' reexported from base.
-#' @inheritParams grep-wrappers
+#' @inheritParams grep-wrappers pattern x perl useBytes invert value
+#' @param ignore.case
+#' logical. if `FALSE`, the pattern matching is case sensitive
+#' and if `TRUE`, case is ignored during matching.
+#' @param fixed
+#' logical. If `TRUE`, pattern is a string to be matched as is.
+#' Overrides all conflicting arguments.
 #' @return
 #' character vector containing the selected elements of `x`
 #' (after coercion, preserving names but no other attributes).
@@ -337,11 +323,15 @@ greplfi <- function(pattern, x, perl = FALSE, useBytes = FALSE) {
 #' suppr wrappers of the base grep/sub functions remove the
 #' arguments that relate to the strong typing, just like
 #' `grepl` does by not having a `value` argument. However,
-#' the base `grepv` function implementation has kept the
-#' `value` argument, so the version here for older versions
-#' of **R** also keeps the `value` argument for compatibility.
+#' the base `grepv` implementation has kept the `value`
+#' argument, so the version here keeps the `value` argument
+#' for compatibility.
 #' @family pattern-match-replacement-wrappers
 #' @name grepv-wrappers
+#' @examples
+#' grepv("foo", c("foo", "Foo", "bar"))
+#' grepvf("foo", c("foo", "Foo", "bar"))
+#' grepvi("foo", c("foo", "Foo", "bar"))
 NULL
 
 #' @rdname grepv-wrappers
@@ -352,8 +342,9 @@ grepv <- function(
   invert = FALSE
 ) {
   grep(
-    pattern, x, ignore.case, perl, value, fixed,
-    useBytes, invert
+    pattern = pattern, x = x, ignore.case = ignore.case,
+    perl = perl, value = value, fixed = fixed,
+    useBytes = useBytes, invert = invert
   )
 }
 
@@ -363,51 +354,35 @@ if (exists("grepv", envir = baseenv())) {
 
 #' @rdname grepv-wrappers
 #' @export
+grepvf <- function(pattern, x, useBytes = FALSE, invert = FALSE) {
+  grepv(
+    pattern = pattern, x = x, ignore.case = FALSE,
+    perl = FALSE, value = TRUE, fixed = TRUE,
+    useBytes = useBytes, invert = invert
+  )
+}
+
+#' @rdname grepv-wrappers
+#' @export
 grepvi <- function(
-  pattern, x, perl = FALSE, fixed = FALSE,
-  useBytes = FALSE, invert = FALSE
+  pattern, x, perl = FALSE, useBytes = FALSE, invert = FALSE
 ) {
   grepv(
-    pattern, x,
-    ignore.case = TRUE, perl,
-    value = TRUE, fixed, useBytes, invert
+    pattern = pattern, x = x, ignore.case = TRUE,
+    perl = perl, value = TRUE, fixed = FALSE,
+    useBytes = useBytes, invert = invert
   )
 }
 
-#' @rdname grepv-wrappers
-#' @export
-grepvf <- function(
-  pattern, x, ignore.case = FALSE, perl = FALSE,
-  useBytes = FALSE, invert = FALSE
-) {
-  grepv(
-    pattern, x, ignore.case, perl,
-    value = TRUE,
-    fixed = TRUE, useBytes, invert
-  )
-}
-
-#' @rdname grepv-wrappers
-#' @export
-grepvfi <- function(
-  pattern, x, perl = FALSE, useBytes = FALSE,
-  invert = FALSE
-) {
-  grepv(
-    pattern, x,
-    ignore.case = TRUE, perl, value = TRUE,
-    fixed = TRUE, useBytes, invert
-  )
-}
-
-#-- subi, subf, subfi
-#-- gsubi, gsubf, gsubfi
+#-- subi, subf
 
 #' @title Pattern Replacement Wrappers
 #' @description
 #' Strongly typed wrappers around [`sub`] and [`gsub`] that have the
-#' `ignore.case` and `fixed` arguments set internally.
-#' @inheritParams grep-wrappers pattern x ignore.case perl fixed useBytes
+#' `fixed` and `ignore.case` arguments set internally (as well as
+#' the conflicting arguments).
+#' @inherit grep-wrappers details
+#' @inheritParams grep-wrappers pattern x perl useBytes
 #' @param replacement
 #' a replacement for the matched pattern in sub and gsub. Coerced
 #' to character if possible. For `fixed = FALSE` this can include
@@ -439,76 +414,56 @@ grepvfi <- function(
 #' with suitably substituted invalid bytes.
 #' @family pattern-match-replacement-wrappers
 #' @name sub-wrappers
+#' @examples
+#' subf("foo", "X", c("foo", "Foo", "bar"))
+#' subi("foo", "X", c("foo", "Foo", "bar"))
+#'
+#' gsubf("foo", "X", c("foo foo", "Foo", "bar"))
+#' gsubi("foo", "X", c("foo foo", "Foo", "bar"))
 NULL
 
 #' @rdname sub-wrappers
 #' @export
-subi <- function(
-  pattern, replacement, x, perl = FALSE,
-  fixed = FALSE, useBytes = FALSE
-) {
-  sub(pattern, replacement, x, ignore.case = TRUE, perl, fixed, useBytes)
-}
-
-#' @rdname sub-wrappers
-#' @export
-subf <- function(
-  pattern, replacement, x, ignore.case = FALSE,
-  perl = FALSE, useBytes = FALSE
-) {
+subf <- function(pattern, replacement, x, useBytes = FALSE) {
   sub(
-    pattern, replacement, x, ignore.case, perl,
-    fixed = TRUE, useBytes
+    pattern = pattern, replacement = replacement, x = x,
+    ignore.case = FALSE, perl = FALSE, fixed = TRUE,
+    useBytes = useBytes
   )
 }
 
 #' @rdname sub-wrappers
 #' @export
-subfi <- function(
+subi <- function(
   pattern, replacement, x, perl = FALSE, useBytes = FALSE
 ) {
   sub(
-    pattern, replacement, x,
-    ignore.case = TRUE, perl,
-    fixed = TRUE, useBytes
+    pattern = pattern, replacement = replacement, x = x,
+    ignore.case = TRUE, perl = perl, fixed = FALSE,
+    useBytes = useBytes
   )
 }
 
-# gsubi, gsubf, gsubfi
+# gsubi, gsubf
+
+#' @rdname sub-wrappers
+#' @export
+gsubf <- function(pattern, replacement, x, useBytes = FALSE) {
+  gsub(
+    pattern = pattern, replacement = replacement, x = x,
+    ignore.case = FALSE, perl = FALSE, fixed = TRUE,
+    useBytes = useBytes
+  )
+}
 
 #' @rdname sub-wrappers
 #' @export
 gsubi <- function(
-  pattern, replacement, x, perl = FALSE,
-  fixed = FALSE, useBytes = FALSE
-) {
-  gsub(
-    pattern, replacement, x,
-    ignore.case = TRUE, perl,
-    fixed, useBytes
-  )
-}
-
-#' @rdname sub-wrappers
-#' @export
-gsubf <- function(
-  pattern, replacement, x, ignore.case = FALSE,
-  perl = FALSE, useBytes = FALSE
-) {
-  gsub(
-    pattern, replacement, x, ignore.case, perl,
-    fixed = TRUE, useBytes
-  )
-}
-
-#' @rdname sub-wrappers
-#' @export
-gsubfi <- function(
   pattern, replacement, x, perl = FALSE, useBytes = FALSE
 ) {
   gsub(
-    pattern, replacement, x,
-    ignore.case = TRUE, perl,
-    fixed = TRUE, useBytes
+    pattern = pattern, replacement = replacement, x = x,
+    ignore.case = TRUE, perl = perl, fixed = FALSE,
+    useBytes = useBytes
   )
 }
