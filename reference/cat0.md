@@ -13,21 +13,21 @@ cat0(..., file = "", fill = FALSE, labels = NULL, append = FALSE)
 
 - ...:
 
-  `R` objects (see [cat](https://rdrr.io/r/base/cat.html) for the types
-  of objects allowed).
+  **R** objects (see [cat](https://rdrr.io/r/base/cat.html) for the
+  types of objects allowed).
 
 - file:
 
   a connection, or a character string naming the file to print to. If ""
-  (the default), cat0 prints to the standard output connection, the
+  (the default), `cat0` prints to the standard output connection, the
   console unless redirected by sink.
 
 - fill:
 
   a logical or (positive) numeric controlling how the output is broken
-  into successive lines. If FALSE (default), only newlines created
+  into successive lines. If `FALSE` (default), only newlines created
   explicitly by `"\n"` are printed. Otherwise, the output is broken into
-  lines with print width equal to the option width if fill is TRUE, or
+  lines with print width equal to the option width if fill is `TRUE`, or
   the value of fill if this is numeric. Linefeeds are only inserted
   between elements, strings wider than fill are not wrapped.
   Non-positive fill values are ignored, with a warning.
@@ -35,17 +35,17 @@ cat0(..., file = "", fill = FALSE, labels = NULL, append = FALSE)
 - labels:
 
   character vector of labels for the lines printed. Ignored if fill is
-  FALSE.
+  `FALSE`.
 
 - append:
 
   logical. Only used if the argument file is the name of file (and not a
-  connection or "\|cmd"). If TRUE output will be appended to file;
+  connection or `"|cmd"`). If `TRUE` output will be appended to file;
   otherwise, it will overwrite the contents of file.
 
 ## Value
 
-None (invisible NULL).
+None (invisible `NULL`).
 
 ## Details
 

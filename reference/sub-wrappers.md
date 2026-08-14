@@ -1,37 +1,20 @@
 # Pattern Replacement Wrappers
 
 Strongly typed wrappers around [`sub`](https://rdrr.io/r/base/grep.html)
-and [`gsub`](https://rdrr.io/r/base/grep.html) that have the
-`ignore.case` and `fixed` arguments set internally.
+and [`gsub`](https://rdrr.io/r/base/grep.html) that have the `fixed` and
+`ignore.case` arguments set internally (as well as the conflicting
+arguments).
 
 ## Usage
 
 ``` r
-subi(pattern, replacement, x, perl = FALSE, fixed = FALSE, useBytes = FALSE)
+subf(pattern, replacement, x, useBytes = FALSE)
 
-subf(
-  pattern,
-  replacement,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  useBytes = FALSE
-)
+subi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
 
-subfi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
+gsubf(pattern, replacement, x, useBytes = FALSE)
 
-gsubi(pattern, replacement, x, perl = FALSE, fixed = FALSE, useBytes = FALSE)
-
-gsubf(
-  pattern,
-  replacement,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  useBytes = FALSE
-)
-
-gsubfi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
+gsubi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
 ```
 
 ## Arguments
@@ -41,7 +24,7 @@ gsubfi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
   character string containing a regular expression (or character string
   for `fixed = TRUE` to be matched in the given character vector.
   Coerced by [as.character](https://rdrr.io/r/base/character.html) to a
-  character string if possible. If a character vector of length 2 or
+  character string if possible. If a character vector of length `2` or
   more is supplied, the first element is used with a warning. Missing
   values are allowed.
 
@@ -62,24 +45,14 @@ gsubfi(pattern, replacement, x, perl = FALSE, useBytes = FALSE)
   coerced by [as.character](https://rdrr.io/r/base/character.html) to a
   character vector. Long vectors are supported.
 
-- perl:
-
-  logical. Should Perl-compatible regexps be used?
-
-- fixed:
-
-  logical. If `TRUE`, pattern is a string to be matched as is. Overrides
-  all conflicting arguments.
-
 - useBytes:
 
   logical. If `TRUE` the matching is done byte-by-byte rather than
   character-by-character.
 
-- ignore.case:
+- perl:
 
-  logical. if `FALSE`, the pattern matching is case sensitive and if
-  `TRUE`, case is ignored during matching.
+  logical. Should Perl-compatible regexps be used?
 
 ## Value
 
@@ -102,9 +75,34 @@ other marked encodings is discouraged, but if still desired one may use
 [`iconv`](https://rdrr.io/r/base/iconv.html) to re-encode the result
 e.g. to UTF-8 with suitably substituted invalid bytes.
 
+## Details
+
+`*f()` suffixed functions have `fixed = TRUE` and conflicting arguments
+(`perl` and `ignore.case`) set as `FALSE`.
+
+`*i()` suffixed functions have `ignore.case = TRUE` and the conflicting
+`fixed` argument set as `FALSE`.
+
+For full documentation of the wrapped functions, see the help pages for
+[`grep`](https://rdrr.io/r/base/grep.html).
+
 ## See also
 
 Other pattern-match-replacement-wrappers:
 [`grep-wrappers`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md),
 [`grepl-wrappers`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md),
 [`grepv-wrappers`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
+
+## Examples
+
+``` r
+subf("foo", "X", c("foo", "Foo", "bar"))
+#> [1] "X"   "Foo" "bar"
+subi("foo", "X", c("foo", "Foo", "bar"))
+#> [1] "X"   "X"   "bar"
+
+gsubf("foo", "X", c("foo foo", "Foo", "bar"))
+#> [1] "X X" "Foo" "bar"
+gsubi("foo", "X", c("foo foo", "Foo", "bar"))
+#> [1] "X X" "X"   "bar"
+```

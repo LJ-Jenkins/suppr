@@ -30,7 +30,7 @@ of the first zero char/all whitespace value if any, otherwise `0`.
 ## Details
 
 `anyZchar()` and `anyWS()` return an index immediately when encountering
-a zero character or a whitespace element.
+a zero character or a whitespace element, respectively.
 
 Whitespace elements are defined as any character that is a space,
 horizontal tab, carriage return or newline: aka `"[ \t\r\n]"`. See

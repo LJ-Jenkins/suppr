@@ -12,7 +12,7 @@ bckQuote(x)
 
 - x:
 
-  an `R` object, to be coerced to a character vector.
+  an **R** object, to be coerced to a character vector.
 
 ## Value
 

@@ -35,7 +35,7 @@ in an environment constructed from data."><meta property="og:image" content="htt
     </div>
 
     <div class="ref-description section level2">
-    <p>Wrapper around <a href="stopifnot2.html">stopifnot2</a> that evaluates R expressions
+    <p>Wrapper around <a href="stopifnot2.html">stopifnot2</a> that evaluates <strong>R</strong> expressions
 in an environment constructed from <code>data</code>.</p>
     </div>
 
@@ -55,7 +55,7 @@ in an environment constructed from <code>data</code>.</p>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>any number of R expressions, which should each evaluate
+<dd><p>any number of <strong>R</strong> expressions, which should each evaluate
 to (a logical vector of all) <a href="https://rdrr.io/r/base/logical.html" class="external-link">TRUE</a>. If named, the names will be used
 in lieu of the default error message.</p></dd>
 
@@ -65,12 +65,12 @@ in lieu of the default error message.</p></dd>
 if the calling call should become part of the error message with same
 semantics as <a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a>. integer, specifying how many calls to go 'up'
 the call stack to extract a call for the error message. A value of
-<code>0</code> will give the call to <code><a href="stopifnot2.html">stopifnot2()</a></code> itself, <code>1</code> will give the
+<code>0</code> will give the call to <code><a href="stop2.html">stop2()</a></code> itself, <code>1</code> will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
-call stack will be clamped to the boundary. environment, which will
-be matched against the calling stack and the corresponding call
-will be shown.</p></dd>
+call stack will be clamped to the nearest boundary. environment,
+which will be matched against the calling stack and the corresponding
+call will be shown.</p></dd>
 
 </dl></div>
     <div class="section level2">

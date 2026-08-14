@@ -1,6 +1,6 @@
 # Are vectors whole or integer-like?
 
-Tests if numeric vectors are whole or integerish according to a
+Tests if numeric vectors are integerish, or whole according to a given
 tolerance.
 
 `is.whole()` and `is.integerish()` check if the entire vector is whole
@@ -37,7 +37,7 @@ For `is.wholenumber()`, a logical vector of the same length as `x`.
 
 `is.integerish()` tests if a vector is integerish by evaluating if the
 remainder of the [absolute](https://rdrr.io/r/base/MathFun.html) value
-of `x` divided by `1` is equal to `0.0` in the `C` code.
+of `x` divided by `1` is 'equal' to `0.0` in the `C` code.
 
 `is.whole()` and `is.wholenumber()` test for wholeness by evaluating if
 the [absolute](https://rdrr.io/r/base/MathFun.html) value of `x` minus
@@ -53,7 +53,8 @@ integerishness or wholeness. If you do not want this behavior, use
 
 ## See also
 
-is.integerish
+is.integerish,
+[anyNF](https://lj-jenkins.github.io/suppr/reference/anyNF.md)
 
 ## Examples
 

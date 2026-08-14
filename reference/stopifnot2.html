@@ -57,8 +57,8 @@ functionality but produces a warning instead of an error.</p>
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>any number of R expressions, which should each evaluate
-to (a logical vector of all) <a href="https://rdrr.io/r/base/logical.html" class="external-link">TRUE</a>. If named, the names will be used
+<dd><p>any number of <strong>R</strong> expressions, which should each evaluate
+to (a logical vector of <a href="https://rdrr.io/r/base/all.html" class="external-link">all</a>) <a href="https://rdrr.io/r/base/logical.html" class="external-link">TRUE</a>. If named, the names will be used
 in lieu of the default error message.</p></dd>
 
 
@@ -67,12 +67,12 @@ in lieu of the default error message.</p></dd>
 if the calling call should become part of the error message with same
 semantics as <a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a>. integer, specifying how many calls to go 'up'
 the call stack to extract a call for the error message. A value of
-<code>0</code> will give the call to <code>stopifnot2()</code> itself, <code>1</code> will give the
+<code>0</code> will give the call to <code><a href="stop2.html">stop2()</a></code> itself, <code>1</code> will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
-call stack will be clamped to the boundary. environment, which will
-be matched against the calling stack and the corresponding call
-will be shown.</p></dd>
+call stack will be clamped to the nearest boundary. environment,
+which will be matched against the calling stack and the corresponding
+call will be shown.</p></dd>
 
 
 <dt id="arg-warn-all">warn.all<a class="anchor" aria-label="anchor" href="#arg-warn-all"></a></dt>
@@ -89,8 +89,8 @@ which means only the first failed expression will produce a warning.</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>If any of the expressions are not <a href="https://rdrr.io/r/base/all.html" class="external-link">all</a> <code>TRUE</code>, <a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a> or <a href="https://rdrr.io/r/base/warning.html" class="external-link">warning</a>
 is called, producing an error/warning message indicating the first
-(or all, if <code>warn.all = TRUE</code> for <code>warningifnot()</code>) expression which
-was not (<a href="https://rdrr.io/r/base/all.html" class="external-link">all</a>) true. See <a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a> for full details.</p>
+(or all, if <code>warn.all = TRUE</code> for <code>warningifnot()</code>) expression
+which was not (<a href="https://rdrr.io/r/base/all.html" class="external-link">all</a>) true. See <a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a> for full details.</p>
 <p>Special care must be taken for handlers on the call stack, as they
 may affect the call displayed in the error or warning message. In
 such instances, passing an environment to <code>call.</code> may be helpful.</p>

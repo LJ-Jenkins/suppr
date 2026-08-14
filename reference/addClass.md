@@ -13,7 +13,7 @@ addClass(x, class, prepend = TRUE)
 
 - x:
 
-  any **R** object.
+  an **R** object.
 
 - class:
 

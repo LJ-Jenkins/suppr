@@ -56,7 +56,7 @@ with options to quote the terms.</p>
 
 
 <dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>one or more R objects, to be converted to character vectors.</p></dd>
+<dd><p>one or more <strong>R</strong> objects, to be converted to character vectors.</p></dd>
 
 
 <dt id="arg-sep">sep<a class="anchor" aria-label="anchor" href="#arg-sep"></a></dt>
@@ -64,7 +64,7 @@ with options to quote the terms.</p>
 
 
 <dt id="arg-recurse">recurse<a class="anchor" aria-label="anchor" href="#arg-recurse"></a></dt>
-<dd><p><code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code>. If TRUE, collapse each argument separately
+<dd><p><code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code>. If <code>TRUE</code>, collapse each argument separately
 first, before collapsing the results into a single string.</p></dd>
 
 
@@ -78,7 +78,7 @@ last two terms.</p></dd>
 
 
 <dt id="arg-period">period<a class="anchor" aria-label="anchor" href="#arg-period"></a></dt>
-<dd><p><code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code>. If TRUE, append a period to the end of the
+<dd><p><code><a href="https://rdrr.io/r/base/logical.html" class="external-link">logical</a></code>. If <code>TRUE</code>, append a period to the end of the
 string.</p></dd>
 
 
@@ -97,7 +97,8 @@ single quotes are used, if <code>"double"</code>, double quotes are used, and if
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><code>collapse</code> and <code>collapse0</code> are simple wrappers for
 <code>paste0(..., collapse = sep)</code> and <code>paste(..., collapse = sep)</code>, with
-an option to collapse each argument separately first.</p>
+an option to collapse each argument separately first, before collapsing
+the results.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

@@ -1,6 +1,6 @@
 # Create a vector of NA's
 
-For a given atomic mode and length, create a vector of NA's.
+For a given type and length, create a vector of `NA`'s.
 
 ## Usage
 
@@ -19,12 +19,12 @@ na.vector(
 
 - type:
 
-  character string naming an atomic type that has an equivalent NA value
-  (i.e., not [raw](https://rdrr.io/r/base/raw.html)).
+  character string naming an atomic type that has an equivalent `NA`
+  value (i.e., not [raw](https://rdrr.io/r/base/raw.html)), or `"list"`.
 
 ## Value
 
-vector of given mode and length filled with NA values.
+vector of given mode and length filled with `NA` values.
 
 ## Details
 
@@ -50,9 +50,17 @@ class(x)
 #> [1] "character"
 
 x <- complex(1:5, 6:10)
-y <- na.vector(type = typeof(x), length = length(x))
+y <- na.vector(length(x), typeof(x))
 class(y)
 #> [1] "complex"
 length(y)
 #> [1] 5
+
+na.vector(2L, "list")
+#> [[1]]
+#> [1] NA
+#> 
+#> [[2]]
+#> [1] NA
+#> 
 ```

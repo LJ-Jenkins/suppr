@@ -1,7 +1,7 @@
 # Is object of a Date type?
 
-Tests if an object inherits from **R**'s date types: `Date` and
-`POSIXt`.
+Tests if an object inherits from some/all of **R**'s date types: `Date`,
+`POSIXt`, `POSIXct` and `POSIXlt`.
 
 ## Usage
 

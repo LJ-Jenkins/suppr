@@ -27,7 +27,8 @@ whichMax(x, loc = c("first", "last", "all")) <- value
 
 - loc:
 
-  'first', 'last' or 'all' to specify which index/indices to return.
+  `'first'`, `'last'` or `'all'` to specify which index/indices to
+  return.
 
 - value:
 
@@ -36,7 +37,8 @@ whichMax(x, loc = c("first", "last", "all")) <- value
 
 ## Value
 
-integer of indices.
+integer of indices. For the assignment functions, the modified object
+with min or max values replaced by `value`.
 
 ## Note
 

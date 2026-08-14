@@ -32,7 +32,9 @@ For character vectors use [anyNA](https://rdrr.io/r/base/NA.html).
 ## See also
 
 [is.finite](https://rdrr.io/r/base/is.finite.html),
-[is.whole](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
+[is.whole](https://lj-jenkins.github.io/suppr/reference/is.whole.md),
+[anyZchar](https://lj-jenkins.github.io/suppr/reference/anyZchar.md),
+[anyWS](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
 
 ## Examples
 

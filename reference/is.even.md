@@ -1,4 +1,4 @@
-# Is Number Even/Odd?
+# Is a Number Even or Odd?
 
 Show where a numeric input is even or odd.
 
@@ -19,12 +19,12 @@ is.odd(x, noparity.na = FALSE)
 - noparity.na:
 
   logical, whether values without parity (e.g., `NA`, `NaN`, `Inf`,
-  `-Inf`, and decimal numbers) should return `NA` (`TRUE`) or `FALSE`
-  (`FALSE`).
+  `-Inf`, and decimal numbers) should return `NA` (when
+  `noparity.na = TRUE`) or `FALSE` (when `noparity.na = FALSE`).
 
 ## Value
 
-logical vector.
+logical vector the length of `x`.
 
 ## Examples
 

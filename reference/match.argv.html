@@ -61,19 +61,31 @@ against that will be extracted with <code>[[</code>.</p></dd>
 <dd><p>a function to use for matching the
 argument against the choices. This function must
 take two arguments: the first is the argument to be
-matched, and the second is a candidate value from
-<code>choices</code>. It must return a single <code>TRUE</code> or <code>FALSE</code>
-value indicating whether the argument matches the
-candidate value.</p>
+matched, and the second is a candidate value
+extracted from <code>choices</code> with <code>[[</code>. It must return
+a single <code>TRUE</code> or <code>FALSE</code> value indicating whether
+the argument matches the candidate value.</p>
 <p>If <code>NULL</code>, the default matching function is used,
-which checks for exact equality using
-<code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical()</a></code> with <code>ignore.environment = TRUE</code>.</p></dd>
+which checks for equality using<code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical()</a></code> with
+<code>ignore.environment = TRUE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>If a match is found then the input object is
-returned, otherwise an error is thrown.</p>
+    <p>If <code>arg</code> is identical to <code>choices</code>, then the first
+element of <code>arg</code> is returned. If <code>arg</code> is matched
+against a candidate value in <code>choices</code>, then <code>arg</code>
+is returned. If no match is found, an error is thrown.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>If <code>arg</code> is the same as <code>choices</code>, then the first element
+of <code>arg</code> is returned. This check is done using
+<code><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical()</a></code> with <code>ignore.environment = TRUE</code>, regardless
+of the <code>match.fn</code> argument.</p>
+<p>In the one-argument form <code>match.argv(arg)</code>, the <code>choices</code>
+are obtained from a default setting for the formal argument
+<code>arg</code> of the function from which <code>match.argv</code> was called.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

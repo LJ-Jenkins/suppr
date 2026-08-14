@@ -26,20 +26,17 @@
 - [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md)
   : Create an Empty list of Given Length
 
-- [`grepi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
-  [`grepf()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
-  [`grepfi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
+- [`grepf()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
+  [`grepi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
   : Pattern Matching
 
-- [`grepli()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
-  [`greplf()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
-  [`greplfi()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
+- [`greplf()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
+  [`grepli()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
   : Pattern Matching
 
 - [`grepv()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
-  [`grepvi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
   [`grepvf()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
-  [`grepvfi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
+  [`grepvi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
   : Pattern Matching
 
 - [`is.datetype()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md)
@@ -51,7 +48,7 @@
 
 - [`is.even()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
   [`is.odd()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
-  : Is Number Even/Odd?
+  : Is a Number Even or Odd?
 
 - [`is.whole()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
   [`is.wholenumber()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
@@ -59,7 +56,7 @@
   : Are vectors whole or integer-like?
 
 - [`isVector()`](https://lj-jenkins.github.io/suppr/reference/isVector.md)
-  : Check if One of Given Vector Types
+  : Check if Any of Given Vector Types
 
 - [`libraries()`](https://lj-jenkins.github.io/suppr/reference/libraries.md)
   [`requires()`](https://lj-jenkins.github.io/suppr/reference/libraries.md)
@@ -105,12 +102,10 @@
   [`warningifnot()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md)
   : Ensure the Truth of R Expressions with Call Information
 
-- [`subi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`subf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`subfi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`gsubi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+- [`subf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+  [`subi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
   [`gsubf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`gsubfi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+  [`gsubi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
   : Pattern Replacement Wrappers
 
 - [`dotsNames()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md)
@@ -119,8 +114,11 @@
   [`checkDots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md)
   :
 
-  Get `...` Arguments as Expressions/Character and Check for Extraneous
-  Arguments
+  Process the `...` arguments of a function.
+
+- [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+  [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+  : Miscellaneous Helper Functions
 
 - [`` `%''%` ``](https://lj-jenkins.github.io/suppr/reference/suppr-infix.md)
   [`` `%""%` ``](https://lj-jenkins.github.io/suppr/reference/suppr-infix.md)
@@ -137,10 +135,6 @@
   [`is.string()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md)
   [`nzstring()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md)
   : Value Predicates for Common Object Types
-
-- [`dims()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md)
-  [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md)
-  : Miscellaneous Helper Functions
 
 - [`whichMin()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
   [`whichMax()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)

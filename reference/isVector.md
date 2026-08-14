@@ -1,9 +1,9 @@
-# Check if One of Given Vector Types
+# Check if Any of Given Vector Types
 
 Wrapper around [is.vector](https://rdrr.io/r/base/vector.html) that
 allows the `mode` argument to accept a character vector of multiple
-types. `TRUE` is returned if the given object is **any** of the given
-types.
+specific types. `TRUE` is returned if the given object is **any** of the
+given types.
 
 ## Usage
 

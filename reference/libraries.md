@@ -52,7 +52,7 @@ requires(
 
 - lib.loc:
 
-  a character vector describing the location of R library trees to
+  a character vector describing the location of **R** library trees to
   search through, or `NULL`. The default value of `NULL` corresponds to
   all libraries currently known to
   [`.libPaths()`](https://rdrr.io/r/base/libPaths.html). Non-existent

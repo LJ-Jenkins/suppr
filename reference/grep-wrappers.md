@@ -1,33 +1,15 @@
 # Pattern Matching
 
 Strongly typed wrappers around
-[`grep`](https://rdrr.io/r/base/grep.html) that have the `ignore.case`
-and `fixed` arguments set internally.
+[`grep`](https://rdrr.io/r/base/grep.html) that have the `fixed` and
+`ignore.case` arguments set internally.
 
 ## Usage
 
 ``` r
+grepf(pattern, x, value = FALSE, useBytes = FALSE, invert = FALSE)
+
 grepi(
-  pattern,
-  x,
-  perl = FALSE,
-  value = FALSE,
-  fixed = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
-
-grepf(
-  pattern,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  value = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
-
-grepfi(
   pattern,
   x,
   perl = FALSE,
@@ -44,7 +26,7 @@ grepfi(
   character string containing a regular expression (or character string
   for `fixed = TRUE` to be matched in the given character vector.
   Coerced by [as.character](https://rdrr.io/r/base/character.html) to a
-  character string if possible. If a character vector of length 2 or
+  character string if possible. If a character vector of length `2` or
   more is supplied, the first element is used with a warning. Missing
   values are allowed.
 
@@ -54,20 +36,11 @@ grepfi(
   coerced by [as.character](https://rdrr.io/r/base/character.html) to a
   character vector. Long vectors are supported.
 
-- perl:
-
-  logical. Should Perl-compatible regexps be used?
-
 - value:
 
   logical. If `FALSE`, a vector containing the (integer) indices of the
   matches determined by grep is returned, and if `TRUE`, a vector
   containing the matching elements themselves is returned.
-
-- fixed:
-
-  logical. If `TRUE`, pattern is a string to be matched as is. Overrides
-  all conflicting arguments.
 
 - useBytes:
 
@@ -79,10 +52,9 @@ grepfi(
   logical. If `TRUE` return indices or values for elements that do not
   match.
 
-- ignore.case:
+- perl:
 
-  logical. if `FALSE`, the pattern matching is case sensitive and if
-  `TRUE`, case is ignored during matching.
+  logical. Should Perl-compatible regexps be used?
 
 ## Value
 
@@ -97,12 +69,11 @@ attributes).
 
 ## Details
 
-`*i()` suffixed functions have `ignore.case = TRUE`.
+`*f()` suffixed functions have `fixed = TRUE` and conflicting arguments
+(`perl` and `ignore.case`) set as `FALSE`.
 
-`*f()` suffixed functions have `fixed = TRUE`.
-
-`*fi()` suffixed functions have both `fixed = TRUE` and
-`ignore.case = TRUE`.
+`*i()` suffixed functions have `ignore.case = TRUE` and the conflicting
+`fixed` argument set as `FALSE`.
 
 For full documentation of the wrapped functions, see the help pages for
 [`grep`](https://rdrr.io/r/base/grep.html).
@@ -117,10 +88,12 @@ Other pattern-match-replacement-wrappers:
 ## Examples
 
 ``` r
-bckQuote("example")
-#> [1] "`example`"
-bckQuote(c("one", "two", "three"))
-#> [1] "`one`"   "`two`"   "`three`"
-bckQuote(123)
-#> [1] "`123`"
+grepf("foo", c("foo", "Foo", "bar"))
+#> [1] 1
+grepf("foo", c("foo", "Foo", "bar"), value = TRUE)
+#> [1] "foo"
+grepi("foo", c("foo", "Foo", "bar"))
+#> [1] 1 2
+grepi("foo", c("foo", "Foo", "bar"), value = TRUE)
+#> [1] "foo" "Foo"
 ```

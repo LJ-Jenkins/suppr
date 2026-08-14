@@ -70,6 +70,24 @@ c("a", "d") %notin% c("a", "b", "c")
   “and” or “or”.
 - [`cat0()`](https://lj-jenkins.github.io/suppr/reference/cat0.md) -
   [`base::cat()`](https://rdrr.io/r/base/cat.html) with `sep = ""`.
+- [`grepf()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md),
+  [`grepi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md),
+  [`greplf()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md),
+  [`grepli()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md),
+  [`grepvf()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md),
+  [`grepvi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md),
+  [`subf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md),
+  [`subi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md),
+  [`gsubf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+  and
+  [`gsubi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md) -
+  strongly typed variants of
+  [`base::grep()`](https://rdrr.io/r/base/grep.html),
+  [`base::grepl()`](https://rdrr.io/r/base/grep.html),
+  [`base::grepv()`](https://rdrr.io/r/base/grep.html),
+  [`base::sub()`](https://rdrr.io/r/base/grep.html) and
+  [`base::gsub()`](https://rdrr.io/r/base/grep.html) for the common
+  `fixed = TRUE` and `ignore.case = TRUE` cases.
 - [`anyZchar()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md) -
   returns the `1`-based index of the first zero character element if
   any, otherwise `0`.
@@ -88,6 +106,10 @@ listing(c("a", "b", "c"))
 #> [1] "a, b and c."
 cat0("a", "b", "c")
 #> abc
+greplf("foo", c("foo", "Foo", "bar"))
+#> [1]  TRUE FALSE FALSE
+grepli("foo", c("foo", "Foo", "bar"))
+#> [1]  TRUE  TRUE FALSE
 anyZchar(c("hi", "bye", " ", ""))
 #> [1] 4
 anyWS(c("hi", "bye", " ", ""))
@@ -102,7 +124,8 @@ anyWS(c("hi", "bye", " ", ""))
 - [`dotsNames()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
   returns the names of `...` arguments, returning all `""` if unnamed
   (like
-  [`methods::allNames()`](https://rdrr.io/r/methods/methodUtilities.html)).
+  [`methods::allNames()`](https://rdrr.io/r/methods/methodUtilities.html)
+  but without evaluating `...`).
 - [`subDots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
   substitutes `...` arguments, returning a list of the substituted
   expressions.
@@ -377,7 +400,7 @@ rm.last(x, 3)
 - [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md) -
   wrapper for `vector("list", length)` that returns an empty list of a
   given length.
-- [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md) -
+- [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md) -
   returns a list of lists - one for each element of a vector, with the
   corresponding positional list containing the vector element, index and
   name.

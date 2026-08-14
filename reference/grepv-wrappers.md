@@ -2,9 +2,10 @@
 
 Strongly typed wrappers around
 [`grep`](https://rdrr.io/r/base/grep.html) that have the `value` (see
-note), `ignore.case` and `fixed` arguments set internally.
+note), `ignore.case` and `fixed` arguments set internally (as well as
+the conflicting arguments).
 
-If `grepv` is found in the current `R` version, it is reexported from
+If `grepv` is found in the current **R** version, it is reexported from
 base.
 
 ## Usage
@@ -21,25 +22,9 @@ grepv(
   invert = FALSE
 )
 
-grepvi(
-  pattern,
-  x,
-  perl = FALSE,
-  fixed = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
+grepvf(pattern, x, useBytes = FALSE, invert = FALSE)
 
-grepvf(
-  pattern,
-  x,
-  ignore.case = FALSE,
-  perl = FALSE,
-  useBytes = FALSE,
-  invert = FALSE
-)
-
-grepvfi(pattern, x, perl = FALSE, useBytes = FALSE, invert = FALSE)
+grepvi(pattern, x, perl = FALSE, useBytes = FALSE, invert = FALSE)
 ```
 
 ## Arguments
@@ -49,7 +34,7 @@ grepvfi(pattern, x, perl = FALSE, useBytes = FALSE, invert = FALSE)
   character string containing a regular expression (or character string
   for `fixed = TRUE` to be matched in the given character vector.
   Coerced by [as.character](https://rdrr.io/r/base/character.html) to a
-  character string if possible. If a character vector of length 2 or
+  character string if possible. If a character vector of length `2` or
   more is supplied, the first element is used with a warning. Missing
   values are allowed.
 
@@ -101,12 +86,11 @@ vector, when it will be a double vector.
 
 ## Details
 
-`*i()` suffixed functions have `ignore.case = TRUE`.
+`*f()` suffixed functions have `fixed = TRUE` and conflicting arguments
+(`perl` and `ignore.case`) set as `FALSE`.
 
-`*f()` suffixed functions have `fixed = TRUE`.
-
-`*fi()` suffixed functions have both `fixed = TRUE` and
-`ignore.case = TRUE`.
+`*i()` suffixed functions have `ignore.case = TRUE` and the conflicting
+`fixed` argument set as `FALSE`.
 
 For full documentation of the wrapped functions, see the help pages for
 [`grep`](https://rdrr.io/r/base/grep.html).
@@ -115,9 +99,9 @@ For full documentation of the wrapped functions, see the help pages for
 
 suppr wrappers of the base grep/sub functions remove the arguments that
 relate to the strong typing, just like `grepl` does by not having a
-`value` argument. However, the base `grepv` function implementation has
-kept the `value` argument, so the version here for older versions of
-**R** also keeps the `value` argument for compatibility.
+`value` argument. However, the base `grepv` implementation has kept the
+`value` argument, so the version here keeps the `value` argument for
+compatibility.
 
 ## See also
 
@@ -125,3 +109,14 @@ Other pattern-match-replacement-wrappers:
 [`grep-wrappers`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md),
 [`grepl-wrappers`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md),
 [`sub-wrappers`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+
+## Examples
+
+``` r
+grepv("foo", c("foo", "Foo", "bar"))
+#> [1] "foo"
+grepvf("foo", c("foo", "Foo", "bar"))
+#> [1] "foo"
+grepvi("foo", c("foo", "Foo", "bar"))
+#> [1] "foo" "Foo"
+```

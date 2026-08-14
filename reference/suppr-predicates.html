@@ -67,13 +67,13 @@ string.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a single logical value indicating whether the object meets the specified
-criteria.</p>
+    <p><code>TRUE</code> or <code>FALSE</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>The <code>string</code> helpers differ slightly from what you may expect from base <strong>R</strong>
-as <code>NA_character_</code> is not considered a string. For example:</p>
+    <p>The <code>string</code> helpers differ slightly from what you <em>may</em> expect
+from base <strong>R</strong> as <code>NA_character_</code> is not considered a string.
+For example:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nzchar</a></span><span class="op">(</span><span class="cn">NA_character_</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="../reference/suppr-predicates.html">is.string</a></span><span class="op">(</span><span class="cn">NA_character_</span><span class="op">)</span></span>

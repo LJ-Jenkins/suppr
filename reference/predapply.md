@@ -32,7 +32,8 @@ predapply(X, FUN, ..., reduce = NULL, na.as = NA)
   `NULL` or one of `"all"`, `"any"`, or `"none"`. When non-`NULL`, the
   output logical vector is reduced to a single boolean value using
   [all](https://rdrr.io/r/base/all.html),
-  [any](https://rdrr.io/r/base/any.html) or `"none"` (`all(!logi)`).
+  [any](https://rdrr.io/r/base/any.html) or `"none"` (implemented as
+  `all(!logi)`).
 
 - na.as:
 

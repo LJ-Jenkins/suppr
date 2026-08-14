@@ -69,7 +69,7 @@ Other objects (including classed objects) will be coerced by
 <dt id="arg-reduce">reduce<a class="anchor" aria-label="anchor" href="#arg-reduce"></a></dt>
 <dd><p><code>NULL</code> or one of <code>"all"</code>, <code>"any"</code>, or <code>"none"</code>. When
 non-<code>NULL</code>, the output logical vector is reduced to a single boolean
-value using <a href="https://rdrr.io/r/base/all.html" class="external-link">all</a>, <a href="https://rdrr.io/r/base/any.html" class="external-link">any</a> or <code>"none"</code> (<code>all(!logi)</code>).</p></dd>
+value using <a href="https://rdrr.io/r/base/all.html" class="external-link">all</a>, <a href="https://rdrr.io/r/base/any.html" class="external-link">any</a> or <code>"none"</code> (implemented as <code>all(!logi)</code>).</p></dd>
 
 
 <dt id="arg-na-as">na.as<a class="anchor" aria-label="anchor" href="#arg-na-as"></a></dt>

@@ -1,6 +1,7 @@
 # Determine Repeated Elements
 
-Return a mask, indices, or values of repeated elements in a vector.
+Return a logical vector, indices, or the values of repeated elements in
+a vector.
 
 ## Usage
 
@@ -10,23 +11,14 @@ repeated(x, ...)
 # S3 method for class 'array'
 repeated(x, MARGIN = 1L, ...)
 
-# S3 method for class 'matrix'
-repeated(x, MARGIN = 1L, ...)
-
 whichRepeated(x, ...)
 
 # S3 method for class 'array'
 whichRepeated(x, MARGIN = 1L, ...)
 
-# S3 method for class 'matrix'
-whichRepeated(x, MARGIN = 1L, ...)
-
 repeats(x, ...)
 
 # S3 method for class 'array'
-repeats(x, MARGIN = 1L, ...)
-
-# S3 method for class 'matrix'
 repeats(x, MARGIN = 1L, ...)
 
 non.unique(x, ...)

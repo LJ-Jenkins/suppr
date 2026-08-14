@@ -117,6 +117,8 @@
 <li>
 <code><a href="reference/cat0.html">cat0()</a></code> - <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">base::cat()</a></code> with <code>sep = ""</code>.</li>
 <li>
+<code><a href="reference/grep-wrappers.html">grepf()</a></code>, <code><a href="reference/grep-wrappers.html">grepi()</a></code>, <code><a href="reference/grepl-wrappers.html">greplf()</a></code>, <code><a href="reference/grepl-wrappers.html">grepli()</a></code>, <code><a href="reference/grepv-wrappers.html">grepvf()</a></code>, <code><a href="reference/grepv-wrappers.html">grepvi()</a></code>, <code><a href="reference/sub-wrappers.html">subf()</a></code>, <code><a href="reference/sub-wrappers.html">subi()</a></code>, <code><a href="reference/sub-wrappers.html">gsubf()</a></code> and <code><a href="reference/sub-wrappers.html">gsubi()</a></code> - strongly typed variants of <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::grep()</a></code>, <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::grepl()</a></code>, <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::grepv()</a></code>, <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::sub()</a></code> and <code><a href="https://rdrr.io/r/base/grep.html" class="external-link">base::gsub()</a></code> for the common <code>fixed = TRUE</code> and <code>ignore.case = TRUE</code> cases.</li>
+<li>
 <code><a href="reference/anyZchar.html">anyZchar()</a></code> - returns the <code>1</code>-based index of the first zero character element if any, otherwise <code>0</code>.</li>
 <li>
 <code><a href="reference/anyZchar.html">anyWS()</a></code> - returns the <code>1</code>-based index of the first all whitespace element if any, otherwise <code>0</code>. Optionally, zero character elements can be treated as all whitespace.</li>
@@ -130,6 +132,10 @@
 <span><span class="co">#&gt; [1] "a, b and c."</span></span>
 <span><span class="fu"><a href="reference/cat0.html">cat0</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; abc</span></span>
+<span><span class="fu"><a href="reference/grepl-wrappers.html">greplf</a></span><span class="op">(</span><span class="st">"foo"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"foo"</span>, <span class="st">"Foo"</span>, <span class="st">"bar"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  TRUE FALSE FALSE</span></span>
+<span><span class="fu"><a href="reference/grepl-wrappers.html">grepli</a></span><span class="op">(</span><span class="st">"foo"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"foo"</span>, <span class="st">"Foo"</span>, <span class="st">"bar"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  TRUE  TRUE FALSE</span></span>
 <span><span class="fu"><a href="reference/anyZchar.html">anyZchar</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hi"</span>, <span class="st">"bye"</span>, <span class="st">" "</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 4</span></span>
 <span><span class="fu"><a href="reference/anyZchar.html">anyWS</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hi"</span>, <span class="st">"bye"</span>, <span class="st">" "</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
@@ -142,7 +148,7 @@
 <li>
 <code><a href="reference/suppr-dots.html">checkDots()</a></code> - version of <code><a href="https://rdrr.io/r/base/chkDots.html" class="external-link">base::chkDots()</a></code> that can error, not just warn.</li>
 <li>
-<code><a href="reference/suppr-dots.html">dotsNames()</a></code> - returns the names of <code>...</code> arguments, returning all <code>""</code> if unnamed (like <code><a href="https://rdrr.io/r/methods/methodUtilities.html" class="external-link">methods::allNames()</a></code>).</li>
+<code><a href="reference/suppr-dots.html">dotsNames()</a></code> - returns the names of <code>...</code> arguments, returning all <code>""</code> if unnamed (like <code><a href="https://rdrr.io/r/methods/methodUtilities.html" class="external-link">methods::allNames()</a></code> but without evaluating <code>...</code>).</li>
 <li>
 <code><a href="reference/suppr-dots.html">subDots()</a></code> - substitutes <code>...</code> arguments, returning a list of the substituted expressions.</li>
 <li>
@@ -367,7 +373,7 @@
 <li>
 <code><a href="reference/empty.list.html">empty.list()</a></code> - wrapper for <code>vector("list", length)</code> that returns an empty list of a given length.</li>
 <li>
-<code><a href="reference/supprHelpers.html">enumerate()</a></code> - returns a list of lists - one for each element of a vector, with the corresponding positional list containing the vector element, index and name.</li>
+<code><a href="reference/suppr-helpers.html">enumerate()</a></code> - returns a list of lists - one for each element of a vector, with the corresponding positional list containing the vector element, index and name.</li>
 <li>
 <code><a href="reference/libraries.html">libraries()</a></code> and <code><a href="reference/libraries.html">requires()</a></code> - wrappers for <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::library()</a></code> and <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::require()</a></code> that can load multiple packages at once, either from names, strings, or character vectors.</li>
 </ul>
@@ -380,7 +386,7 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[2]]</span></span>
 <span><span class="co">#&gt; NULL</span></span>
-<span><span class="fu"><a href="reference/supprHelpers.html">enumerate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, el <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/suppr-helpers.html">enumerate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, el <span class="op">=</span> <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
 <span><span class="co">#&gt; [[1]]$idx</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>

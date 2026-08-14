@@ -18,7 +18,7 @@ listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 
 - ...:
 
-  one or more R objects, to be converted to character vectors.
+  one or more **R** objects, to be converted to character vectors.
 
 - sep:
 
@@ -27,7 +27,7 @@ listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 
 - recurse:
 
-  [`logical`](https://rdrr.io/r/base/logical.html). If TRUE, collapse
+  [`logical`](https://rdrr.io/r/base/logical.html). If `TRUE`, collapse
   each argument separately first, before collapsing the results into a
   single string.
 
@@ -41,7 +41,7 @@ listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 
 - period:
 
-  [`logical`](https://rdrr.io/r/base/logical.html). If TRUE, append a
+  [`logical`](https://rdrr.io/r/base/logical.html). If `TRUE`, append a
   period to the end of the string.
 
 - quote:
@@ -60,7 +60,8 @@ a single character string.
 
 `collapse` and `collapse0` are simple wrappers for
 `paste0(..., collapse = sep)` and `paste(..., collapse = sep)`, with an
-option to collapse each argument separately first.
+option to collapse each argument separately first, before collapsing the
+results.
 
 ## See also
 

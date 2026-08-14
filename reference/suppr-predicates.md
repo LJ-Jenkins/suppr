@@ -26,13 +26,12 @@ nzstring(x)
 
 ## Value
 
-a single logical value indicating whether the object meets the specified
-criteria.
+`TRUE` or `FALSE`.
 
 ## Details
 
-The `string` helpers differ slightly from what you may expect from base
-**R** as `NA_character_` is not considered a string. For example:
+The `string` helpers differ slightly from what you *may* expect from
+base **R** as `NA_character_` is not considered a string. For example:
 
     nzchar(NA_character_)
     #> [1] TRUE

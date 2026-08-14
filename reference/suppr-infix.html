@@ -13,9 +13,10 @@ the right-hand side.
 are in the right-hand side.
 %onein% returns TRUE if exactly one element of the left-hand side is
 in the right-hand side.
-%notin% returns TRUE if none of the elements of the left-hand side
-are in the right-hand side. This is implemented in the same way as base R
-and will be replaced by the base version in the R versions that have it."><meta property="og:description" content="Infix operators for common tasks.
+%notin% returns TRUE for elements of the left-hand side
+that are not in the right-hand side. This is implemented in the same
+way as base R and will be replaced by the base version in the R
+versions that have it."><meta property="og:description" content="Infix operators for common tasks.
 %''% and %&quot;&quot;% return the right-hand side if the left-hand side is
 an empty string (&quot;&quot;).
 %!||% returns the right-hand side if the left-hand side is not
@@ -29,9 +30,10 @@ the right-hand side.
 are in the right-hand side.
 %onein% returns TRUE if exactly one element of the left-hand side is
 in the right-hand side.
-%notin% returns TRUE if none of the elements of the left-hand side
-are in the right-hand side. This is implemented in the same way as base R
-and will be replaced by the base version in the R versions that have it."><meta property="og:image" content="https://lj-jenkins.github.io/suppr/logo.png"></head><body>
+%notin% returns TRUE for elements of the left-hand side
+that are not in the right-hand side. This is implemented in the same
+way as base R and will be replaced by the base version in the R
+versions that have it."><meta property="og:image" content="https://lj-jenkins.github.io/suppr/logo.png"></head><body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
@@ -79,9 +81,10 @@ the right-hand side.</p>
 are in the right-hand side.</p>
 <p><code>%onein%</code> returns <code>TRUE</code> if exactly one element of the left-hand side is
 in the right-hand side.</p>
-<p><code>%notin%</code> returns <code>TRUE</code> if none of the elements of the left-hand side
-are in the right-hand side. This is implemented in the same way as base R
-and will be replaced by the base version in the R versions that have it.</p>
+<p><code>%notin%</code> returns <code>TRUE</code> for elements of the left-hand side
+that are not in the right-hand side. This is implemented in the same
+way as base <strong>R</strong> and will be replaced by the base version in the <strong>R</strong>
+versions that have it.</p>
     </div>
 
     <div class="section level2">
@@ -129,13 +132,17 @@ and will be replaced by the base version in the R versions that have it.</p>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>either the left-hand side or right-hand side, depending on
-the result of the operator.</p>
+    <p>For the non-<code>%*in%</code> operators, either the left-hand side or
+right-hand side, depending on the result of the operator.</p>
+<p>For <code>%allin%</code>, <code>%anyin%</code>, <code>%nonein%</code>, and <code>%onein%</code>
+a single logical value (or empty logical if <code>x</code> has length <code>0</code>) is
+returned. For <code>%notin%</code>, a logical vector of the same length as
+<code>x</code> is returned.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The <code>%*in%</code> operators follow the semantics of <code>%in%</code> for <code>NULL</code>
-values:</p><ul><li><p>Singular <code>NULL</code>'s on the lhs always returns a length 0 logical vector.</p></li>
+values:</p><ul><li><p>Singular <code>NULL</code>'s on the lhs always returns a length <code>0</code> logical vector.</p></li>
 <li><p><code>NULL</code> elements are not considered equal to singular <code>NULL</code>'s so will
 give a <code>TRUE</code> for <code>%nonein%</code> and <code>%notin%</code> and <code>FALSE</code> for <code>%allin%</code>,
 <code>%anyin%</code> and <code>%onein%</code>.</p></li>

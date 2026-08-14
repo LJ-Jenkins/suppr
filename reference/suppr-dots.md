@@ -1,7 +1,7 @@
-# Get `...` Arguments as Expressions/Character and Check for Extraneous Arguments
+# Process the `...` arguments of a function.
 
 `dotsNames` returns the names of the `...` arguments, or a character
-vector of empty strings if they are unnamed.
+vector of empty strings if they are unnamed (without evaluating `...`).
 
 `subDots` returns the `...` arguments as a list of expressions.
 
@@ -31,7 +31,7 @@ checkDots(..., error = TRUE, which.call = -1, allowed = character(0))
 
 - collapse:
 
-  a string, passed to [paste](https://rdrr.io/r/base/paste.html)`()`.
+  a string, passed to [paste](https://rdrr.io/r/base/paste.html).
 
 - width.cutoff:
 
@@ -45,8 +45,8 @@ checkDots(..., error = TRUE, which.call = -1, allowed = character(0))
 
 - which.call:
 
-  passed to [sys.call](https://rdrr.io/r/base/sys.parent.html)`()`. A
-  caller may use -2 if the message should mention its caller.
+  passed to [sys.call](https://rdrr.io/r/base/sys.parent.html). A caller
+  may use `-2` if the message should mention its caller.
 
 - allowed:
 

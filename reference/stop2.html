@@ -65,12 +65,12 @@ character (and which are pasted together with no separator).</p></dd>
 if the calling call should become part of the error message with same
 semantics as <a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a>. integer, specifying how many calls to go 'up'
 the call stack to extract a call for the error message. A value of
-<code>0</code> will give the call to <code><a href="stopifnot2.html">stopifnot2()</a></code> itself, <code>1</code> will give the
+<code>0</code> will give the call to <code>stop2()</code> itself, <code>1</code> will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
-call stack will be clamped to the boundary. environment, which will
-be matched against the calling stack and the corresponding call
-will be shown.</p></dd>
+call stack will be clamped to the nearest boundary. environment,
+which will be matched against the calling stack and the corresponding
+call will be shown.</p></dd>
 
 
 <dt id="arg-domain">domain<a class="anchor" aria-label="anchor" href="#arg-domain"></a></dt>

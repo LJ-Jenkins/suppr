@@ -70,6 +70,24 @@ c("a", "d") %notin% c("a", "b", "c")
   “and” or “or”.
 - [`cat0()`](https://lj-jenkins.github.io/suppr/reference/cat0.md) -
   [`base::cat()`](https://rdrr.io/r/base/cat.html) with `sep = ""`.
+- [`grepf()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md),
+  [`grepi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md),
+  [`greplf()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md),
+  [`grepli()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md),
+  [`grepvf()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md),
+  [`grepvi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md),
+  [`subf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md),
+  [`subi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md),
+  [`gsubf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+  and
+  [`gsubi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md) -
+  strongly typed variants of
+  [`base::grep()`](https://rdrr.io/r/base/grep.html),
+  [`base::grepl()`](https://rdrr.io/r/base/grep.html),
+  [`base::grepv()`](https://rdrr.io/r/base/grep.html),
+  [`base::sub()`](https://rdrr.io/r/base/grep.html) and
+  [`base::gsub()`](https://rdrr.io/r/base/grep.html) for the common
+  `fixed = TRUE` and `ignore.case = TRUE` cases.
 - [`anyZchar()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md) -
   returns the `1`-based index of the first zero character element if
   any, otherwise `0`.
@@ -88,6 +106,10 @@ listing(c("a", "b", "c"))
 #> [1] "a, b and c."
 cat0("a", "b", "c")
 #> abc
+greplf("foo", c("foo", "Foo", "bar"))
+#> [1]  TRUE FALSE FALSE
+grepli("foo", c("foo", "Foo", "bar"))
+#> [1]  TRUE  TRUE FALSE
 anyZchar(c("hi", "bye", " ", ""))
 #> [1] 4
 anyWS(c("hi", "bye", " ", ""))
@@ -102,7 +124,8 @@ anyWS(c("hi", "bye", " ", ""))
 - [`dotsNames()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
   returns the names of `...` arguments, returning all `""` if unnamed
   (like
-  [`methods::allNames()`](https://rdrr.io/r/methods/methodUtilities.html)).
+  [`methods::allNames()`](https://rdrr.io/r/methods/methodUtilities.html)
+  but without evaluating `...`).
 - [`subDots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md) -
   substitutes `...` arguments, returning a list of the substituted
   expressions.
@@ -377,7 +400,7 @@ rm.last(x, 3)
 - [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md) -
   wrapper for `vector("list", length)` that returns an empty list of a
   given length.
-- [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md) -
+- [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md) -
   returns a list of lists - one for each element of a vector, with the
   corresponding positional list containing the vector element, index and
   name.
@@ -473,20 +496,17 @@ By contributing to this project, you agree to abide by its terms.
 - [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md)
   : Create an Empty list of Given Length
 
-- [`grepi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
-  [`grepf()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
-  [`grepfi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
+- [`grepf()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
+  [`grepi()`](https://lj-jenkins.github.io/suppr/reference/grep-wrappers.md)
   : Pattern Matching
 
-- [`grepli()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
-  [`greplf()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
-  [`greplfi()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
+- [`greplf()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
+  [`grepli()`](https://lj-jenkins.github.io/suppr/reference/grepl-wrappers.md)
   : Pattern Matching
 
 - [`grepv()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
-  [`grepvi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
   [`grepvf()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
-  [`grepvfi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
+  [`grepvi()`](https://lj-jenkins.github.io/suppr/reference/grepv-wrappers.md)
   : Pattern Matching
 
 - [`is.datetype()`](https://lj-jenkins.github.io/suppr/reference/is.datetype.md)
@@ -498,7 +518,7 @@ By contributing to this project, you agree to abide by its terms.
 
 - [`is.even()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
   [`is.odd()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
-  : Is Number Even/Odd?
+  : Is a Number Even or Odd?
 
 - [`is.whole()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
   [`is.wholenumber()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
@@ -506,7 +526,7 @@ By contributing to this project, you agree to abide by its terms.
   : Are vectors whole or integer-like?
 
 - [`isVector()`](https://lj-jenkins.github.io/suppr/reference/isVector.md)
-  : Check if One of Given Vector Types
+  : Check if Any of Given Vector Types
 
 - [`libraries()`](https://lj-jenkins.github.io/suppr/reference/libraries.md)
   [`requires()`](https://lj-jenkins.github.io/suppr/reference/libraries.md)
@@ -552,12 +572,10 @@ By contributing to this project, you agree to abide by its terms.
   [`warningifnot()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md)
   : Ensure the Truth of R Expressions with Call Information
 
-- [`subi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`subf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`subfi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`gsubi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+- [`subf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+  [`subi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
   [`gsubf()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
-  [`gsubfi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
+  [`gsubi()`](https://lj-jenkins.github.io/suppr/reference/sub-wrappers.md)
   : Pattern Replacement Wrappers
 
 - [`dotsNames()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md)
@@ -566,8 +584,11 @@ By contributing to this project, you agree to abide by its terms.
   [`checkDots()`](https://lj-jenkins.github.io/suppr/reference/suppr-dots.md)
   :
 
-  Get `...` Arguments as Expressions/Character and Check for Extraneous
-  Arguments
+  Process the `...` arguments of a function.
+
+- [`dims()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+  [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md)
+  : Miscellaneous Helper Functions
 
 - [`` `%''%` ``](https://lj-jenkins.github.io/suppr/reference/suppr-infix.md)
   [`` `%""%` ``](https://lj-jenkins.github.io/suppr/reference/suppr-infix.md)
@@ -584,10 +605,6 @@ By contributing to this project, you agree to abide by its terms.
   [`is.string()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md)
   [`nzstring()`](https://lj-jenkins.github.io/suppr/reference/suppr-predicates.md)
   : Value Predicates for Common Object Types
-
-- [`dims()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md)
-  [`enumerate()`](https://lj-jenkins.github.io/suppr/reference/supprHelpers.md)
-  : Miscellaneous Helper Functions
 
 - [`whichMin()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)
   [`whichMax()`](https://lj-jenkins.github.io/suppr/reference/whichMin.md)

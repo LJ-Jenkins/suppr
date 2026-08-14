@@ -2,7 +2,8 @@
 
 Wrapper around
 [stopifnot2](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md)
-that evaluates R expressions in an environment constructed from `data`.
+that evaluates **R** expressions in an environment constructed from
+`data`.
 
 ## Usage
 
@@ -20,9 +21,9 @@ stopifnot.with(data, ..., call. = TRUE)
 
 - ...:
 
-  any number of R expressions, which should each evaluate to (a logical
-  vector of all) [TRUE](https://rdrr.io/r/base/logical.html). If named,
-  the names will be used in lieu of the default error message.
+  any number of **R** expressions, which should each evaluate to (a
+  logical vector of all) [TRUE](https://rdrr.io/r/base/logical.html). If
+  named, the names will be used in lieu of the default error message.
 
 - call.:
 
@@ -31,12 +32,12 @@ stopifnot.with(data, ..., call. = TRUE)
   semantics as [stop](https://rdrr.io/r/base/stop.html). integer,
   specifying how many calls to go 'up' the call stack to extract a call
   for the error message. A value of `0` will give the call to
-  [`stopifnot2()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md)
+  [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   itself, `1` will give the call of the caller, and so on. Numeric
   values are coerced to integer and absolute values are taken. Values
   outside either boundary of the call stack will be clamped to the
-  boundary. environment, which will be matched against the calling stack
-  and the corresponding call will be shown.
+  nearest boundary. environment, which will be matched against the
+  calling stack and the corresponding call will be shown.
 
 ## Details
 
