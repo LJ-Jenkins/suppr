@@ -36,6 +36,10 @@ test_that("is.nonfinite() errors on incorrect types", {
   )) {
     expect_error(is.nonfinite(tst))
   }
+
+  expect_snapshot(error = TRUE, {
+    is.nonfinite(tst)
+  })
 })
 
 test_that("is.nonfinite() works on POSIXlt objects", {

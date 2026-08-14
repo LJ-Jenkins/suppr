@@ -61,7 +61,7 @@ SEXP C_anyNF(SEXP x)
     }
     default:
         Rf_error("default method not implemented for type '%s'",
-                 R_typeToChar(x));
+                 Rf_type2char(TYPEOF(x)));
     }
 
     return Rf_ScalarInteger(0);

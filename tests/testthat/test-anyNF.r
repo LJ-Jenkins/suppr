@@ -33,6 +33,10 @@ test_that("anyNF() errors on incorrect types", {
   )) {
     expect_error(anyNF(tst))
   }
+
+  expect_snapshot(error = TRUE, {
+    anyNF(tst)
+  })
 })
 
 test_that("anyNF() works on POSIXlt objects", {

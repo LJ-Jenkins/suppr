@@ -63,7 +63,7 @@ SEXP C_is_nonfinite(SEXP x)
     }
     default:
         Rf_error("default method not implemented for type '%s'",
-                 R_typeToChar(x));
+                 Rf_type2char(TYPEOF(x)));
     }
 
     if (dims != R_NilValue)
