@@ -46,15 +46,15 @@ its rounded value is less than the given tolerance.
 Both `is.integerish()` and `is.whole()` ignore non-finite values (i.e.,
 treat them as integerish/whole) and only test finite values for
 integerishness or wholeness. If you do not want this behavior, use
-[anyNF](https://lj-jenkins.github.io/suppr/reference/anyNF.md), e.g.,
-`!anyNF(x) && is.whole(x)`.
+[anyNF](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md),
+e.g., `!anyNF(x) && is.whole(x)`.
 
 `is.wholenumber()` returns `NA` for non-finite elements.
 
 ## See also
 
 is.integerish,
-[anyNF](https://lj-jenkins.github.io/suppr/reference/anyNF.md)
+[anyNF](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)
 
 ## Examples
 

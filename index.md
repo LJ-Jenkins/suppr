@@ -292,7 +292,12 @@ whichMin(x, loc = "all")
 
 ##### NA’s
 
-- [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/anyNF.md) -
+- [`is.nonfinite()`](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)
+  (and alias
+  [`is.nf()`](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)) -
+  returns a logical vector indicating which elements are non-finite
+  (i.e., `NA`, `NaN`, `Inf` or `-Inf`).
+- [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md) -
   returns the `1`-based index of the first non-finite value if any,
   otherwise `0`.
 - [`whichNA()`](https://lj-jenkins.github.io/suppr/reference/whichNA.md) -
@@ -309,8 +314,10 @@ whichMin(x, loc = "all")
 
 ``` r
 
-anyNF(c(1, 2, 3, Inf))
-#> [1] 4
+is.nonfinite(c(1, 2, NA, Inf))
+#> [1] FALSE FALSE  TRUE  TRUE
+anyNF(c(1, 2, NA, Inf))
+#> [1] 3
 whichNA(c(1, 2, NA, Inf))
 #> [1] 3
 x <- c(1, 2, 3, 4)

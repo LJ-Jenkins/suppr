@@ -5,9 +5,6 @@
 - [`addClass()`](https://lj-jenkins.github.io/suppr/reference/addClass.md)
   : Add a Class to an Object
 
-- [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/anyNF.md) :
-  Are any non-finite values present?
-
 - [`anyZchar()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
   [`anyWS()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
   : Are any zero char or all whitespace elements present?
@@ -49,6 +46,11 @@
 - [`is.even()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
   [`is.odd()`](https://lj-jenkins.github.io/suppr/reference/is.even.md)
   : Is a Number Even or Odd?
+
+- [`is.nonfinite()`](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)
+  [`is.nf()`](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)
+  [`anyNF()`](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)
+  : Are non-finite values present?
 
 - [`is.whole()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)
   [`is.wholenumber()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md)

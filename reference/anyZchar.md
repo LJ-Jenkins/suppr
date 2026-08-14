@@ -51,7 +51,7 @@ character.
 
 [nzchar](https://rdrr.io/r/base/nchar.html),
 [trimws](https://rdrr.io/r/base/trimws.html),
-[anyNF](https://lj-jenkins.github.io/suppr/reference/anyNF.md)
+[anyNF](https://lj-jenkins.github.io/suppr/reference/is.nonfinite.md)
 
 ## Examples
 
