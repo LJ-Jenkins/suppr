@@ -45,7 +45,8 @@ For \code{checkDots}, \code{NULL} (invisibly), called for its side effects.
 }
 \description{
 \code{dotsNames} returns the names of the \code{...} arguments, or a character
-vector of empty strings if they are unnamed.
+vector of empty strings if they are unnamed (without evaluating
+\code{...}).
 
 \code{subDots} returns the \code{...} arguments as a list of expressions.
 

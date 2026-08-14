@@ -95,7 +95,8 @@ anyWS(c("hi", "bye", " ", ""))
 - `checkDots()` - version of `base::chkDots()` that can error, not just
   warn.
 - `dotsNames()` - returns the names of `...` arguments, returning all
-  `""` if unnamed (like `methods::allNames()`).
+  `""` if unnamed (like `methods::allNames()` but without evaluating
+  `...`).
 - `subDots()` - substitutes `...` arguments, returning a list of the
   substituted expressions.
 - `dp1Dots()` - substitutes `...` arguments, before applying

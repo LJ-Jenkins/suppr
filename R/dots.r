@@ -2,7 +2,8 @@
 #' Extraneous Arguments
 #' @description
 #' `dotsNames` returns the names of the `...` arguments, or a character
-#' vector of empty strings if they are unnamed.
+#' vector of empty strings if they are unnamed (without evaluating
+#' `...`).
 #'
 #' `subDots` returns the `...` arguments as a list of expressions.
 #'
