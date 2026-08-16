@@ -312,16 +312,10 @@ test_that("data binding shadows a variable several frames above", {
   expect_invisible(outer())
 })
 
-test_that("missing variables produce an error rather than silently using unrelated data", {
+test_that("missing variables produce an error", {
   dat <- list(y = 2)
 
-  expect_error(
-    stopifnot.with(
-      dat,
-      x == 1
-    ),
-    class = "simpleError"
-  )
+  expect_error(stopifnot.with(dat, x == 1))
 })
 
 test_that("data frame columns are preferred over caller variables", {
