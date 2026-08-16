@@ -94,7 +94,6 @@
 
 - [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   [`warning2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
-  [`message2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   : Display Messages with Call Information
 
 - [`stopifnot.with()`](https://lj-jenkins.github.io/suppr/reference/stopifnot.with.md)

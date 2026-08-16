@@ -60,13 +60,14 @@ is.Date(b)
 is.Date(c)
 #> [1] FALSE
 
-is.Date(as.POSIXct(123))
+is.Date(as.POSIXct(a))
 #> [1] FALSE
-is.Date(as.POSIXlt(123))
-#> [1] FALSE
-
-is.datetype(as.POSIXct(123))
+is.POSIXt(as.POSIXct(a))
 #> [1] TRUE
-is.datetype(as.POSIXlt(123))
+is.POSIXct(as.POSIXct(a))
+#> [1] TRUE
+is.POSIXlt(as.POSIXct(a))
+#> [1] FALSE
+is.datetype(as.POSIXct(a))
 #> [1] TRUE
 ```

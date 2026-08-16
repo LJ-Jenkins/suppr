@@ -1,8 +1,7 @@
 # Display Messages with Call Information
 
-Wrappers around [stop](https://rdrr.io/r/base/stop.html),
-[warning](https://rdrr.io/r/base/warning.html), and
-[message](https://rdrr.io/r/base/message.html) that enable the `call.`
+Wrappers around [stop](https://rdrr.io/r/base/stop.html) and
+[warning](https://rdrr.io/r/base/warning.html) that enable the `call.`
 argument to derive a call from the stack.
 
 ## Usage
@@ -11,8 +10,6 @@ argument to derive a call from the stack.
 stop2(..., call. = TRUE, domain = NULL)
 
 warning2(..., call. = TRUE, domain = NULL)
-
-message2(..., call. = TRUE, domain = NULL, appendLF = TRUE)
 ```
 
 ## Arguments
@@ -28,7 +25,7 @@ message2(..., call. = TRUE, domain = NULL, appendLF = TRUE)
   calling call should become part of the error message with same
   semantics as [stop](https://rdrr.io/r/base/stop.html). integer,
   specifying how many calls to go 'up' the call stack to extract a call
-  for the error message. A value of `0` will give the call to `stop2()`
+  for the message. A value of `0` will give the call to `stop2()`
   itself, `1` will give the call of the caller, and so on. Numeric
   values are coerced to integer and absolute values are taken. Values
   outside either boundary of the call stack will be clamped to the
@@ -39,11 +36,6 @@ message2(..., call. = TRUE, domain = NULL, appendLF = TRUE)
 
   see [gettext](https://rdrr.io/r/base/gettext.html). If `NA`, messages
   will not be translated.
-
-- appendLF:
-
-  logical: should messages given as a character string have a newline
-  appended?
 
 ## Value
 
@@ -61,9 +53,8 @@ If a condition object is given as the first argument, it will be treated
 in the same way as the base functions do, by warning that other
 arguments will be ignored and then signalling the condition.
 
-See [stop](https://rdrr.io/r/base/stop.html),
-[warning](https://rdrr.io/r/base/warning.html) and
-[message](https://rdrr.io/r/base/message.html) for full details.
+See [stop](https://rdrr.io/r/base/stop.html) and
+[warning](https://rdrr.io/r/base/warning.html) for full details.
 
 ## See also
 
@@ -98,4 +89,8 @@ f <- function() {
 
 try(f())
 #> Error in f() : error
+
+f1 <- function(call.) warning2("warning", call. = call.)
+try(f())
+#> Warning: warning
 ```

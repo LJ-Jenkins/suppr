@@ -160,13 +160,11 @@ f(dp1Dots, x = a + b, y = a * b)
   matches function argument input to a list of valid values, not just
   strings like
   [`base::match.arg()`](https://rdrr.io/r/base/match.arg.html).
-- [`message2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md),
-  [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md),
+- [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md),
   [`warning2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   and
   [`stopifnot2()`](https://lj-jenkins.github.io/suppr/reference/stopifnot2.md) -
-  wrappers for [`base::message()`](https://rdrr.io/r/base/message.html),
-  [`base::stop()`](https://rdrr.io/r/base/stop.html),
+  wrappers for [`base::stop()`](https://rdrr.io/r/base/stop.html),
   [`base::warning()`](https://rdrr.io/r/base/warning.html) and
   [`base::stopifnot()`](https://rdrr.io/r/base/stopifnot.html) that
   enable the inclusion of any call on the stack in the error message via
@@ -584,7 +582,6 @@ By contributing to this project, you agree to abide by its terms.
 
 - [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   [`warning2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
-  [`message2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   : Display Messages with Call Information
 
 - [`stopifnot.with()`](https://lj-jenkins.github.io/suppr/reference/stopifnot.with.md)

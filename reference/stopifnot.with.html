@@ -64,7 +64,7 @@ in lieu of the default error message.</p></dd>
 <dd><p>call, logical, integer, or environment. logical, indicating
 if the calling call should become part of the error message with same
 semantics as <a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a>. integer, specifying how many calls to go 'up'
-the call stack to extract a call for the error message. A value of
+the call stack to extract a call for the message. A value of
 <code>0</code> will give the call to <code><a href="stop2.html">stop2()</a></code> itself, <code>1</code> will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
@@ -79,13 +79,13 @@ call will be shown.</p></dd>
 producing an error message indicating the first expression which
 was not (<a href="https://rdrr.io/r/base/all.html" class="external-link">all</a>) true. See <a href="https://rdrr.io/r/base/stopifnot.html" class="external-link">stopifnot</a> and <a href="stopifnot2.html">stopifnot2</a> for full details.</p>
 <p>Special care must be taken for handlers on the call stack, as they
-may affect the call displayed in the error or warning message. In
+may affect the call displayed in the error message. In
 such instances, passing an environment to <code>call.</code> may be helpful.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="stop2.html">stop2</a>, <a href="stop2.html">warning2</a> and <a href="stop2.html">message2</a> for errors, warnings and
-messages with call information.</p></div>
+    <div class="dont-index"><p><a href="stop2.html">stop2</a> and <a href="stop2.html">warning2</a> for errors and warnings
+with call information.</p></div>
     </div>
 
     <div class="section level2">

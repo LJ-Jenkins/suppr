@@ -31,7 +31,7 @@ stopifnot.with(data, ..., call. = TRUE)
   calling call should become part of the error message with same
   semantics as [stop](https://rdrr.io/r/base/stop.html). integer,
   specifying how many calls to go 'up' the call stack to extract a call
-  for the error message. A value of `0` will give the call to
+  for the message. A value of `0` will give the call to
   [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   itself, `1` will give the call of the caller, and so on. Numeric
   values are coerced to integer and absolute values are taken. Values
@@ -50,15 +50,14 @@ error message indicating the first expression which was not
 for full details.
 
 Special care must be taken for handlers on the call stack, as they may
-affect the call displayed in the error or warning message. In such
-instances, passing an environment to `call.` may be helpful.
+affect the call displayed in the error message. In such instances,
+passing an environment to `call.` may be helpful.
 
 ## See also
 
-[stop2](https://lj-jenkins.github.io/suppr/reference/stop2.md),
-[warning2](https://lj-jenkins.github.io/suppr/reference/stop2.md) and
-[message2](https://lj-jenkins.github.io/suppr/reference/stop2.md) for
-errors, warnings and messages with call information.
+[stop2](https://lj-jenkins.github.io/suppr/reference/stop2.md) and
+[warning2](https://lj-jenkins.github.io/suppr/reference/stop2.md) for
+errors and warnings with call information.
 
 ## Examples
 

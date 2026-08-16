@@ -2,7 +2,7 @@
 
 Wrapper around [stopifnot](https://rdrr.io/r/base/stopifnot.html) that
 leaves only the `...` argument and adds a `call.` argument that shows a
-call in the error message that is derived from the call stack.
+call in the message that is derived from the call stack.
 `warningifnot()` implements the same functionality but produces a
 warning instead of an error.
 
@@ -21,7 +21,7 @@ warningifnot(..., warn.all = FALSE, call. = TRUE)
   any number of **R** expressions, which should each evaluate to (a
   logical vector of [all](https://rdrr.io/r/base/all.html))
   [TRUE](https://rdrr.io/r/base/logical.html). If named, the names will
-  be used in lieu of the default error message.
+  be used in lieu of the default error/warning message.
 
 - call.:
 
@@ -29,7 +29,7 @@ warningifnot(..., warn.all = FALSE, call. = TRUE)
   calling call should become part of the error message with same
   semantics as [stop](https://rdrr.io/r/base/stop.html). integer,
   specifying how many calls to go 'up' the call stack to extract a call
-  for the error message. A value of `0` will give the call to
+  for the message. A value of `0` will give the call to
   [`stop2()`](https://lj-jenkins.github.io/suppr/reference/stop2.md)
   itself, `1` will give the call of the caller, and so on. Numeric
   values are coerced to integer and absolute values are taken. Values
