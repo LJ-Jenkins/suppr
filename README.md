@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/LJ-Jenkins/suppr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LJ-Jenkins/suppr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Supplementary utilities and extensions to `R` that are idiomatic in
