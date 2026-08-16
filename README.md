@@ -135,10 +135,10 @@ f(dp1Dots, x = a + b, y = a * b)
 
 - `match.argv()` - matches function argument input to a list of valid
   values, not just strings like `base::match.arg()`.
-- `message2()`, `stop2()`, `warning2()` and `stopifnot2()` - wrappers
-  for `base::message()`, `base::stop()`, `base::warning()` and
-  `base::stopifnot()` that enable the inclusion of any call on the stack
-  in the error message via a more flexible `call.` argument.
+- `stop2()`, `warning2()` and `stopifnot2()` - wrappers for
+  `base::stop()`, `base::warning()` and `base::stopifnot()` that enable
+  the inclusion of any call on the stack in the error message via a more
+  flexible `call.` argument.
 - `warningifnot()` - a wrapper for `stopifnot2()` that produces a
   warning instead of an error.
 - `stopifnot.with()` - a wrapper for `stopifnot2()` that evaluates

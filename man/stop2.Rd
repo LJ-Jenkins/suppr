@@ -3,14 +3,11 @@
 \name{stop2}
 \alias{stop2}
 \alias{warning2}
-\alias{message2}
 \title{Display Messages with Call Information}
 \usage{
 stop2(..., call. = TRUE, domain = NULL)
 
 warning2(..., call. = TRUE, domain = NULL)
-
-message2(..., call. = TRUE, domain = NULL, appendLF = TRUE)
 }
 \arguments{
 \item{...}{zero or more objects which can be coerced to
@@ -19,7 +16,7 @@ character (and which are pasted together with no separator).}
 \item{call.}{call, logical, integer, or environment. logical, indicating
 if the calling call should become part of the error message with same
 semantics as \link{stop}. integer, specifying how many calls to go 'up'
-the call stack to extract a call for the error message. A value of
+the call stack to extract a call for the message. A value of
 \code{0} will give the call to \code{stop2()} itself, \code{1} will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
@@ -28,15 +25,12 @@ which will be matched against the calling stack and the corresponding
 call will be shown.}
 
 \item{domain}{see \link{gettext}. If \code{NA}, messages will not be translated.}
-
-\item{appendLF}{logical: should messages given as a character
-string have a newline appended?}
 }
 \value{
 Called for side effects only.
 }
 \description{
-Wrappers around \link{stop}, \link{warning}, and \link{message} that
+Wrappers around \link{stop} and \link{warning} that
 enable the \code{call.} argument to derive a call from the
 stack.
 }
@@ -49,7 +43,7 @@ If a condition object is given as the first argument, it will be
 treated in the same way as the base functions do, by warning that
 other arguments will be ignored and then signalling the condition.
 
-See \link{stop}, \link{warning} and \link{message} for full details.
+See \link{stop} and \link{warning} for full details.
 }
 \examples{
 f1 <- function(call.) stop2("error", call. = call.)
@@ -68,6 +62,9 @@ f <- function() {
   f1(call. = e)
 }
 
+try(f())
+
+f1 <- function(call.) warning2("warning", call. = call.)
 try(f())
 }
 \seealso{

@@ -48,11 +48,11 @@ is.Date(a)
 is.Date(b)
 is.Date(c)
 
-is.Date(as.POSIXct(123))
-is.Date(as.POSIXlt(123))
-
-is.datetype(as.POSIXct(123))
-is.datetype(as.POSIXlt(123))
+is.Date(as.POSIXct(a))
+is.POSIXt(as.POSIXct(a))
+is.POSIXct(as.POSIXct(a))
+is.POSIXlt(as.POSIXct(a))
+is.datetype(as.POSIXct(a))
 }
 \seealso{
 \link{as.Date}, \link{as.POSIXct}, \link{as.POSIXlt}.

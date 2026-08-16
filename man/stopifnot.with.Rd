@@ -18,7 +18,7 @@ in lieu of the default error message.}
 \item{call.}{call, logical, integer, or environment. logical, indicating
 if the calling call should become part of the error message with same
 semantics as \link{stop}. integer, specifying how many calls to go 'up'
-the call stack to extract a call for the error message. A value of
+the call stack to extract a call for the message. A value of
 \code{0} will give the call to \code{stop2()} itself, \code{1} will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
@@ -36,7 +36,7 @@ producing an error message indicating the first expression which
 was not (\link{all}) true. See \link{stopifnot} and \link{stopifnot2} for full details.
 
 Special care must be taken for handlers on the call stack, as they
-may affect the call displayed in the error or warning message. In
+may affect the call displayed in the error message. In
 such instances, passing an environment to \code{call.} may be helpful.
 }
 \examples{
@@ -63,6 +63,6 @@ f <- function(x, ...) {
 try(f(x, a == 1, b < 1))
 }
 \seealso{
-\link{stop2}, \link{warning2} and \link{message2} for errors, warnings and
-messages with call information.
+\link{stop2} and \link{warning2} for errors and warnings
+with call information.
 }

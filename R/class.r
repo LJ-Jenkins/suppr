@@ -107,11 +107,11 @@ isVector <- function(x, mode = "any") {
 #' is.Date(b)
 #' is.Date(c)
 #'
-#' is.Date(as.POSIXct(123))
-#' is.Date(as.POSIXlt(123))
-#'
-#' is.datetype(as.POSIXct(123))
-#' is.datetype(as.POSIXlt(123))
+#' is.Date(as.POSIXct(a))
+#' is.POSIXt(as.POSIXct(a))
+#' is.POSIXct(as.POSIXct(a))
+#' is.POSIXlt(as.POSIXct(a))
+#' is.datetype(as.POSIXct(a))
 #' @export
 is.datetype <- function(x) {
   inherits(x, c("Date", "POSIXt"))

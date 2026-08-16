@@ -12,12 +12,12 @@ warningifnot(..., warn.all = FALSE, call. = TRUE)
 \arguments{
 \item{...}{any number of \strong{R} expressions, which should each evaluate
 to (a logical vector of \link{all}) \link{TRUE}. If named, the names will be used
-in lieu of the default error message.}
+in lieu of the default error/warning message.}
 
 \item{call.}{call, logical, integer, or environment. logical, indicating
 if the calling call should become part of the error message with same
 semantics as \link{stop}. integer, specifying how many calls to go 'up'
-the call stack to extract a call for the error message. A value of
+the call stack to extract a call for the message. A value of
 \code{0} will give the call to \code{stop2()} itself, \code{1} will give the
 call of the caller, and so on. Numeric values are coerced to integer
 and absolute values are taken. Values outside either boundary of the
@@ -34,7 +34,7 @@ Called for side effects only.
 }
 \description{
 Wrapper around \link{stopifnot} that leaves only the \code{...} argument and
-adds a \code{call.} argument that shows a call in the error message that
+adds a \code{call.} argument that shows a call in the message that
 is derived from the call stack. \code{warningifnot()} implements the same
 functionality but produces a warning instead of an error.
 }

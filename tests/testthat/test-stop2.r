@@ -19,25 +19,6 @@ test_that("warning2() creates simpleWarning conditions", {
   expect_identical(conditionMessage(warn), "hello")
 })
 
-
-test_that("message2() creates simpleMessage conditions", {
-  msg <- rlang::catch_cnd(
-    message2("hello"),
-    "message"
-  )
-
-  expect_true(inherits(msg, "simpleMessage"))
-  expect_identical(conditionMessage(msg), "hello\n")
-
-  msg <- rlang::catch_cnd(
-    message2("hello", appendLF = FALSE),
-    "message"
-  )
-
-  expect_identical(conditionMessage(msg), "hello")
-})
-
-
 test_that("multiple arguments are pasted together", {
   err <- rlang::catch_cnd(
     stop2("hello", " ", "world"),
@@ -72,14 +53,8 @@ test_that("call. = FALSE removes calls", {
     "warning"
   )
 
-  msg <- rlang::catch_cnd(
-    message2("failure", call. = FALSE),
-    "message"
-  )
-
   expect_null(conditionCall(err))
   expect_null(conditionCall(warn))
-  expect_null(conditionCall(msg))
 })
 
 
@@ -98,20 +73,11 @@ test_that("call. = TRUE captures the caller", {
     )
   }
 
-  helper_message <- function() {
-    rlang::catch_cnd(
-      message2("failure", call. = TRUE),
-      "message"
-    )
-  }
-
   err <- helper_error()
   warn <- helper_warning()
-  msg <- helper_message()
 
   expect_identical(conditionCall(err)[[1]], quote(helper_error))
   expect_identical(conditionCall(warn)[[1]], quote(helper_warning))
-  expect_identical(conditionCall(msg)[[1]], quote(helper_message))
 })
 
 
@@ -126,36 +92,26 @@ test_that("numeric call. = 0 identifies the wrapper", {
     "warning"
   )
 
-  msg <- rlang::catch_cnd(
-    message2("failure", call. = 0),
-    "message"
-  )
-
   expect_identical(conditionCall(err)[[1]], quote(stop2))
   expect_identical(conditionCall(warn)[[1]], quote(warning2))
-  expect_identical(conditionCall(msg)[[1]], quote(message2))
 })
 
 
 test_that("numeric call. = 1 identifies caller", {
   err <- tryCatch(stop2(call. = 1), error = function(x) x)
   warn <- tryCatch(warning2(call. = 1), warning = function(x) x)
-  msg <- tryCatch(message2(call. = 1), message = function(x) x)
 
   expect_identical(conditionCall(err)[[1]], quote(doTryCatch))
   expect_identical(conditionCall(warn)[[1]], quote(doTryCatch))
-  expect_identical(conditionCall(msg)[[1]], quote(doTryCatch))
 })
 
 
 test_that("negative numeric call values use absolute value", {
   err <- tryCatch(stop2(call. = -1), error = function(x) x)
   warn <- tryCatch(warning2(call. = -1), warning = function(x) x)
-  msg <- tryCatch(message2(call. = -1), message = function(x) x)
 
   expect_identical(conditionCall(err)[[1]], quote(doTryCatch))
   expect_identical(conditionCall(warn)[[1]], quote(doTryCatch))
-  expect_identical(conditionCall(msg)[[1]], quote(doTryCatch))
 })
 
 
@@ -163,11 +119,9 @@ test_that("fractional numeric call values are coerced", {
   # 1.5 -> as.integer() -> 1
   err <- tryCatch(stop2(call. = 1.5), error = function(x) x)
   warn <- tryCatch(warning2(call. = 1.5), warning = function(x) x)
-  msg <- tryCatch(message2(call. = 1.5), message = function(x) x)
 
   expect_identical(conditionCall(err)[[1]], quote(doTryCatch))
   expect_identical(conditionCall(warn)[[1]], quote(doTryCatch))
-  expect_identical(conditionCall(msg)[[1]], quote(doTryCatch))
 })
 
 
@@ -193,14 +147,8 @@ test_that("explicit calls are accepted", {
     "warning"
   )
 
-  msg <- rlang::catch_cnd(
-    message2("failure", call. = quote(baz())),
-    "message"
-  )
-
   expect_identical(conditionCall(err), quote(foo()))
   expect_identical(conditionCall(warn), quote(bar()))
-  expect_identical(conditionCall(msg), quote(baz()))
 })
 
 
@@ -231,11 +179,6 @@ test_that("invalid call. inputs error", {
     warning2("failure", call. = c(1, 2)),
     regexp = "Numeric `call\\.` inputs must be scalar non-NA"
   )
-
-  expect_error(
-    message2("failure", call. = "wrong"),
-    regexp = "`call\\.` must be either a call, an integer, an environment, or TRUE/FALSE"
-  )
 })
 
 
@@ -254,14 +197,6 @@ test_that("condition objects are passed through", {
     expect_warning(warning2(warn)),
     regexp = "existing warning"
   )
-
-
-  msg <- simpleMessage("existing message")
-
-  expect_message(
-    expect_message(message2(msg)),
-    regexp = "existing message"
-  )
 })
 
 
@@ -278,13 +213,6 @@ test_that("condition object ignores additional arguments", {
   expect_warning(
     warning2(warn, "ignored"),
     regexp = "existing warning"
-  )
-
-  msg <- simpleMessage("existing message")
-
-  expect_message(
-    message2(msg, "ignored"),
-    regexp = "existing message"
   )
 })
 

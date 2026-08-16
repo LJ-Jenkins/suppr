@@ -1,12 +1,12 @@
 #' @title Ensure the Truth of R Expressions with Call Information
 #' @description
 #' Wrapper around [stopifnot] that leaves only the `...` argument and
-#' adds a `call.` argument that shows a call in the error message that
+#' adds a `call.` argument that shows a call in the message that
 #' is derived from the call stack. `warningifnot()` implements the same
 #' functionality but produces a warning instead of an error.
 #' @param ... any number of **R** expressions, which should each evaluate
 #' to (a logical vector of [all]) [TRUE]. If named, the names will be used
-#' in lieu of the default error message.
+#' in lieu of the default error/warning message.
 #' @inheritParams stop2 call.
 #' @param warn.all logical, indicating if all failed expressions should produce
 #' warnings, or only the first failed expression. Default is `FALSE`,
@@ -169,10 +169,10 @@ warningifnot <- function(..., warn.all = FALSE, call. = TRUE) {
 #' was not ([all]) true. See [stopifnot] and [stopifnot2] for full details.
 #'
 #' Special care must be taken for handlers on the call stack, as they
-#' may affect the call displayed in the error or warning message. In
+#' may affect the call displayed in the error message. In
 #' such instances, passing an environment to `call.` may be helpful.
-#' @seealso [stop2], [warning2] and [message2] for errors, warnings and
-#' messages with call information.
+#' @seealso [stop2] and [warning2] for errors and warnings
+#' with call information.
 #' @examples
 #' try(stopifnot.with(data.frame(x = 1, y = 2), x == y))
 #' try(stopifnot.with(list(x = 1, y = 2), all.equal(x, y)))
