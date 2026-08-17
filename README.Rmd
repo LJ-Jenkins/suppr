@@ -25,7 +25,13 @@ Supplementary utilities and extensions to `R` that are idiomatic in style.
 
 ## Installation
 
-You can install the development version of suppr like so:
+Install the latest release of suppr from CRAN:
+
+```{r, eval = FALSE}
+install.packages("suppr")
+```
+
+You can install the development version of suppr from GitHub:
 
 ```{r, eval = FALSE}
 # install.packages("pak")
