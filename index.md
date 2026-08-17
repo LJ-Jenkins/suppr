@@ -15,11 +15,11 @@ pak::pak("LJ-Jenkins/suppr")
 
 ## Reference
 
-suppr provides a range of miscellaneous supplementary functions, some of
-which are very simple wrappers to save some keystrokes, others address
-common tasks, and others provide new functionality to suppr versions of
-an existing `R` functions. All are intended to be idiomatic to `R`, as
-if they were part of the base `R` packages.
+suppr provides miscellaneous supplementary functions for `R`: some are
+simple wrappers that save a few keystrokes, others address common tasks,
+and others provide new functionality through suppr versions of existing
+`R` functions. All are intended to be idiomatic `R`, as if they were
+part of the base R packages.
 
 Much of suppr is directly amended from the `R` source code - all credit
 to the authors for their great work!
@@ -346,7 +346,8 @@ na.refill(x)
   and
   [`is.wholenumber()`](https://lj-jenkins.github.io/suppr/reference/is.whole.md) -
   returns a single `TRUE`/`FALSE`, or a logical vector, if elements are
-  all whole numbers or not, respectively.
+  all whole numbers or not (according to an input tolerance),
+  respectively.
 
 ``` r
 
@@ -403,8 +404,8 @@ rm.last(x, 3)
   logical vector. Option to reduce the output to a single `TRUE` or
   `FALSE` value.
 - [`empty.list()`](https://lj-jenkins.github.io/suppr/reference/empty.list.md) -
-  wrapper for `vector("list", length)` that returns an empty list of a
-  given length.
+  wrapper for `base::vector("list", length)` that returns an empty list
+  of a given length.
 - [`path()`](https://lj-jenkins.github.io/suppr/reference/suppr-helpers.md) -
   wrapper for
   [`base::file.path()`](https://rdrr.io/r/base/file.path.html) and

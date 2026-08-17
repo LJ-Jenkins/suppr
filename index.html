@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Supplementary Idiomatic R Utilities and Extensions">
-<meta name="description" content="Supplementary utilities and extensions to R that are idiomatic in style and function.">
-<meta property="og:description" content="Supplementary utilities and extensions to R that are idiomatic in style and function.">
+<meta name="description" content="Miscellaneous idiomatic utilities and extensions for R.">
+<meta property="og:description" content="Miscellaneous idiomatic utilities and extensions for R.">
 <meta property="og:image" content="https://lj-jenkins.github.io/suppr/logo.png">
 </head>
 <body>
@@ -71,7 +71,7 @@
 <div class="section level2">
 <h2 id="reference">Reference<a class="anchor" aria-label="anchor" href="#reference"></a>
 </h2>
-<p>suppr provides a range of miscellaneous supplementary functions, some of which are very simple wrappers to save some keystrokes, others address common tasks, and others provide new functionality to suppr versions of an existing <code>R</code> functions. All are intended to be idiomatic to <code>R</code>, as if they were part of the base <code>R</code> packages.</p>
+<p>suppr provides miscellaneous supplementary functions for <code>R</code>: some are simple wrappers that save a few keystrokes, others address common tasks, and others provide new functionality through suppr versions of existing <code>R</code> functions. All are intended to be idiomatic <code>R</code>, as if they were part of the base R packages.</p>
 <p>Much of suppr is directly amended from the <code>R</code> source code - all credit to the authors for their great work!</p>
 <div class="section level4">
 <h4 id="infix-operators">Infix Operators<a class="anchor" aria-label="anchor" href="#infix-operators"></a>
@@ -323,7 +323,7 @@
 <li>
 <code><a href="reference/is.whole.html">is.integerish()</a></code> - returns <code>TRUE</code> if elements are all ‘integerish’ or <code>FALSE</code> if not.</li>
 <li>
-<code><a href="reference/is.whole.html">is.whole()</a></code> and <code><a href="reference/is.whole.html">is.wholenumber()</a></code> - returns a single <code>TRUE</code>/<code>FALSE</code>, or a logical vector, if elements are all whole numbers or not, respectively.</li>
+<code><a href="reference/is.whole.html">is.whole()</a></code> and <code><a href="reference/is.whole.html">is.wholenumber()</a></code> - returns a single <code>TRUE</code>/<code>FALSE</code>, or a logical vector, if elements are all whole numbers or not (according to an input tolerance), respectively.</li>
 </ul>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/is.whole.html">is.integerish</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.000000001</span><span class="op">)</span><span class="op">)</span></span>
@@ -375,7 +375,7 @@
 <li>
 <code><a href="reference/predapply.html">predapply()</a></code> - applies a predicate function to each element of a vector, returning a logical vector. Option to reduce the output to a single <code>TRUE</code> or <code>FALSE</code> value.</li>
 <li>
-<code><a href="reference/empty.list.html">empty.list()</a></code> - wrapper for <code>vector("list", length)</code> that returns an empty list of a given length.</li>
+<code><a href="reference/empty.list.html">empty.list()</a></code> - wrapper for <code>base::vector("list", length)</code> that returns an empty list of a given length.</li>
 <li>
 <code><a href="reference/suppr-helpers.html">path()</a></code> - wrapper for <code><a href="https://rdrr.io/r/base/file.path.html" class="external-link">base::file.path()</a></code> and <code><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">base::normalizePath()</a></code>. Option to specify if the path is on a shared drive, prepending <code>.Platform$file.sep</code> if so.</li>
 <li>

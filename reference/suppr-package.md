@@ -1,7 +1,6 @@
 # suppr: Supplementary Idiomatic 'R' Utilities and Extensions
 
-Supplementary utilities and extensions to 'R' that are idiomatic in
-style and function.
+Miscellaneous idiomatic utilities and extensions for 'R'.
 
 ## See also
 
