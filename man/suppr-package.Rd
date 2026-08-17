@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Supplementary utilities and extensions to 'R' that are idiomatic in style and function.
+Miscellaneous idiomatic utilities and extensions for 'R'.
 }
 \seealso{
 Useful links:

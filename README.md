@@ -22,11 +22,11 @@ pak::pak("LJ-Jenkins/suppr")
 
 ## Reference
 
-suppr provides a range of miscellaneous supplementary functions, some of
-which are very simple wrappers to save some keystrokes, others address
-common tasks, and others provide new functionality to suppr versions of
-an existing `R` functions. All are intended to be idiomatic to `R`, as
-if they were part of the base `R` packages.
+suppr provides miscellaneous supplementary functions for `R`: some are
+simple wrappers that save a few keystrokes, others address common tasks,
+and others provide new functionality through suppr versions of existing
+`R` functions. All are intended to be idiomatic `R`, as if they were
+part of the base R packages.
 
 Much of suppr is directly amended from the `R` source code - all credit
 to the authors for their great work!
@@ -280,8 +280,8 @@ na.refill(x)
 - `is.integerish()` - returns `TRUE` if elements are all ‘integerish’ or
   `FALSE` if not.
 - `is.whole()` and `is.wholenumber()` - returns a single `TRUE`/`FALSE`,
-  or a logical vector, if elements are all whole numbers or not,
-  respectively.
+  or a logical vector, if elements are all whole numbers or not
+  (according to an input tolerance), respectively.
 
 ``` r
 is.integerish(c(1, 1.000000001))
@@ -328,8 +328,8 @@ rm.last(x, 3)
 - `predapply()` - applies a predicate function to each element of a
   vector, returning a logical vector. Option to reduce the output to a
   single `TRUE` or `FALSE` value.
-- `empty.list()` - wrapper for `vector("list", length)` that returns an
-  empty list of a given length.
+- `empty.list()` - wrapper for `base::vector("list", length)` that
+  returns an empty list of a given length.
 - `path()` - wrapper for `base::file.path()` and
   `base::normalizePath()`. Option to specify if the path is on a shared
   drive, prepending `.Platform$file.sep` if so.
