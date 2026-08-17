@@ -63,8 +63,11 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of suppr like so:</p>
+<p>Install the latest release of suppr from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"suppr"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version of suppr from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"LJ-Jenkins/suppr"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -86,7 +89,7 @@
 <li>
 <code>%allin%</code>, <code>%anyin%</code>, <code>%nonein%</code>, <code>%onein%</code> and <code>%notin%</code> - <code>base::%in%</code> variants.</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">""</span> <span class="op"><a href="reference/suppr-infix.html">%''%</a></span> <span class="st">"a"</span></span>
 <span><span class="co">#&gt; [1] "a"</span></span>
 <span><span class="cn">NULL</span> <span class="op"><a href="reference/suppr-infix.html">%!||%</a></span> <span class="st">"a"</span></span>
@@ -123,7 +126,7 @@
 <li>
 <code><a href="reference/anyZchar.html">anyWS()</a></code> - returns the <code>1</code>-based index of the first all whitespace element if any, otherwise <code>0</code>. Optionally, zero character elements can be treated as all whitespace.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/bckQuote.html">bckQuote</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "`a`" "`b`"</span></span>
 <span><span class="fu"><a href="reference/collapse.html">collapse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span><span class="op">)</span></span>
@@ -154,7 +157,7 @@
 <li>
 <code><a href="reference/suppr-dots.html">dp1Dots()</a></code> - substitutes <code>...</code> arguments, before applying <code><a href="https://rdrr.io/r/base/deparse.html" class="external-link">base::deparse1()</a></code> to each, returning a character vector of the dot arguments.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">f</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">fn</span>, <span class="va">...</span><span class="op">)</span> <span class="fu">fn</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span><span class="fu">f</span><span class="op">(</span><span class="va">checkDots</span>, a <span class="op">=</span> <span class="fl">1</span>, b <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Error:</span></span>
@@ -185,7 +188,7 @@
 <li>
 <code><a href="reference/stopifnot.with.html">stopifnot.with()</a></code> - a wrapper for <code><a href="reference/stopifnot2.html">stopifnot2()</a></code> that evaluates expressions in a specified environment/data object (like <code><a href="https://rdrr.io/r/base/with.html" class="external-link">base::with()</a></code>).</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/match.argv.html">match.argv</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1 2 3</span></span>
 <span><span class="va">f1</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">call.</span><span class="op">)</span> <span class="fu"><a href="reference/stop2.html">stop2</a></span><span class="op">(</span><span class="st">"error"</span>, call. <span class="op">=</span> <span class="va">call.</span><span class="op">)</span></span>
@@ -218,7 +221,7 @@
 <li>
 <code><a href="reference/suppr-predicates.html">is.boolean()</a></code>, <code><a href="reference/suppr-predicates.html">is.string()</a></code> and <code><a href="reference/suppr-predicates.html">nzstring()</a></code> - predicates for common scalar values.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/structure.html" class="external-link">structure</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, class <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="fu"><a href="reference/addClass.html">addClass</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"my_new_class"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "my_new_class" "a"            "b"</span></span>
@@ -251,7 +254,7 @@
 <li>
 <code><a href="reference/is.even.html">is.even()</a></code> and <code><a href="reference/is.even.html">is.odd()</a></code> - returns logical vector indicating if elements are even or odd, respectively.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/is.even.html">is.even</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span><span class="op">:</span><span class="fl">2</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  TRUE FALSE  TRUE FALSE  TRUE FALSE</span></span>
 <span><span class="fu"><a href="reference/is.even.html">is.odd</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="cn">Inf</span><span class="op">)</span>, noparity.na <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -264,7 +267,7 @@
 <li>
 <code><a href="reference/whichMin.html">whichMin()</a></code> and <code><a href="reference/whichMin.html">whichMax()</a></code> - wrappers for <code><a href="https://rdrr.io/r/base/which.min.html" class="external-link">base::which.min()</a></code> and <code><a href="https://rdrr.io/r/base/which.min.html" class="external-link">base::which.max()</a></code> that offer a new <code>loc</code> argument to alternatively return the first, last, or all, minima/maxima.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/whichMin.html">whichMin</a></span><span class="op">(</span><span class="va">x</span>, loc <span class="op">=</span> <span class="st">"first"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 1</span></span>
@@ -290,7 +293,7 @@
 <li>
 <code><a href="reference/na.refill.html">na.refill()</a></code> - for an object that has had <code>NA</code> values removed by <code><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">stats::na.omit()</a></code>, refill the <code>NA</code> values at the original indices, returning an object of the same size as the original.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/is.nonfinite.html">is.nonfinite</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE FALSE  TRUE  TRUE</span></span>
 <span><span class="fu"><a href="reference/is.nonfinite.html">anyNF</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="cn">Inf</span><span class="op">)</span><span class="op">)</span></span>
@@ -325,7 +328,7 @@
 <li>
 <code><a href="reference/is.whole.html">is.whole()</a></code> and <code><a href="reference/is.whole.html">is.wholenumber()</a></code> - returns a single <code>TRUE</code>/<code>FALSE</code>, or a logical vector, if elements are all whole numbers or not (according to an input tolerance), respectively.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/is.whole.html">is.integerish</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.000000001</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] FALSE</span></span>
 <span><span class="fu"><a href="reference/is.whole.html">is.whole</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1.000000001</span><span class="op">)</span><span class="op">)</span></span>
@@ -344,7 +347,7 @@
 <li>
 <code><a href="reference/repeated.html">repeats()</a></code> - returns repeated elements.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/repeated.html">repeated</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</span></span>
@@ -360,7 +363,7 @@
 <li>
 <code><a href="reference/rm.first.html">rm.first()</a></code> and <code><a href="reference/rm.first.html">rm.last()</a></code> - removes the first or last ‘n’ elements of a vector, respectively.</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
 <span><span class="fu"><a href="reference/rm.first.html">rm.first</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  4  5  6  7  8  9 10</span></span>
@@ -385,7 +388,7 @@
 <li>
 <code><a href="reference/libraries.html">libraries()</a></code> and <code><a href="reference/libraries.html">requires()</a></code> - wrappers for <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::library()</a></code> and <code><a href="https://rdrr.io/r/base/library.html" class="external-link">base::require()</a></code> that can load multiple packages at once, either from names, strings, or character vectors.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/predapply.html">predapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, <span class="va">is.even</span>, reduce <span class="op">=</span> <span class="st">"any"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE</span></span>
 <span><span class="fu"><a href="reference/empty.list.html">empty.list</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>

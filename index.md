@@ -5,7 +5,14 @@ style.
 
 ## Installation
 
-You can install the development version of suppr like so:
+Install the latest release of suppr from CRAN:
+
+``` r
+
+install.packages("suppr")
+```
+
+You can install the development version of suppr from GitHub:
 
 ``` r
 
