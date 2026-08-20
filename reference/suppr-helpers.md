@@ -50,6 +50,8 @@ enumerate(x)
 
 ## Value
 
+For `path()`, a character string of the expanded, normalized path.
+
 For `dims()`, an integer of length 2 or greater that specifies the
 dimensions of an object.
 

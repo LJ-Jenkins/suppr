@@ -33,7 +33,7 @@ of the first zero char/all whitespace value if any, otherwise `0`.
 a zero character or a whitespace element, respectively.
 
 Whitespace elements are defined as any character that is a space,
-horizontal tab, carriage return or newline: aka `"[ \t\r\n]"`. See
+horizontal tab, carriage return or newline, aka `"[ \t\r\n]"`. See
 [trimws](https://rdrr.io/r/base/trimws.html) for more details and how to
 instead match all unicode whitespace.
 

@@ -176,7 +176,7 @@
 <span><span class="co">#&gt; "a + b" "a * b"</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="messages-warnings-and-errors">Messages, Warnings and Errors<a class="anchor" aria-label="anchor" href="#messages-warnings-and-errors"></a>
+<h4 id="warnings-and-errors">Warnings and Errors<a class="anchor" aria-label="anchor" href="#warnings-and-errors"></a>
 </h4>
 <ul>
 <li>
@@ -345,7 +345,7 @@
 <li>
 <code><a href="reference/repeated.html">whichRepeated()</a></code> - returns the indices of repeated elements.</li>
 <li>
-<code><a href="reference/repeated.html">repeats()</a></code> - returns repeated elements.</li>
+<code><a href="reference/repeated.html">repeats()</a></code> (and alias <code><a href="reference/repeated.html">non.unique()</a></code>) - returns repeated elements.</li>
 </ul>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
@@ -430,7 +430,7 @@
 <div class="section level2">
 <h2 id="performance">Performance<a class="anchor" aria-label="anchor" href="#performance"></a>
 </h2>
-<p>Functions should have similar overhead to their nearest <code>R</code> equivalents. Most of the ‘data wrangling’ functions (and some others) have been implemented in <code>C</code> and typically perform equivalently to their <code>R</code> counterparts.</p>
+<p>Functions should have similar overhead to their nearest <code>R</code> equivalents. Most of the ‘data wrangling’ functions have been implemented in <code>C</code> and typically perform equivalently to their <code>R</code> counterparts.</p>
 </div>
 <div class="section level2">
 <h2 id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>

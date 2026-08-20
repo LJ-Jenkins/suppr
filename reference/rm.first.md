@@ -55,10 +55,10 @@ elements from the beginning or end of the object.
 
 Dimensional objects ([matrix](https://rdrr.io/r/base/matrix.html),
 [data.frame](https://rdrr.io/r/base/data.frame.html),
-[array](https://rdrr.io/r/base/array.html)) are handled by removing `n`
-entries along the first dimension ('row-wise' for matrices/data.frames
-and for each slice of higher-dimensional arrays). Remaining dimensions
-are preserved.
+[array](https://rdrr.io/r/base/array.html), etc.) are handled by
+removing `n` entries along the first dimension ('row-wise' for
+matrices/data.frames and for each slice of higher-dimensional arrays).
+Remaining dimensions are preserved.
 
 ## Examples
 

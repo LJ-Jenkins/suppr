@@ -22,8 +22,9 @@ stopifnot.with(data, ..., call. = TRUE)
 - ...:
 
   any number of **R** expressions, which should each evaluate to (a
-  logical vector of all) [TRUE](https://rdrr.io/r/base/logical.html). If
-  named, the names will be used in lieu of the default error message.
+  logical vector of [all](https://rdrr.io/r/base/all.html))
+  [`TRUE`](https://rdrr.io/r/base/logical.html). If named, the names
+  will be used in lieu of the default error message.
 
 - call.:
 

@@ -25,7 +25,7 @@ is.integerish(x)
 
 - tol:
 
-  tolerance for wholeness.
+  numeric tolerance for wholeness.
 
 ## Value
 

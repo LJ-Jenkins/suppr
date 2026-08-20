@@ -161,7 +161,7 @@ f(dp1Dots, x = a + b, y = a * b)
 #> "a + b" "a * b"
 ```
 
-#### Messages, Warnings and Errors
+#### Warnings and Errors
 
 - [`match.argv()`](https://lj-jenkins.github.io/suppr/reference/match.argv.md) -
   matches function argument input to a list of valid values, not just
@@ -374,7 +374,9 @@ is.wholenumber(c(1, 2, 3.5, 4))
   `duplicated(x, fromLast = FALSE) | duplicated(x, fromLast = TRUE)`).
 - [`whichRepeated()`](https://lj-jenkins.github.io/suppr/reference/repeated.md) -
   returns the indices of repeated elements.
-- [`repeats()`](https://lj-jenkins.github.io/suppr/reference/repeated.md) -
+- [`repeats()`](https://lj-jenkins.github.io/suppr/reference/repeated.md)
+  (and alias
+  [`non.unique()`](https://lj-jenkins.github.io/suppr/reference/repeated.md)) -
   returns repeated elements.
 
 ``` r
@@ -477,9 +479,8 @@ requires(x, "methods", character.only = TRUE)
 ## Performance
 
 Functions should have similar overhead to their nearest `R` equivalents.
-Most of the ‘data wrangling’ functions (and some others) have been
-implemented in `C` and typically perform equivalently to their `R`
-counterparts.
+Most of the ‘data wrangling’ functions have been implemented in `C` and
+typically perform equivalently to their `R` counterparts.
 
 ## Getting help
 

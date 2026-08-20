@@ -18,7 +18,8 @@ listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 
 - ...:
 
-  one or more **R** objects, to be converted to character vectors.
+  one or more **R** objects, to be converted to
+  [character](https://rdrr.io/r/base/character.html) vectors.
 
 - sep:
 

@@ -29,8 +29,8 @@ vector of given mode and length filled with `NA` values.
 ## Details
 
 This function also offers a `"list"` type, which gives a list of single
-(logical) `NA` values. To initialize an empty list of a given length,
-use
+(logical) `NA` values. To initialize an empty list (of `NULL`'s) of a
+given length, use
 [empty.list](https://lj-jenkins.github.io/suppr/reference/empty.list.md)
 instead.
 

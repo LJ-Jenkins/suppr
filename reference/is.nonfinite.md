@@ -1,7 +1,7 @@
 # Are non-finite values present?
 
-Tests if a vector contains any non-finite values (`Inf`, `-Inf`, `NaN`,
-or `NA`).
+Tests if a vector contains non-finite values (`Inf`, `-Inf`, `NaN`, or
+`NA`).
 
 ## Usage
 
@@ -36,9 +36,9 @@ returns an index immediately when encountering a non-finite value.
 `is.nonfinite()` and `anyNF()` are S3 generics, so custom methods can be
 defined for different object types.
 
-Similar to [`is.finite()`](https://rdrr.io/r/base/is.finite.html),
-`is.nonfinite()` returns all `TRUE` for character and raw vectors, and
-`anyNF()` returns `1L`.
+Similar to [`is.finite()`](https://rdrr.io/r/base/is.finite.html)
+semantics, `is.nonfinite()` returns all `TRUE` for character and raw
+vectors, and `anyNF()` returns `1L`.
 
 ## Note
 

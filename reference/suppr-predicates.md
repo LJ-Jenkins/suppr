@@ -1,7 +1,7 @@
 # Value Predicates for Common Object Types
 
-`is.boolean` checks if an object is a single logical value (`TRUE` or
-`FALSE`).
+`is.boolean` checks if an object is a single (non-NA) logical value
+(`TRUE` or `FALSE`).
 
 `is.string` checks if an object is a single (non-NA) character string.
 

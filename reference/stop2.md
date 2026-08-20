@@ -1,4 +1,4 @@
-# Display Messages with Call Information
+# Display Warnings and Errors with Call Information
 
 Wrappers around [stop](https://rdrr.io/r/base/stop.html) and
 [warning](https://rdrr.io/r/base/warning.html) that enable the `call.`
@@ -45,9 +45,8 @@ Called for side effects only.
 
 These functions derive a call to be displayed and then construct their
 own 'simple' conditions using
-[simpleError](https://rdrr.io/r/base/conditions.html),
-[simpleWarning](https://rdrr.io/r/base/conditions.html), and
-[simpleMessage](https://rdrr.io/r/base/conditions.html).
+[simpleError](https://rdrr.io/r/base/conditions.html) and
+[simpleWarning](https://rdrr.io/r/base/conditions.html).
 
 If a condition object is given as the first argument, it will be treated
 in the same way as the base functions do, by warning that other

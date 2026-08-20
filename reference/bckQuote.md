@@ -1,6 +1,6 @@
 # Backquote Text
 
-Backquote text by combining with backticks (“).
+Backquote text by combining with backticks.
 
 ## Usage
 
@@ -12,11 +12,12 @@ bckQuote(x)
 
 - x:
 
-  an **R** object, to be coerced to a character vector.
+  an **R** object, to be coerced to a
+  [character](https://rdrr.io/r/base/character.html) vector.
 
 ## Value
 
-A character vector of the same length as x (after any coercion).
+A character vector of the same length as `x` (after any coercion).
 
 ## See also
 
