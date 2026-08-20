@@ -37,7 +37,7 @@ list of candidate values as specified by \code{choices}.
 \details{
 If \code{arg} is the same as \code{choices}, then the first element
 of \code{arg} is returned. This check is done using
-\code{identical()} with \code{ignore.environment = TRUE}, regardless
+\code{\link[=identical]{identical()}} with \code{ignore.environment = TRUE}, regardless
 of the \code{match.fn} argument.
 
 In the one-argument form \code{match.argv(arg)}, the \code{choices}

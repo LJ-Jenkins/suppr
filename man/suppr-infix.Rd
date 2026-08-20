@@ -36,7 +36,7 @@ x \%notin\% table
 
 \item{rhs}{right-hand side object.}
 
-\item{x}{vector or \code{NULL}: the values to be matched.
+\item{x}{\link{vector} or \code{NULL}: the values to be matched.
 \link{Long vectors} are supported.}
 
 \item{table}{vector or \code{NULL}: the values to be matched against.
@@ -62,22 +62,17 @@ an empty string (\code{""}).
 
 \verb{\%0\%} returns the right-hand side if the left-hand side has length 0.
 
-\verb{\%allin\%} returns \code{TRUE} if all elements of the left-hand side are in
-the right-hand side.
+\verb{\%allin\%} returns \code{TRUE} if all elements of \code{x} are in \code{table}.
 
-\verb{\%anyin\%} returns \code{TRUE} if any elements of the left-hand side are in
-the right-hand side.
+\verb{\%anyin\%} returns \code{TRUE} if any elements of \code{x} are in \code{table}.
 
-\verb{\%nonein\%} returns \code{TRUE} if none of the elements of the left-hand side
-are in the right-hand side.
+\verb{\%nonein\%} returns \code{TRUE} if none of the elements of \code{x} are in \code{table}.
 
-\verb{\%onein\%} returns \code{TRUE} if exactly one element of the left-hand side is
-in the right-hand side.
+\verb{\%onein\%} returns \code{TRUE} if exactly one element of \code{x} is in \code{table}.
 
-\verb{\%notin\%} returns \code{TRUE} for elements of the left-hand side
-that are not in the right-hand side. This is implemented in the same
-way as base \strong{R} and will be replaced by the base version in the \strong{R}
-versions that have it.
+\verb{\%notin\%} returns \code{TRUE} for elements of \code{x} that are not in \code{table}.
+This is implemented in the same way as base \strong{R} and will be
+replaced by the base version in the \strong{R} versions that have it.
 }
 \details{
 The \verb{\%*in\%} operators follow the semantics of \code{\%in\%} for \code{NULL}

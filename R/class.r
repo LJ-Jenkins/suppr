@@ -143,7 +143,7 @@ is.POSIXlt <- function(x) {
 
 #' @title Value Predicates for Common Object Types
 #' @description
-#' `is.boolean` checks if an object is a single logical value
+#' `is.boolean` checks if an object is a single (non-NA) logical value
 #' (`TRUE` or `FALSE`).
 #'
 #' `is.string` checks if an object is a single (non-NA) character string.

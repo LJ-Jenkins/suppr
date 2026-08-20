@@ -138,7 +138,7 @@ f(dp1Dots, x = a + b, y = a * b)
 #> "a + b" "a * b"
 ```
 
-#### Messages, Warnings and Errors
+#### Warnings and Errors
 
 - `match.argv()` - matches function argument input to a list of valid
   values, not just strings like `base::match.arg()`.
@@ -304,7 +304,7 @@ is.wholenumber(c(1, 2, 3.5, 4))
   repeated (analogous to
   `duplicated(x, fromLast = FALSE) | duplicated(x, fromLast = TRUE)`).
 - `whichRepeated()` - returns the indices of repeated elements.
-- `repeats()` - returns repeated elements.
+- `repeats()` (and alias `non.unique()`) - returns repeated elements.
 
 ``` r
 x <- c(1, 2, 3, 1, 2, 3, 4, 5)
@@ -390,9 +390,8 @@ requires(x, "methods", character.only = TRUE)
 ## Performance
 
 Functions should have similar overhead to their nearest `R` equivalents.
-Most of the ‘data wrangling’ functions (and some others) have been
-implemented in `C` and typically perform equivalently to their `R`
-counterparts.
+Most of the ‘data wrangling’ functions have been implemented in `C` and
+typically perform equivalently to their `R` counterparts.
 
 ## Getting help
 

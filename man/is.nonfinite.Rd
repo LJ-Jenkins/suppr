@@ -24,7 +24,7 @@ the \code{1}-based index of the first non-finite value if any,
 otherwise \code{0}.
 }
 \description{
-Tests if a vector contains any non-finite values
+Tests if a vector contains non-finite values
 (\code{Inf}, \code{-Inf}, \code{NaN}, or \code{NA}).
 }
 \details{
@@ -36,7 +36,7 @@ a non-finite value.
 \code{is.nonfinite()} and \code{anyNF()} are S3 generics, so custom
 methods can be defined for different object types.
 
-Similar to \code{is.finite()}, \code{is.nonfinite()} returns all
+Similar to \code{is.finite()} semantics, \code{is.nonfinite()} returns all
 \code{TRUE} for character and raw vectors, and \code{anyNF()} returns \code{1L}.
 }
 \note{

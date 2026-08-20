@@ -9,25 +9,20 @@
 #'
 #' `%0%` returns the right-hand side if the left-hand side has length 0.
 #'
-#' `%allin%` returns `TRUE` if all elements of the left-hand side are in
-#' the right-hand side.
+#' `%allin%` returns `TRUE` if all elements of `x` are in `table`.
 #'
-#' `%anyin%` returns `TRUE` if any elements of the left-hand side are in
-#' the right-hand side.
+#' `%anyin%` returns `TRUE` if any elements of `x` are in `table`.
 #'
-#' `%nonein%` returns `TRUE` if none of the elements of the left-hand side
-#' are in the right-hand side.
+#' `%nonein%` returns `TRUE` if none of the elements of `x` are in `table`.
 #'
-#' `%onein%` returns `TRUE` if exactly one element of the left-hand side is
-#' in the right-hand side.
+#' `%onein%` returns `TRUE` if exactly one element of `x` is in `table`.
 #'
-#' `%notin%` returns `TRUE` for elements of the left-hand side
-#' that are not in the right-hand side. This is implemented in the same
-#' way as base **R** and will be replaced by the base version in the **R**
-#' versions that have it.
+#' `%notin%` returns `TRUE` for elements of `x` that are not in `table`.
+#' This is implemented in the same way as base **R** and will be
+#' replaced by the base version in the **R** versions that have it.
 #' @param lhs left-hand side object.
 #' @param rhs right-hand side object.
-#' @param x vector or `NULL`: the values to be matched.
+#' @param x [vector] or `NULL`: the values to be matched.
 #' [Long vectors] are supported.
 #' @param table vector or `NULL`: the values to be matched against.
 #' [Long vectors] are not supported.

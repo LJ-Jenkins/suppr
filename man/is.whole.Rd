@@ -15,7 +15,7 @@ is.integerish(x)
 \arguments{
 \item{x}{a logical, numeric, or complex vector.}
 
-\item{tol}{tolerance for wholeness.}
+\item{tol}{numeric tolerance for wholeness.}
 }
 \value{
 For \code{is.whole()} and \code{is.integerish()} a single \code{TRUE} or \code{FALSE}.

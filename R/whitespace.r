@@ -8,7 +8,7 @@
 #' respectively.
 #'
 #' Whitespace elements are defined as any character that is a
-#' space, horizontal tab, carriage return or newline:
+#' space, horizontal tab, carriage return or newline,
 #' aka `"[ \t\r\n]"`. See [trimws] for more details and how to
 #' instead match all unicode whitespace.
 #'

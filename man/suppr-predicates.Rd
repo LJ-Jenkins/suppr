@@ -20,7 +20,7 @@ nzstring(x)
 \code{TRUE} or \code{FALSE}.
 }
 \description{
-\code{is.boolean} checks if an object is a single logical value
+\code{is.boolean} checks if an object is a single (non-NA) logical value
 (\code{TRUE} or \code{FALSE}).
 
 \code{is.string} checks if an object is a single (non-NA) character string.

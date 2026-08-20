@@ -10,7 +10,7 @@
 #' vectors and lists, removing `n` elements from the beginning or end of
 #' the object.
 #'
-#' Dimensional objects ([matrix], [data.frame], [array]) are handled by
+#' Dimensional objects ([matrix], [data.frame], [array], etc.) are handled by
 #' removing `n` entries along the first dimension ('row-wise' for
 #' matrices/data.frames and for each slice of higher-dimensional arrays).
 #' Remaining dimensions are preserved.

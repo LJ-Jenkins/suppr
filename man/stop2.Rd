@@ -3,7 +3,7 @@
 \name{stop2}
 \alias{stop2}
 \alias{warning2}
-\title{Display Messages with Call Information}
+\title{Display Warnings and Errors with Call Information}
 \usage{
 stop2(..., call. = TRUE, domain = NULL)
 
@@ -36,8 +36,7 @@ stack.
 }
 \details{
 These functions derive a call to be displayed and then construct
-their own 'simple' conditions using \link{simpleError}, \link{simpleWarning},
-and \link{simpleMessage}.
+their own 'simple' conditions using \link{simpleError} and \link{simpleWarning}.
 
 If a condition object is given as the first argument, it will be
 treated in the same way as the base functions do, by warning that

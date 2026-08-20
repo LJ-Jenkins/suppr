@@ -13,7 +13,7 @@ collapse0(..., sep = "", recurse = FALSE)
 listing(x, sep = ", ", conjunction = "and", period = TRUE, quote = NULL)
 }
 \arguments{
-\item{...}{one or more \strong{R} objects, to be converted to character vectors.}
+\item{...}{one or more \strong{R} objects, to be converted to \link{character} vectors.}
 
 \item{sep}{character string to collapse the terms, not \code{\link{NA_character_}}.}
 

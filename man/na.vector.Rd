@@ -23,8 +23,8 @@ For a given type and length, create a vector of \code{NA}'s.
 }
 \details{
 This function also offers a \code{"list"} type, which gives a list
-of single (logical) \code{NA} values. To initialize an empty list of a given
-length, use \link{empty.list} instead.
+of single (logical) \code{NA} values. To initialize an empty list (of \code{NULL}'s)
+of a given length, use \link{empty.list} instead.
 }
 \examples{
 na.vector(5L)

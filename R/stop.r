@@ -1,4 +1,4 @@
-#' @title Display Messages with Call Information
+#' @title Display Warnings and Errors with Call Information
 #' @description
 #' Wrappers around [stop] and [warning] that
 #' enable the `call.` argument to derive a call from the
@@ -18,8 +18,7 @@
 #' @param domain see [gettext]. If `NA`, messages will not be translated.
 #' @return Called for side effects only.
 #' @details These functions derive a call to be displayed and then construct
-#' their own 'simple' conditions using [simpleError], [simpleWarning],
-#' and [simpleMessage].
+#' their own 'simple' conditions using [simpleError] and [simpleWarning].
 #'
 #' If a condition object is given as the first argument, it will be
 #' treated in the same way as the base functions do, by warning that

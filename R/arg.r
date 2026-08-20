@@ -5,7 +5,7 @@
 #' @details
 #' If `arg` is the same as `choices`, then the first element
 #' of `arg` is returned. This check is done using
-#' `identical()` with `ignore.environment = TRUE`, regardless
+#' [`identical()`] with `ignore.environment = TRUE`, regardless
 #' of the `match.fn` argument.
 #'
 #' In the one-argument form `match.argv(arg)`, the `choices`

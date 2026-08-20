@@ -1,6 +1,6 @@
 #' @title Are non-finite values present?
 #' @description
-#' Tests if a vector contains any non-finite values
+#' Tests if a vector contains non-finite values
 #' (`Inf`, `-Inf`, `NaN`, or `NA`).
 #' @details
 #' `is.nonfinite()` (and alias `is.nf()`) check for non-finite
@@ -11,7 +11,7 @@
 #' `is.nonfinite()` and `anyNF()` are S3 generics, so custom
 #' methods can be defined for different object types.
 #'
-#' Similar to `is.finite()`, `is.nonfinite()` returns all
+#' Similar to `is.finite()` semantics, `is.nonfinite()` returns all
 #' `TRUE` for character and raw vectors, and `anyNF()` returns `1L`.
 #' @param x
 #' **R** object to be tested: the default methods handle atomic vectors.
@@ -129,7 +129,7 @@ setNA.complex <- function(x, indices) {
   # between versions and changes in R behaviour, for example:
   # https://bugs.r-project.org/show_bug.cgi?id=18918&_ts=1786270162
   # https://stat.ethz.ch/pipermail/r-devel/2023-November/083011.html
-  # other types auto convert consistently
+  # other types auto convert consistently so we don't worry
   if (!is.null(dm <- dim(x))) {
     x[arrayInd(indices, dm)] <- NA_complex_
   } else {
@@ -188,8 +188,8 @@ setNA.complex <- function(x, indices) {
 #' @param type character string naming an atomic type that has an
 #' equivalent `NA` value (i.e., not [raw]), or `"list"`.
 #' @details This function also offers a `"list"` type, which gives a list
-#' of single (logical) `NA` values. To initialize an empty list of a given
-#' length, use [empty.list] instead.
+#' of single (logical) `NA` values. To initialize an empty list (of `NULL`'s)
+#' of a given length, use [empty.list] instead.
 #' @return vector of given mode and length filled with `NA` values.
 #' @seealso [vector], [whichNA], [setNA]
 #' @examples

@@ -30,7 +30,7 @@ encountering a zero character or a whitespace element,
 respectively.
 
 Whitespace elements are defined as any character that is a
-space, horizontal tab, carriage return or newline:
+space, horizontal tab, carriage return or newline,
 aka \code{"[ \\t\\r\\n]"}. See \link{trimws} for more details and how to
 instead match all unicode whitespace.
 

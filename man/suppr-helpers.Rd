@@ -30,6 +30,8 @@ warning is given.}
 For \code{enumerate()}, a vector or list to be enumerated.}
 }
 \value{
+For \code{path()}, a character string of the expanded, normalized path.
+
 For \code{dims()}, an integer of length 2 or greater that specifies
 the dimensions of an object.
 

@@ -7,7 +7,7 @@
 #' is whole or integerish, whilst `is.wholenumber()` checks element-wise
 #' for wholeness.
 #' @param x a logical, numeric, or complex vector.
-#' @param tol tolerance for wholeness.
+#' @param tol numeric tolerance for wholeness.
 #' @return
 #' For `is.whole()` and `is.integerish()` a single `TRUE` or `FALSE`.
 #'

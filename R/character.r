@@ -1,9 +1,9 @@
 #' @title Backquote Text
 #' @description
-#' Backquote text by combining with backticks (``).
-#' @param x an **R** object, to be coerced to a character vector.
+#' Backquote text by combining with backticks.
+#' @param x an **R** object, to be coerced to a [character] vector.
 #' @return
-#' A character vector of the same length as x (after any coercion).
+#' A character vector of the same length as `x` (after any coercion).
 #' @seealso [Quotes], [dQuote] and [sQuote].
 #' @examples
 #' bckQuote("example")
@@ -73,7 +73,7 @@ cat0 <- function(
 #' Collapse a character vector into a single string, with an optional
 #' separator, and for `listing()` an optional conjunction and period,
 #' with options to quote the terms.
-#' @param ... one or more **R** objects, to be converted to character vectors.
+#' @param ... one or more **R** objects, to be converted to [character] vectors.
 #' @param x a character vector from which to create the human readable list.
 #' @param sep character string to collapse the terms, not [`NA_character_`].
 #' @param recurse [`logical`]. If `TRUE`, collapse each argument separately

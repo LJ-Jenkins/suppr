@@ -5,7 +5,7 @@
 #' is derived from the call stack. `warningifnot()` implements the same
 #' functionality but produces a warning instead of an error.
 #' @param ... any number of **R** expressions, which should each evaluate
-#' to (a logical vector of [all]) [TRUE]. If named, the names will be used
+#' to (a logical vector of [all]) [`TRUE`]. If named, the names will be used
 #' in lieu of the default error/warning message.
 #' @inheritParams stop2 call.
 #' @param warn.all logical, indicating if all failed expressions should produce
@@ -160,7 +160,7 @@ warningifnot <- function(..., warn.all = FALSE, call. = TRUE) {
 #' `environment`, a `list`, a `data.frame`, or an `integer` as in
 #' `sys.call`.
 #' @param ... any number of **R** expressions, which should each evaluate
-#' to (a logical vector of all) [TRUE]. If named, the names will be used
+#' to (a logical vector of [all]) [`TRUE`]. If named, the names will be used
 #' in lieu of the default error message.
 #' @inheritParams stop2 call.
 #' @details

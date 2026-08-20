@@ -2,3 +2,114 @@ url: https://lj-jenkins.github.io/suppr/
 template:
   bootstrap: 5
 
+reference:
+
+- title: Infix
+  contents:
+  - "%!||%"
+  - "%0%"
+  - "%allin%"
+  - "%anyin%"
+  - "%nonein%"
+  - "%onein%"
+  - "%notin%"
+
+- title: Character
+  contents:
+  - bckQuote
+  - collapse
+  - collapse0
+  - listing
+  - cat0
+  - anyZchar
+  - anyWS
+
+- subtitle: grep and sub wrappers
+  contents:
+  - grepf
+  - grepi
+  - greplf
+  - grepli
+  - grepvf
+  - grepvi
+  - subf
+  - subi
+  - gsubf
+  - gsubi
+
+- title: Dots
+  contents:
+  - checkDots
+  - dotsNames
+  - subDots
+  - dp1Dots
+
+- title: Warnings and errors
+  contents:
+  - match.argv
+  - stop2
+  - warning2
+  - stopifnot2
+  - warningifnot
+  - stopifnot.with
+
+- title: Classes
+  contents:
+  - addClass
+  - isVector
+  - is.Date
+  - is.datetype
+  - is.POSIXt
+  - is.POSIXct
+  - is.POSIXlt
+  - is.boolean
+  - is.string
+  - nzstring
+
+- title: Data wrangling
+
+- subtitle: Even/odd
+  contents:
+  - is.even
+  - is.odd
+
+- subtitle: Which min/max
+  contents:
+  - whichMin
+  - whichMax
+
+- subtitle: NA and non-finite values
+  contents:
+  - is.nonfinite
+  - anyNF
+  - whichNA
+  - setNA
+  - na.vector
+  - na.refill
+
+- subtitle: Wholeness
+  contents:
+  - is.whole
+  - is.wholenumber
+  - is.integerish
+
+- subtitle: Duplicates
+  contents:
+  - repeated
+  - whichRepeated
+  - repeats
+
+- subtitle: Remove elements
+  contents:
+  - rm.first
+  - rm.last
+
+- title: Utilities
+  contents:
+  - predapply
+  - empty.list
+  - path
+  - dims
+  - enumerate
+  - libraries
+  - requires

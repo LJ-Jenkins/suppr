@@ -47,7 +47,7 @@ The default methods operate on atomic
 vectors and lists, removing \code{n} elements from the beginning or end of
 the object.
 
-Dimensional objects (\link{matrix}, \link{data.frame}, \link{array}) are handled by
+Dimensional objects (\link{matrix}, \link{data.frame}, \link{array}, etc.) are handled by
 removing \code{n} entries along the first dimension ('row-wise' for
 matrices/data.frames and for each slice of higher-dimensional arrays).
 Remaining dimensions are preserved.

@@ -12,7 +12,7 @@ stopifnot.with(data, ..., call. = TRUE)
 \code{sys.call}.}
 
 \item{...}{any number of \strong{R} expressions, which should each evaluate
-to (a logical vector of all) \link{TRUE}. If named, the names will be used
+to (a logical vector of \link{all}) \code{\link{TRUE}}. If named, the names will be used
 in lieu of the default error message.}
 
 \item{call.}{call, logical, integer, or environment. logical, indicating

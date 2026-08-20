@@ -11,7 +11,7 @@ warningifnot(..., warn.all = FALSE, call. = TRUE)
 }
 \arguments{
 \item{...}{any number of \strong{R} expressions, which should each evaluate
-to (a logical vector of \link{all}) \link{TRUE}. If named, the names will be used
+to (a logical vector of \link{all}) \code{\link{TRUE}}. If named, the names will be used
 in lieu of the default error/warning message.}
 
 \item{call.}{call, logical, integer, or environment. logical, indicating
