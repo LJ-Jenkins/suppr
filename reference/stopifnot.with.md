@@ -40,6 +40,10 @@ stopifnot.with(data, ..., call. = TRUE)
   nearest boundary. environment, which will be matched against the
   calling stack and the corresponding call will be shown.
 
+## Value
+
+If no errors are thrown, the function returns `data` invisibly.
+
 ## Details
 
 If any of the expressions are not [all](https://rdrr.io/r/base/all.html)
