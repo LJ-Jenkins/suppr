@@ -193,8 +193,7 @@ test_that("condition objects are passed through", {
 
   warn <- simpleWarning("existing warning")
 
-  expect_warning(
-    expect_warning(warning2(warn)),
+  expect_warning(warning2(warn),
     regexp = "existing warning"
   )
 })

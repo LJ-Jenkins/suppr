@@ -26,6 +26,9 @@ call stack will be clamped to the nearest boundary. environment,
 which will be matched against the calling stack and the corresponding
 call will be shown.}
 }
+\value{
+If no errors are thrown, the function returns \code{data} invisibly.
+}
 \description{
 Wrapper around \link{stopifnot2} that evaluates \strong{R} expressions
 in an environment constructed from \code{data}.

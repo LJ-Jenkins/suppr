@@ -4,11 +4,11 @@
 \name{suppr-package}
 \alias{suppr}
 \alias{suppr-package}
-\title{suppr: Supplementary Idiomatic 'R' Utilities and Extensions}
+\title{suppr: Supplementary Idiomatic Utilities and Extensions}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Miscellaneous idiomatic utilities and extensions for 'R'.
+Miscellaneous supplementary functions designed to follow idiomatic 'R' conventions. Some functions are simple wrappers that reduce repetitive code, while others address common tasks or extend existing 'R' functions.
 }
 \seealso{
 Useful links:

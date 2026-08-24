@@ -171,6 +171,7 @@ warningifnot <- function(..., warn.all = FALSE, call. = TRUE) {
 #' Special care must be taken for handlers on the call stack, as they
 #' may affect the call displayed in the error message. In
 #' such instances, passing an environment to `call.` may be helpful.
+#' @return If no errors are thrown, the function returns `data` invisibly.
 #' @seealso [stop2] and [warning2] for errors and warnings
 #' with call information.
 #' @examples
@@ -244,7 +245,7 @@ stopifnot.with <- function(data, ..., call. = TRUE) {
     }
   }
 
-  invisible()
+  invisible(data)
 }
 
 Dparse <- function(call, cutoff = 60L) {

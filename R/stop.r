@@ -53,11 +53,8 @@ stop2 <- function(..., call. = TRUE, domain = NULL) {
   if (...length() == 1L && inherits(..1, "condition")) {
     cond <- ..1
     if (nargs() > 1L) {
-      cat(
-        gettext("condition object passed: all additional arguments ignored in stop2()"),
-        "\n",
-        sep = "",
-        file = stderr()
+      warning(
+        "condition object passed: all additional arguments ignored in stop2()"
       )
     }
     stop(cond)
@@ -82,6 +79,7 @@ warning2 <- function(..., call. = TRUE, domain = NULL) {
       )
     }
     warning(cond)
+    return(invisible(NULL))
   }
 
   msg <- .makeMessage(..., domain = domain)

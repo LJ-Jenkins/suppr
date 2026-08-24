@@ -1,9 +1,9 @@
 Package: suppr
-Title: Supplementary Idiomatic 'R' Utilities and Extensions
+Title: Supplementary Idiomatic Utilities and Extensions
 Version: 1.0.0
 Authors@R: 
    person("Luke", "Jenkins", , "luke-jenkins-dev@outlook.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-7206-7242"))
-Description: Miscellaneous idiomatic utilities and extensions for 'R'.
+Description: Miscellaneous supplementary functions designed to follow idiomatic 'R' conventions. Some functions are simple wrappers that reduce repetitive code, while others address common tasks or extend existing 'R' functions.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
