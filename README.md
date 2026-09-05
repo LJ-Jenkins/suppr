@@ -5,6 +5,9 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/suppr)](https://CRAN.R-project.org/package=suppr)
+[![status](https://tinyverse.netlify.app/badge/suppr)](https://doi.org/10.32614/CRAN.package.suppr)
 [![R-CMD-check](https://github.com/LJ-Jenkins/suppr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LJ-Jenkins/suppr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
