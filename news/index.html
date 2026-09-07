@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">suppr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,8 +32,10 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="suppr-development-version">suppr (development version)<a class="anchor" aria-label="anchor" href="#suppr-development-version"></a></h2>
-</div>
+<h2 class="pkg-version" data-toc-text="1.0.1" id="suppr-101">suppr 1.0.1<a class="anchor" aria-label="anchor" href="#suppr-101"></a></h2>
+<ul><li><p><code><a href="../reference/repeated.html">whichRepeated()</a></code>, <code><a href="../reference/whichNA.html">whichNA()</a></code>, <code><a href="../reference/whichMin.html">whichMin()</a></code>/<code><a href="../reference/whichMin.html">whichMax()</a></code> when <code>loc = "all"</code> and <code><a href="../reference/repeated.html">repeats()</a></code> now don’t attempt to preserve names when no indices or duplicates are found, respectively.</p></li>
+<li><p>The C code for <code><a href="../reference/repeated.html">whichRepeated()</a></code> now avoids passing an invalid data pointer from a 0-length vector to <code>memcpy()</code>, which previously caused undefined behaviour. Thanks to Prof. Brian D. Ripley for reporting.</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="suppr-100">suppr 1.0.0<a class="anchor" aria-label="anchor" href="#suppr-100"></a></h2>
 <ul><li>Initial CRAN submission.</li>
