@@ -131,33 +131,9 @@ SEXP C_which_all_min_max(SEXP x, SEXP y)
         {
             memcpy(INTEGER(out), buf, j * sizeof(int));
         }
+
+        preserve_names_for_indices(x, out);
     }
-
-    // Preserve names
-    // SEXP names = Rf_getAttrib(x, R_NamesSymbol);
-    // if (names != R_NilValue)
-    // {
-    //     R_xlen_t nout = Rf_xlength(out);
-    //     SEXP outnam = PROTECT(Rf_allocVector(STRSXP, nout));
-    //     nprot++;
-
-    //     if (TYPEOF(out) == INTSXP)
-    //     {
-    //         int *idx = INTEGER(out);
-    //         for (R_xlen_t i = 0; i != nout; i++)
-    //             SET_STRING_ELT(outnam, i, STRING_ELT(names, idx[i] - 1));
-    //     }
-    //     else
-    //     {
-    //         double *idx = REAL(out);
-    //         for (R_xlen_t i = 0; i != nout; i++)
-    //             SET_STRING_ELT(outnam, i, STRING_ELT(names, (R_xlen_t)idx[i] - 1));
-    //     }
-
-    //     Rf_setAttrib(out, R_NamesSymbol, outnam);
-    // }
-
-    preserve_names_for_indices(x, out);
 
 cleanup:
     UNPROTECT(nprot);

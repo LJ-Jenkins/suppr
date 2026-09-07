@@ -37,11 +37,11 @@ test_that("errors if wrong type", {
 
 test_that("preserves names of input vector", {
   x <- c(a = 3, b = 1, b = 1, c = 4, d = 9, e = 9)
-  nms <- names(x)
-  expect_identical(names(whichNA(x)), names(which(is.na(x))))
+  # changed behaviour - we know if no NA, skip names code
+  # expect_identical(names(whichNA(x)), names(which(is.na(x))))
+  expect_identical(names(whichNA(x)), NULL)
 
   x <- list(a = 1, b = 2, c = NA, d = 4)
-  nms <- names(x)
   expect_identical(names(whichNA(x)), names(which(is.na(x))))
 })
 

@@ -1,5 +1,1 @@
-## R CMD check results
-
-0 errors | 0 warnings | 1 note
-
-* This is a new release.
+This is a CRAN-requested bug fix for undefined behaviour from a 0-length vector being passed to memcpy. Thanks to Prof. Brian D. Ripley for reporting.

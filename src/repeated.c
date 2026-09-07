@@ -127,10 +127,12 @@ SEXP C_repeats(SEXP x)
 
     SEXP ans = subset_logical(x, keep, n_keep);
 
-    preserve_names_by_logi(x, ans, keep, n_keep);
+    if (n_keep > 0)
+    {
+        preserve_names_by_logi(x, ans, keep, n_keep);
+    }
 
     UNPROTECT(1);
-
     return ans;
 }
 
@@ -196,11 +198,13 @@ SEXP C_repeated_indices(SEXP x)
     }
 
     PROTECT(result = Rf_allocVector(INTSXP, count));
-    int *presult = INTEGER(result);
-    memcpy(presult, temp, count * sizeof(int));
-
-    // Preserve names
-    preserve_names_for_indices(x, result);
+    if (count > 0)
+    {
+        int *presult = INTEGER(result);
+        memcpy(presult, temp, count * sizeof(int));
+        // Preserve names
+        preserve_names_for_indices(x, result);
+    }
 
     UNPROTECT(3); // a, b, result
     return result;
