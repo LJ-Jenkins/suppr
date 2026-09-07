@@ -1,3 +1,5 @@
+# suppr (development version)
+
 # suppr 1.0.1
 
 * `whichRepeated()`, `whichNA()`, `whichMin()`/`whichMax()` when `loc = "all"` and `repeats()` now don't attempt to preserve names when no indices or duplicates are found, respectively.
