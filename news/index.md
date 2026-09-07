@@ -1,5 +1,7 @@
 # Changelog
 
+## suppr (development version)
+
 ## suppr 1.0.1
 
 - [`whichRepeated()`](https://lj-jenkins.github.io/suppr/reference/repeated.md),

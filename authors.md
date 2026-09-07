@@ -11,13 +11,13 @@ Source:
 [`DESCRIPTION`](https://github.com/LJ-Jenkins/suppr/blob/main/DESCRIPTION)
 
 Jenkins L (2026). *suppr: Supplementary Idiomatic Utilities and
-Extensions*. R package version 1.0.1,
+Extensions*. R package version 1.0.1.9000,
 <https://lj-jenkins.github.io/suppr/>.
 
     @Manual{,
       title = {suppr: Supplementary Idiomatic Utilities and Extensions},
       author = {Luke Jenkins},
       year = {2026},
-      note = {R package version 1.0.1},
+      note = {R package version 1.0.1.9000},
       url = {https://lj-jenkins.github.io/suppr/},
     }
