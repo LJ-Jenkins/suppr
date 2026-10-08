@@ -1,4 +1,8 @@
-# suppr (development version)
+# suppr 1.1.0
+
+#### New functions
+
+* `rm.prefix()` and `rm.suffix()` to remove a given prefix or suffix from character vector elements.
 
 # suppr 1.0.1
 

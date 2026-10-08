@@ -178,6 +178,38 @@ listing <- function(
   }
 }
 
+#' Remove a prefix or suffix
+#' @description
+#' Remove a prefix or suffix from a character vector.
+#' @param x
+#' A character vector.
+#' @param prefix,suffix
+#' A single string.
+#' @return
+#' `x` is returned with the specified prefix or suffix
+#' removed from each element where it was present.
+#' @details
+#' Elements without the specified prefix or suffix will remain
+#' unchanged. An error will occur if `prefix` or `suffix` is `NA`.
+#' @seealso [startsWith], [endsWith]
+#' @note
+#' Both `x` and `prefix`/`suffix` are translated to UTF-8 before
+#' processing.
+#' @examples
+#' x <- c("x_apple", "x_banana", "x_cherry")
+#' rm.prefix(x, "x_")
+#' rm.suffix(x, "_cherry")
+#' @export
+rm.prefix <- function(x, prefix) {
+  .Call(C_rm_prefix, x, prefix)
+}
+
+#' @rdname rm.prefix
+#' @export
+rm.suffix <- function(x, suffix) {
+  .Call(C_rm_suffix, x, suffix)
+}
+
 #-- grepi, grepf
 
 #' @title Pattern Matching

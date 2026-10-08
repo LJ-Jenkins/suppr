@@ -76,6 +76,7 @@ c("a", "d") %notin% c("a", "b", "c")
 * `grepf()`, `grepi()`, `greplf()`, `grepli()`, `grepvf()`, `grepvi()`, `subf()`, `subi()`, `gsubf()` and `gsubi()` - strongly typed variants of `base::grep()`, `base::grepl()`, `base::grepv()`, `base::sub()` and `base::gsub()` for the common `fixed = TRUE` and `ignore.case = TRUE` cases.
 * `anyZchar()` - returns the `1`-based index of the first zero character element if any, otherwise `0`.
 * `anyWS()` - returns the `1`-based index of the first all whitespace element if any, otherwise `0`. Optionally, zero character elements can be treated as all whitespace.
+* `rm.prefix()` and `rm.suffix()` - remove a specified prefix or suffix from each element of a character vector.
 
 ```{r}
 bckQuote(c("a", "b"))
@@ -86,6 +87,8 @@ greplf("foo", c("foo", "Foo", "bar"))
 grepli("foo", c("foo", "Foo", "bar"))
 anyZchar(c("hi", "bye", " ", ""))
 anyWS(c("hi", "bye", " ", ""))
+rm.prefix(c("x_apple", "x_banana"), "x_")
+rm.suffix(c("apple_x", "banana_x"), "_x")
 ```
 
 #### Dots (`...`) Operators
@@ -238,10 +241,6 @@ libraries(stats, "utils")
 x <- c("stats", "utils")
 requires(x, "methods", character.only = TRUE)
 ```
-
-## Performance
-
-Functions should have similar overhead to their nearest `R` equivalents. Most of the 'data wrangling' functions have been implemented in `C` and typically perform equivalently to their `R` counterparts.
 
 ## Getting help
 
