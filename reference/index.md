@@ -26,6 +26,9 @@
 - [`anyZchar()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
   [`anyWS()`](https://lj-jenkins.github.io/suppr/reference/anyZchar.md)
   : Are any zero char or all whitespace elements present?
+- [`rm.prefix()`](https://lj-jenkins.github.io/suppr/reference/rm.prefix.md)
+  [`rm.suffix()`](https://lj-jenkins.github.io/suppr/reference/rm.prefix.md)
+  : Remove a prefix or suffix
 
 ### grep and sub wrappers
 

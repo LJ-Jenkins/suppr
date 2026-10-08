@@ -102,6 +102,11 @@ c("a", "d") %notin% c("a", "b", "c")
   returns the `1`-based index of the first all whitespace element if
   any, otherwise `0`. Optionally, zero character elements can be treated
   as all whitespace.
+- [`rm.prefix()`](https://lj-jenkins.github.io/suppr/reference/rm.prefix.md)
+  and
+  [`rm.suffix()`](https://lj-jenkins.github.io/suppr/reference/rm.prefix.md) -
+  remove a specified prefix or suffix from each element of a character
+  vector.
 
 ``` r
 
@@ -121,6 +126,10 @@ anyZchar(c("hi", "bye", " ", ""))
 #> [1] 4
 anyWS(c("hi", "bye", " ", ""))
 #> [1] 3
+rm.prefix(c("x_apple", "x_banana"), "x_")
+#> [1] "apple"  "banana"
+rm.suffix(c("apple_x", "banana_x"), "_x")
+#> [1] "apple"  "banana"
 ```
 
 #### Dots (`...`) Operators
@@ -475,12 +484,6 @@ libraries(stats, "utils")
 x <- c("stats", "utils")
 requires(x, "methods", character.only = TRUE)
 ```
-
-## Performance
-
-Functions should have similar overhead to their nearest `R` equivalents.
-Most of the ‘data wrangling’ functions have been implemented in `C` and
-typically perform equivalently to their `R` counterparts.
 
 ## Getting help
 

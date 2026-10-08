@@ -1,8 +1,17 @@
 # Changelog
 
-## suppr (development version)
+## suppr 1.1.0
+
+##### New functions
+
+- [`rm.prefix()`](https://lj-jenkins.github.io/suppr/reference/rm.prefix.md)
+  and
+  [`rm.suffix()`](https://lj-jenkins.github.io/suppr/reference/rm.prefix.md)
+  to remove a given prefix or suffix from character vector elements.
 
 ## suppr 1.0.1
+
+CRAN release: 2026-09-07
 
 - [`whichRepeated()`](https://lj-jenkins.github.io/suppr/reference/repeated.md),
   [`whichNA()`](https://lj-jenkins.github.io/suppr/reference/whichNA.md),
@@ -19,5 +28,7 @@
   Prof. Brian D. Ripley for reporting.
 
 ## suppr 1.0.0
+
+CRAN release: 2026-09-05
 
 - Initial CRAN submission.
