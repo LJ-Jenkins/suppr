@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/LJ-Jenkins/suppr/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/LJ-Jenkins/suppr/blob/v1.1.0/DESCRIPTION)
 
 Jenkins L (2026). *suppr: Supplementary Idiomatic Utilities and
 Extensions*. R package version 1.1.0,
